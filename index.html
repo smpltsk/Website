@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMPLTSK - Visual Task Management | See it. Mark it. Do it.</title>
+    <meta name="description" content="Take photos, mark tasks directly on them, and track what needs doing. Perfect for home projects, property management, and visual thinkers.">
+    <meta name="keywords" content="visual task management, photo tasks, home maintenance app, property management">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="SMPLTSK - See it. Mark it. Do it.">
+    <meta property="og:description" content="Visual task management for the real world">
+    <meta property="og:url" content="https://smpltsk.com">
+    <meta property="og:type" content="website">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #4169E1;
+            --primary-teal: #10B981;
+            --dark-gray: #1F2937;
+            --medium-gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            background: var(--white);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero .subtitle {
+            font-size: 24px;
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: var(--medium-gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+        
+        .btn {
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #3456C7;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(65,105,225,0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--primary-teal);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #0EA570;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16,185,129,0.3);
+        }
+        
+        .trust-line {
+            margin-top: 40px;
+            font-size: 14px;
+            color: var(--medium-gray);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        
+        /* Screenshots Gallery Section */
+        .screenshots-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .screenshots-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+        
+        .screenshots-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: var(--medium-gray);
+            margin-bottom: 60px;
+        }
+        
+        .screenshots-gallery {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .screenshot-main {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+        }
+        
+        .screenshot-main img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+        
+        .screenshot-main img:hover {
+            transform: scale(1.05);
+        }
+        
+        .screenshots-grid {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .screenshots-grid img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .screenshots-grid img:hover {
+            transform: scale(1.05);
+        }
+        
+        .feature-points {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .feature-point {
+            text-align: center;
+        }
+        
+        .feature-point-icon {
+            color: var(--primary-teal);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .feature-point p {
+            color: var(--medium-gray);
+            font-size: 16px;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+        
+        .section-title {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--dark-gray);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: white;
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        
+        .step p {
+            color: var(--medium-gray);
+            font-size: 16px;
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-teal);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+        }
+        
+        .feature p {
+            color: var(--medium-gray);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* Use Cases */
+        .use-cases {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+        
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .use-case {
+            text-align: center;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+        
+        .use-case:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .use-case-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal));
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+        }
+        
+        .use-case h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        
+        .use-case p {
+            color: var(--medium-gray);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .testimonial-author {
+            color: var(--medium-gray);
+            font-size: 14px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal));
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-section .btn {
+            background: white;
+            color: var(--primary-blue);
+        }
+        
+        .cta-section .btn:hover {
+            background: var(--light-gray);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            background: var(--dark-gray);
+            color: white;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            opacity: 0.6;
+            font-size: 14px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--dark-gray);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero .subtitle {
+                font-size: 20px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .screenshots-gallery {
+                flex-direction: column;
+            }
+            
+            .screenshots-grid {
+                max-width: 100%;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">SMPLTSK</a>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#how-it-works">How It Works</a>
+                <a href="#features">Features</a>
+                <a href="#use-cases">Use Cases</a>
+                <a href="#download">Download</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Simple Task Control.  See it. Mark it. Do it.</h1>
+            <p class="subtitle">Visual task management that works the way your brain does.</p>
+            <p>Take a photo. Drop markers where tasks need doing. Track progress visually. No more forgetting what needs to be done or where.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Download on App Store</a>
+                <a href="#" class="btn btn-secondary">Get it on Google Play</a>
+            </div>
+            <p class="trust-line">Currently in beta with testers simplifying their task management</p>
+        </div>
+    </section>
+
+    <!-- Screenshots Gallery Section -->
+    <section class="screenshots-section">
+        <div class="container">
+            <h2 class="screenshots-title">Visual Task Management in Action</h2>
+            <p class="screenshots-subtitle">Mark tasks directly on photos. See exactly what needs doing.</p>
+            
+            <div class="screenshots-gallery">
+                <!-- Main Hero Screenshot -->
+                <div class="screenshot-main">
+                    <img src="task-markers.jpg" alt="SMPLTSK Visual Task Marking - Mark tasks directly on photos">
+                </div>
+                
+                <!-- Grid of Other Screenshots -->
+                <div class="screenshots-grid">
+                    <img src="home-screen.jpg" alt="SMPLTSK Home Screen - Simple Task Control">
+                    <img src="task-list.jpg" alt="Task List View - Numbered tasks with clear priorities">
+                    <img src="files-screen.jpg" alt="Files Organization - Group tasks by project or location">
+                    <img src="task-detail.jpg" alt="Task Detail View - Track progress visually">
+                </div>
+            </div>
+            
+            <!-- Feature Points -->
+            <div class="feature-points">
+                <div class="feature-point">
+                    <div class="feature-point-icon">📸</div>
+                    <p>Capture any space</p>
+                </div>
+                <div class="feature-point">
+                    <div class="feature-point-icon">📍</div>
+                    <p>Mark tasks visually</p>
+                </div>
+                <div class="feature-point">
+                    <div class="feature-point-icon">✓</div>
+                    <p>Track real progress</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Capture</h3>
+                    <p>Take a photo of any space, project, or area where tasks need doing</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Mark</h3>
+                    <p>Drop numbered markers exactly where each task needs attention</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Complete</h3>
+                    <p>Check off tasks and see your progress transform the space</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Yet Simple</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">📸</div>
+                    <h3>Visual Organization</h3>
+                    <p>Group tasks by room, project, or property. See all your spaces at a glance.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📍</div>
+                    <h3>Smart Markers</h3>
+                    <p>Number tasks by priority. Add notes to any marker. Share with anyone.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Visual before/after comparisons. See percentage complete for each project.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Privacy First</h3>
+                    <p>Photos stay on your device. No account required. Works completely offline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases" id="use-cases">
+        <div class="container">
+            <h2 class="section-title">Perfect For</h2>
+            <div class="use-cases-grid">
+                <div class="use-case">
+                    <div class="use-case-icon">🏠</div>
+                    <h3>Homeowners</h3>
+                    <p>Finally track home maintenance visually. Mark exactly which gutter needs cleaning, which tile needs replacing.</p>
+                </div>
+                <div class="use-case">
+                    <div class="use-case-icon">🏢</div>
+                    <h3>Property Managers</h3>
+                    <p>Document and assign maintenance tasks with visual precision across multiple properties.</p>
+                </div>
+                <div class="use-case">
+                    <div class="use-case-icon">🔨</div>
+                    <h3>Contractors</h3>
+                    <p>Show clients exactly what you'll do. Mark up spaces during quotes. Document progress.</p>
+                </div>
+                <div class="use-case">
+                    <div class="use-case-icon">👁️</div>
+                    <h3>Visual Thinkers</h3>
+                    <p>Garden planning, event setup, office organization - if you can see it, you can track it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Beta Testers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"I've tried every task app. This is the first one that actually matches how I think about my projects."</p>
+                    <div class="testimonial-author">— Beta Tester, Melbourne</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Game changer for managing my rental properties. I can see exactly what needs doing at each location."</p>
+                    <div class="testimonial-author">— Property Manager</div>
+                </div>
+                <div class="testimonial">
+                    <p>"My contractor and I are finally on the same page - literally looking at the same image."</p>
+                    <div class="testimonial-author">— Homeowner</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="download">
+        <div class="container">
+            <h2>Simple Task Control. Finally.</h2>
+            <p>Stop translating what you see into text lists.<br>Start managing tasks where they actually exist.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn">Download on App Store</a>
+                <a href="#" class="btn">Get it on Google Play</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="logo" style="color: white; margin-bottom: 10px;">SMPLTSK</div>
+                    <p class="copyright">© 2025 SMPLTSK | Melbourne, Australia</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/support">Support</a>
+                    <a href="/delete">Data Deletion</a>
+                    <a href="mailto:support@smpltsk.com">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature and use case cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const elementsToAnimate = document.querySelectorAll('.feature, .use-case, .testimonial, .step');
+            elementsToAnimate.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script><footer style="background: var(--light-gray); padding: 40px 20px; text-align: center; margin-top: 80px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <p style="color: var(--medium-gray); margin-bottom: 20px;">© 2025 SMPLTSK. All rights reserved.</p>
+        <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+            <a href="/smpltsk-website/privacy-policy.html" style="color: var(--primary-blue); text-decoration: none;">Privacy Policy</a>
+            <a href="/smpltsk-website/terms-of-service.html" style="color: var(--primary-blue); text-decoration: none;">Terms of Service</a>
+            <a href="mailto:steve@smpltsk.com" style="color: var(--primary-blue); text-decoration: none;">Contact</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

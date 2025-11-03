@@ -1,0 +1,59 @@
+# SMPLTSK Website - Simple Image Checklist
+
+## ALL 19 IMAGES NEEDED:
+
+### HERO SECTION (1 image)
+- [ ] screenshot1.png (ALREADY HAVE - DON'T CHANGE)
+
+### HOW IT WORKS SECTION (3 images)
+- [ ] step1-see-it.png
+- [ ] step2-mark-it.png
+- [ ] step3-do-it.png
+
+### EVERYTHING YOU NEED SECTION (6 images)
+- [ ] feature-visual-markers.png
+- [ ] feature-pinpoint.png
+- [ ] feature-sharing.png
+- [ ] feature-progress.png
+- [ ] feature-construction.png
+- [ ] feature-savings.png
+
+### CASE 1: ELECTRICAL METER BOX (3 images)
+- [ ] case1-electrical-original.png (your uploaded image without markers)
+- [ ] case1-electrical-marked.png (your case3-list-send-me.png → rename)
+- [ ] case1-electrical-complete.png (your case3-task-completed.png → rename)
+
+### CASE 2: CONSTRUCTION SITE (3 images)
+- [ ] case2-construction-original.png (rename from case1-construction-original.png)
+- [ ] case2-construction-marked.png (rename from case1-construction-marked.png)
+- [ ] case2-construction-complete.png (rename from case1-construction-complete.png)
+
+### CASE 3: TILING JOB (3 images) - NEW IMAGES NEEDED
+- [ ] case3-tiling-original.png (CREATE NEW)
+- [ ] case3-tiling-marked.png (CREATE NEW)
+- [ ] case3-tiling-complete.png (CREATE NEW)
+
+---
+
+## VIDEO LINK TO UPDATE:
+
+Find this in the HTML:
+```
+https://www.youtube.com/watch?v=YOUR_VIDEO_ID
+```
+
+Replace YOUR_VIDEO_ID with your actual video ID
+
+---
+
+## IMAGES YOU ALREADY HAVE (just rename):
+✅ 3 electrical meter images
+✅ 3 construction site images  
+✅ 1 hero image (screenshot1.png)
+
+## IMAGES YOU NEED TO CREATE:
+❌ 3 step images (How It Works)
+❌ 6 feature images (Everything You Need)
+❌ 3 tiling images (Case 3)
+
+**Total: 12 new images needed**

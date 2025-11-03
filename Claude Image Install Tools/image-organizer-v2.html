@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMPLTSK Image Organizer v2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3B5FE5 0%, #4FD14A 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        .main-content {
+            padding: 40px;
+        }
+        
+        .upload-zone {
+            border: 3px dashed #3B5FE5;
+            border-radius: 15px;
+            padding: 60px;
+            text-align: center;
+            background: #f8f9ff;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .upload-zone:hover {
+            background: #f0f2ff;
+            border-color: #4FD14A;
+        }
+        
+        .upload-zone.drag-over {
+            background: #e8f5e9;
+            border-color: #4FD14A;
+            transform: scale(1.02);
+        }
+        
+        .upload-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .upload-zone h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .upload-zone p {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .category {
+            margin-bottom: 40px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            background: #fafafa;
+        }
+        
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .category-header h3 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+        
+        .category-stats {
+            background: #3B5FE5;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .image-slot {
+            border: 2px dashed #ccc;
+            border-radius: 12px;
+            padding: 15px;
+            background: white;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .image-slot.filled {
+            border-color: #4FD14A;
+            border-style: solid;
+            background: #f0fff4;
+        }
+        
+        .image-slot:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .slot-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .slot-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+        }
+        
+        .slot-size {
+            font-size: 0.8rem;
+            color: #666;
+            background: #f0f0f0;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+        
+        .image-preview {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 3rem;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .image-preview .placeholder-text {
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        .slot-actions {
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+        
+        .btn-primary {
+            background: #3B5FE5;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2d4bc7;
+            transform: translateY(-1px);
+        }
+        
+        .btn-danger {
+            background: #EE4B4B;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #d93636;
+        }
+        
+        .action-bar {
+            position: sticky;
+            bottom: 20px;
+            background: linear-gradient(135deg, #3B5FE5 0%, #4FD14A 100%);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 40px;
+        }
+        
+        .progress-info {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-large {
+            padding: 12px 30px;
+            font-size: 1rem;
+            background: white;
+            color: #3B5FE5;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .btn-large:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .instructions {
+            background: #fff9e6;
+            border-left: 4px solid #ffb300;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        
+        .instructions h4 {
+            margin-bottom: 10px;
+            color: #ff8f00;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin: 8px 0;
+            color: #666;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            animation: fadeIn 0.3s;
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 900px;
+            max-height: 80vh;
+            overflow-y: auto;
+            width: 90%;
+            animation: slideIn 0.3s;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .modal-header h2 {
+            color: #333;
+            font-size: 1.5rem;
+        }
+        
+        .close-btn {
+            background: #EE4B4B;
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            background: #d93636;
+            transform: rotate(90deg);
+        }
+        
+        .image-selector-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .selectable-image {
+            border: 3px solid transparent;
+            border-radius: 12px;
+            padding: 10px;
+            background: #f5f5f5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .selectable-image:hover {
+            border-color: #3B5FE5;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(59, 95, 229, 0.2);
+        }
+        
+        .selectable-image.selected {
+            border-color: #4FD14A;
+            background: #f0fff4;
+        }
+        
+        .selectable-image img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .selectable-image .image-name {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+            word-break: break-word;
+        }
+        
+        .modal-footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #e0e0e0;
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .no-images-message {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+        
+        .no-images-message .icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📸 SMPLTSK Image Organizer v2</h1>
+            <p>Drag & drop your screenshots - click to assign them visually</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="instructions">
+                <h4>📋 How to Use:</h4>
+                <ol>
+                    <li><strong>Upload:</strong> Drag all your screenshots to the upload zone (or click to browse)</li>
+                    <li><strong>Assign:</strong> Click "Assign" on any slot → Click the image you want → Click "Use This Image"</li>
+                    <li><strong>Download:</strong> Click "Download All" to get optimized images</li>
+                    <li><strong>Done:</strong> Move downloaded images to your website folder</li>
+                </ol>
+            </div>
+            
+            <div class="upload-zone" id="uploadZone">
+                <div class="upload-icon">📤</div>
+                <h3>Drop Your Screenshots Here</h3>
+                <p>or click to browse files</p>
+                <input type="file" id="fileInput" multiple accept="image/*">
+            </div>
+            
+            <div id="categoriesContainer"></div>
+            
+            <div class="action-bar">
+                <div class="progress-info">
+                    <span id="progressText">0/18 images assigned</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-large" onclick="downloadAll()">💾 Download All Optimized</button>
+                    <button class="btn-large" onclick="resetAll()">🔄 Reset All</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Selection Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Select Image for: <span id="modalTargetName"></span></h2>
+                <button class="close-btn" onclick="closeModal()">×</button>
+            </div>
+            <div id="modalTargetSize" style="text-align: center; color: #666; margin-bottom: 15px;"></div>
+            <div id="imageSelectorGrid" class="image-selector-grid"></div>
+            <div class="modal-footer">
+                <button class="btn-large" style="background: #e0e0e0; color: #666;" onclick="closeModal()">Cancel</button>
+                <button class="btn-large" style="background: #4FD14A; color: white;" onclick="confirmSelection()">Use This Image</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Image specifications
+        const IMAGE_CATEGORIES = {
+            'Hero Section': {
+                'screenshot1.png': [1200, 800]
+            },
+            'How It Works Steps': {
+                'step1-see-it.png': [400, 220],
+                'step2-mark-it.png': [400, 220],
+                'step3-do-it.png': [400, 220]
+            },
+            'Features': {
+                'feature-visual-markers.png': [400, 280],
+                'feature-pinpoint.png': [400, 280],
+                'feature-sharing.png': [400, 280],
+                'feature-progress.png': [400, 280],
+                'feature-construction.png': [400, 280],
+                'feature-savings.png': [400, 280]
+            },
+            'Case Studies': {
+                'case1-construction-original.png': [400, 350],
+                'case1-construction-marked.png': [400, 350],
+                'case1-construction-complete.png': [400, 350],
+                'case2-engine-marked.png': [450, 350],
+                'case2-engine-complete.png': [450, 350],
+                'case3-floor-original.png': [400, 350],
+                'case3-floor-marked.png': [400, 350],
+                'case3-floor-description.png': [400, 350]
+            }
+        };
+        
+        let uploadedFiles = [];
+        let assignments = {};
+        let currentTarget = null;
+        let selectedImageIndex = null;
+        
+        // Initialize
+        function init() {
+            renderCategories();
+            setupUploadZone();
+            updateProgress();
+        }
+        
+        function renderCategories() {
+            const container = document.getElementById('categoriesContainer');
+            container.innerHTML = '';
+            
+            for (const [category, images] of Object.entries(IMAGE_CATEGORIES)) {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'category';
+                
+                const filled = Object.keys(images).filter(img => assignments[img]).length;
+                const total = Object.keys(images).length;
+                
+                categoryDiv.innerHTML = `
+                    <div class="category-header">
+                        <h3>${category}</h3>
+                        <div class="category-stats">${filled}/${total} complete</div>
+                    </div>
+                    <div class="images-grid" id="grid-${category.replace(/\s+/g, '-')}">
+                    </div>
+                `;
+                
+                container.appendChild(categoryDiv);
+                
+                const grid = categoryDiv.querySelector('.images-grid');
+                for (const [filename, size] of Object.entries(images)) {
+                    grid.appendChild(createImageSlot(filename, size));
+                }
+            }
+        }
+        
+        function createImageSlot(filename, size) {
+            const slot = document.createElement('div');
+            slot.className = 'image-slot';
+            slot.id = `slot-${filename}`;
+            
+            const assigned = assignments[filename];
+            if (assigned) {
+                slot.classList.add('filled');
+            }
+            
+            slot.innerHTML = `
+                <div class="slot-header">
+                    <div class="slot-name">${filename}</div>
+                    <div class="slot-size">${size[0]}×${size[1]}</div>
+                </div>
+                <div class="image-preview" id="preview-${filename}">
+                    ${assigned ? `<img src="${assigned.dataUrl}" alt="${filename}">` : '<div class="placeholder-text">Empty</div>'}
+                </div>
+                <div class="slot-actions">
+                    ${assigned 
+                        ? `<button class="btn btn-danger" onclick="clearSlot('${filename}')">Clear</button>`
+                        : `<button class="btn btn-primary" onclick="openAssignModal('${filename}')">Assign</button>`
+                    }
+                </div>
+            `;
+            
+            return slot;
+        }
+        
+        function setupUploadZone() {
+            const zone = document.getElementById('uploadZone');
+            const input = document.getElementById('fileInput');
+            
+            zone.addEventListener('click', () => input.click());
+            
+            zone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                zone.classList.add('drag-over');
+            });
+            
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('drag-over');
+            });
+            
+            zone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                zone.classList.remove('drag-over');
+                handleFiles(e.dataTransfer.files);
+            });
+            
+            input.addEventListener('change', (e) => {
+                handleFiles(e.target.files);
+            });
+        }
+        
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        uploadedFiles.push({
+                            name: file.name,
+                            dataUrl: e.target.result,
+                            file: file
+                        });
+                        updateUploadZone();
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+        
+        function updateUploadZone() {
+            const zone = document.getElementById('uploadZone');
+            zone.innerHTML = `
+                <div class="upload-icon">✅</div>
+                <h3>${uploadedFiles.length} Images Uploaded</h3>
+                <p>Click to add more files</p>
+                <input type="file" id="fileInput" multiple accept="image/*">
+            `;
+            setupUploadZone();
+        }
+        
+        function openAssignModal(filename) {
+            if (uploadedFiles.length === 0) {
+                alert('Please upload some images first!\n\nDrag images to the upload zone above.');
+                return;
+            }
+            
+            currentTarget = filename;
+            selectedImageIndex = null;
+            
+            // Get target size
+            let targetSize;
+            for (const images of Object.values(IMAGE_CATEGORIES)) {
+                if (images[filename]) {
+                    targetSize = images[filename];
+                    break;
+                }
+            }
+            
+            // Update modal
+            document.getElementById('modalTargetName').textContent = filename;
+            document.getElementById('modalTargetSize').textContent = `Target size: ${targetSize[0]}×${targetSize[1]}px (will be auto-resized)`;
+            
+            // Render images
+            const grid = document.getElementById('imageSelectorGrid');
+            grid.innerHTML = '';
+            
+            uploadedFiles.forEach((file, idx) => {
+                const div = document.createElement('div');
+                div.className = 'selectable-image';
+                div.onclick = () => selectImage(idx);
+                div.innerHTML = `
+                    <img src="${file.dataUrl}" alt="${file.name}">
+                    <div class="image-name">${file.name}</div>
+                `;
+                grid.appendChild(div);
+            });
+            
+            // Show modal
+            document.getElementById('imageModal').classList.add('show');
+        }
+        
+        function selectImage(idx) {
+            selectedImageIndex = idx;
+            
+            // Update visual selection
+            document.querySelectorAll('.selectable-image').forEach((div, i) => {
+                if (i === idx) {
+                    div.classList.add('selected');
+                } else {
+                    div.classList.remove('selected');
+                }
+            });
+        }
+        
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('show');
+            currentTarget = null;
+            selectedImageIndex = null;
+        }
+        
+        function confirmSelection() {
+            if (selectedImageIndex === null) {
+                alert('Please select an image first!\n\nClick on one of the images above.');
+                return;
+            }
+            
+            if (!currentTarget) {
+                closeModal();
+                return;
+            }
+            
+            const file = uploadedFiles[selectedImageIndex];
+            
+            // Get target size
+            let targetSize;
+            for (const images of Object.values(IMAGE_CATEGORIES)) {
+                if (images[currentTarget]) {
+                    targetSize = images[currentTarget];
+                    break;
+                }
+            }
+            
+            // Resize and assign
+            resizeImage(file.dataUrl, targetSize[0], targetSize[1], (resizedDataUrl) => {
+                assignments[currentTarget] = {
+                    originalFile: file,
+                    dataUrl: resizedDataUrl,
+                    targetSize: targetSize
+                };
+                renderCategories();
+                updateProgress();
+                closeModal();
+            });
+        }
+        
+        function resizeImage(dataUrl, targetWidth, targetHeight, callback) {
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = targetWidth;
+                canvas.height = targetHeight;
+                
+                const ctx = canvas.getContext('2d');
+                
+                // Calculate crop to maintain aspect ratio
+                const targetRatio = targetWidth / targetHeight;
+                const imgRatio = img.width / img.height;
+                
+                let sx = 0, sy = 0, sw = img.width, sh = img.height;
+                
+                if (imgRatio > targetRatio) {
+                    // Image is wider - crop width
+                    sw = img.height * targetRatio;
+                    sx = (img.width - sw) / 2;
+                } else {
+                    // Image is taller - crop height
+                    sh = img.width / targetRatio;
+                    sy = (img.height - sh) / 2;
+                }
+                
+                ctx.drawImage(img, sx, sy, sw, sh, 0, 0, targetWidth, targetHeight);
+                callback(canvas.toDataURL('image/png'));
+            };
+            img.src = dataUrl;
+        }
+        
+        function clearSlot(filename) {
+            if (confirm(`Clear "${filename}"?`)) {
+                delete assignments[filename];
+                renderCategories();
+                updateProgress();
+            }
+        }
+        
+        function updateProgress() {
+            const total = Object.values(IMAGE_CATEGORIES).reduce((sum, cat) => sum + Object.keys(cat).length, 0);
+            const completed = Object.keys(assignments).length;
+            document.getElementById('progressText').textContent = `${completed}/${total} images assigned`;
+        }
+        
+        async function downloadAll() {
+            if (Object.keys(assignments).length === 0) {
+                alert('No images assigned yet!\n\nPlease assign at least one image before downloading.');
+                return;
+            }
+            
+            for (const [filename, data] of Object.entries(assignments)) {
+                downloadImage(data.dataUrl, filename);
+                await new Promise(resolve => setTimeout(resolve, 300));
+            }
+            
+            alert(`✅ Downloaded ${Object.keys(assignments).length} optimized images!\n\nCheck your Downloads folder.\n\nNext: Move these images to your website folder.`);
+        }
+        
+        function downloadImage(dataUrl, filename) {
+            const link = document.createElement('a');
+            link.href = dataUrl;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        function resetAll() {
+            if (confirm('Reset everything?\n\nThis will clear all assignments and uploaded files.')) {
+                assignments = {};
+                uploadedFiles = [];
+                renderCategories();
+                updateProgress();
+                document.getElementById('uploadZone').innerHTML = `
+                    <div class="upload-icon">📤</div>
+                    <h3>Drop Your Screenshots Here</h3>
+                    <p>or click to browse files</p>
+                    <input type="file" id="fileInput" multiple accept="image/*">
+                `;
+                setupUploadZone();
+            }
+        }
+        
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+        
+        // Initialize on load
+        init();
+    </script>
+</body>
+</html>

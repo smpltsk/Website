@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Experiences - Coming Soon - SMPLTSK</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #3B5FE5 0%, #4FD14A 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: white;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo svg {
+            width: 80px;
+            height: 80px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+        
+        p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+        }
+        
+        .cta-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-box p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .email-link {
+            display: inline-block;
+            background: white;
+            color: #3B5FE5;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .email-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+        
+        .back-link:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+                <rect width="70" height="70" rx="14" ry="14" fill="#3B5FE5"/>
+                <circle cx="35" cy="35" r="29.75" fill="#EE4B4B"/>
+                <circle cx="35" cy="35" r="22.75" fill="#4FD14A"/>
+                <text x="35" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="45" font-weight="bold" fill="#3B5FE5" dominant-baseline="middle">S</text>
+            </svg>
+        </div>
+        
+        <h1>Coming Soon</h1>
+        <p class="subtitle">User Experiences</p>
+        
+        <p>We're collecting stories from builders, contractors, and trades who use SMPLTSK every day. Their experiences will be featured here soon.</p>
+        
+        <div class="cta-box">
+            <h3>Want to Share Your Experience?</h3>
+            <p>If SMPLTSK has helped you save time, reduce stress, or improve communication with your team, we'd love to hear from you!</p>
+            <a href="mailto:support@smpltsk.com?subject=My SMPLTSK Experience" class="email-link">Share Your Story</a>
+        </div>
+        
+        <p>In the meantime, check out our <a href="about.html" style="color: white; text-decoration: underline;">founder's story</a> to learn why SMPLTSK was created.</p>
+        
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+</body>
+</html>

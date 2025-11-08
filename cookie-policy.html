@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie Policy - SMPLTSK</title>
+    <meta name="description" content="SMPLTSK Cookie Policy - How we use cookies on our website">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
@@ -21,142 +22,120 @@
             --light-bg: #fafbfc;
             --text-dark: #0f172a;
             --text-gray: #475569;
+            --border-color: #e2e8f0;
         }
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--white);
+            background: var(--light-bg);
             color: var(--text-dark);
             line-height: 1.8;
         }
         
-        .header {
-            background: linear-gradient(135deg, #3B5FE5 0%, #4FD14A 100%);
-            padding: 3rem 2rem;
-            text-align: center;
-            color: white;
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
             font-weight: 800;
+            text-decoration: none;
+            color: var(--text-dark);
         }
         
-        .header p {
-            font-size: 1.125rem;
-            opacity: 0.95;
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--app-blue);
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 3rem 2rem;
         }
         
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .last-updated {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+        
         h2 {
-            color: var(--app-blue);
-            margin: 2.5rem 0 1.5rem 0;
-            font-size: 1.875rem;
+            font-size: 1.75rem;
             font-weight: 700;
+            color: var(--text-dark);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
         }
         
         h3 {
-            color: var(--text-dark);
-            margin: 2rem 0 1rem 0;
-            font-size: 1.375rem;
+            font-size: 1.25rem;
             font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
         }
         
         p {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
             color: var(--text-gray);
-            line-height: 1.8;
         }
         
-        ul {
-            margin: 1rem 0 1.5rem 2rem;
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
         }
         
         li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             color: var(--text-gray);
-        }
-        
-        .info-box {
-            background: var(--light-bg);
-            border-left: 4px solid var(--app-blue);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 8px;
-        }
-        
-        .info-box p {
-            margin-bottom: 0;
-            color: var(--text-dark);
-        }
-        
-        .cookie-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .cookie-table thead {
-            background: var(--app-blue);
-            color: white;
-        }
-        
-        .cookie-table th,
-        .cookie-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        .cookie-table tbody tr:hover {
-            background: var(--light-bg);
-        }
-        
-        .cookie-table td:first-child {
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin: 2rem 0;
-            color: var(--app-blue);
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s ease;
-        }
-        
-        .back-link:hover {
-            transform: translateX(-4px);
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            border-top: 1px solid #e5e7eb;
-            color: var(--text-gray);
-        }
-        
-        .contact-info {
-            background: white;
-            border: 2px solid var(--app-blue);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-        }
-        
-        .contact-info h3 {
-            color: var(--app-blue);
-            margin-top: 0;
         }
         
         strong {
@@ -164,192 +143,286 @@
             font-weight: 600;
         }
         
-        .cookie-control {
-            background: var(--light-bg);
-            border: 2px solid var(--app-blue);
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        th {
+            background: linear-gradient(135deg, rgba(59, 95, 229, 0.05) 0%, rgba(79, 209, 74, 0.05) 100%);
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(59, 95, 229, 0.05) 0%, rgba(79, 209, 74, 0.05) 100%);
+            border-left: 4px solid var(--app-blue);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .contact-info {
+            background: var(--white);
             padding: 2rem;
             border-radius: 12px;
-            margin: 2rem 0;
+            margin-top: 3rem;
+            border: 1px solid var(--border-color);
+        }
+        
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            margin-top: 4rem;
             text-align: center;
         }
         
-        .cookie-control h3 {
-            color: var(--app-blue);
-            margin-bottom: 1rem;
-        }
-        
-        .cookie-control p {
-            margin-bottom: 1.5rem;
-        }
-        
-        code {
-            background: #f3f4f6;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
+        footer p {
+            color: var(--text-gray);
             font-size: 0.9rem;
+        }
+        
+        footer a {
             color: var(--app-blue);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Cookie Policy</h1>
-        <p>Transparency about our use of cookies</p>
-    </div>
-    
-    <div class="container">
-        <a href="index.html" class="back-link">← Back to Home</a>
-        
-        <p><strong>Effective Date:</strong> January 1, 2025</p>
-        <p><strong>Last Updated:</strong> January 1, 2025</p>
-        
-        <h2>Introduction</h2>
-        <p>This Cookie Policy explains how SMPLTSK ("we," "our," or "us") uses cookies and similar technologies on our website (smpltsk.com) and in relation to our mobile application. We believe in being transparent about our data practices.</p>
-        
-        <div class="info-box">
-            <p><strong>Quick Summary:</strong> Our website uses minimal cookies for basic functionality. Our mobile app does not use cookies - all data is stored locally on your device.</p>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="70" height="70" rx="14" ry="14" fill="#3B5FE5"/>
+                    <circle cx="35" cy="35" r="29.75" fill="#EE4B4B"/>
+                    <circle cx="35" cy="35" r="22.75" fill="#4FD14A"/>
+                    <text x="35" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="45" font-weight="bold" fill="#3B5FE5" dominant-baseline="middle">S</text>
+                </svg>
+                <span>SMPLTSK</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="privacy-policy.html">Privacy</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
-        
-        <h2>What Are Cookies?</h2>
-        <p>Cookies are small text files that are placed on your device when you visit a website. They help websites remember information about your visit, which can make your next visit easier and the site more useful to you.</p>
-        
-        <h2>Our Use of Cookies</h2>
-        
-        <h3>On Our Website (smpltsk.com)</h3>
-        <p>We use minimal cookies on our website to ensure basic functionality:</p>
-        
-        <table class="cookie-table">
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Cookie Policy</h1>
+            <p class="last-updated">Last Updated: November 8, 2025</p>
+        </div>
+
+        <p>This Cookie Policy explains how SMPLTSK ("we," "us," or "our") uses cookies and similar technologies on our website at <a href="https://smpltsk.com">smpltsk.com</a>.</p>
+
+        <div class="highlight-box">
+            <p><strong>Important Note:</strong> This Cookie Policy applies only to our website. The SMPLTSK mobile application does not use cookies. For information about data collection in the app, please see our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+        </div>
+
+        <h2>1. What Are Cookies?</h2>
+        <p>Cookies are small text files that are stored on your device (computer, tablet, or mobile phone) when you visit a website. They help websites:</p>
+        <ul>
+            <li>Remember your preferences and settings</li>
+            <li>Understand how you use the website</li>
+            <li>Improve your browsing experience</li>
+            <li>Provide relevant content and features</li>
+        </ul>
+
+        <h2>2. Types of Cookies We Use</h2>
+
+        <h3>2.1 Essential Cookies</h3>
+        <p>These cookies are necessary for the website to function properly. They enable basic features like:</p>
+        <ul>
+            <li>Page navigation</li>
+            <li>Access to secure areas</li>
+            <li>Form submission</li>
+        </ul>
+        <p>Without these cookies, the website cannot function properly. These cookies do not collect personally identifiable information.</p>
+
+        <h3>2.2 Analytics Cookies</h3>
+        <p>We use analytics cookies to understand how visitors interact with our website. These cookies help us:</p>
+        <ul>
+            <li>Count visitor numbers and traffic sources</li>
+            <li>Understand which pages are most popular</li>
+            <li>See how visitors navigate the site</li>
+            <li>Identify areas for improvement</li>
+        </ul>
+        <p>All information collected by analytics cookies is aggregated and anonymous.</p>
+
+        <h3>2.3 Functionality Cookies</h3>
+        <p>These cookies allow the website to remember choices you make and provide enhanced features, such as:</p>
+        <ul>
+            <li>Remembering your language preference</li>
+            <li>Storing your region or location</li>
+            <li>Customizing content based on your choices</li>
+        </ul>
+
+        <h2>3. Cookies We Use</h2>
+        <p>Here's a detailed list of the cookies that may be set when you visit our website:</p>
+
+        <table>
             <thead>
                 <tr>
-                    <th>Cookie Type</th>
+                    <th>Cookie Name</th>
+                    <th>Type</th>
                     <th>Purpose</th>
                     <th>Duration</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Essential</td>
-                    <td>Required for the website to function properly, such as maintaining secure areas</td>
-                    <td>Session only</td>
+                    <td>_ga</td>
+                    <td>Analytics</td>
+                    <td>Google Analytics - Distinguishes unique users</td>
+                    <td>2 years</td>
                 </tr>
                 <tr>
-                    <td>Analytics (Optional)</td>
-                    <td>Help us understand how visitors use our site (only if you consent)</td>
-                    <td>Up to 2 years</td>
+                    <td>_gid</td>
+                    <td>Analytics</td>
+                    <td>Google Analytics - Distinguishes users</td>
+                    <td>24 hours</td>
+                </tr>
+                <tr>
+                    <td>_gat</td>
+                    <td>Analytics</td>
+                    <td>Google Analytics - Throttle request rate</td>
+                    <td>1 minute</td>
+                </tr>
+                <tr>
+                    <td>session_id</td>
+                    <td>Essential</td>
+                    <td>Maintains your session state</td>
+                    <td>Session</td>
+                </tr>
+                <tr>
+                    <td>cookie_consent</td>
+                    <td>Essential</td>
+                    <td>Stores your cookie preferences</td>
+                    <td>1 year</td>
                 </tr>
             </tbody>
         </table>
-        
-        <h3>In Our Mobile App</h3>
-        <p><strong>The SMPLTSK mobile app does not use cookies.</strong> All app data is stored locally on your device using native storage methods:</p>
+
+        <h2>4. Third-Party Cookies</h2>
+        <p>Some cookies on our website are set by third-party services we use:</p>
+
+        <h3>4.1 Google Analytics</h3>
+        <p>We use Google Analytics to analyze website traffic and usage. Google Analytics uses cookies to collect information about:</p>
         <ul>
-            <li>iOS: Uses Core Data and local file storage</li>
-            <li>Android: Uses Room database and internal storage</li>
-            <li>No web cookies are created or accessed by the app</li>
-            <li>No tracking cookies are used</li>
+            <li>Pages you visit</li>
+            <li>Time spent on pages</li>
+            <li>Links you click</li>
+            <li>Your general location (country/city)</li>
+            <li>Device type and browser</li>
         </ul>
-        
-        <h2>Third-Party Services</h2>
-        
-        <h3>App Store Analytics</h3>
-        <p>When you download SMPLTSK from app stores, they may collect analytics:</p>
+        <p>This information is aggregated and anonymized. For more information, see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</p>
+
+        <h3>4.2 Embedded Content</h3>
+        <p>Our website may include embedded content from third parties (such as YouTube videos). These third parties may set their own cookies. We do not control these cookies. Please refer to the respective third party's privacy and cookie policies:</p>
         <ul>
-            <li><strong>Apple App Store:</strong> May use cookies for App Store analytics (governed by Apple's privacy policy)</li>
-            <li><strong>Google Play Store:</strong> May use cookies for Play Store analytics (governed by Google's privacy policy)</li>
+            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">YouTube/Google Privacy Policy</a></li>
         </ul>
-        
-        <h3>Website Hosting</h3>
-        <p>Our website is hosted on GitHub Pages, which may set technical cookies necessary for content delivery. These are governed by GitHub's privacy policy.</p>
-        
-        <h2>What We Don't Do</h2>
-        <p>We want to be clear about what we DON'T do with cookies:</p>
+
+        <h2>5. How to Manage Cookies</h2>
+
+        <h3>5.1 Browser Settings</h3>
+        <p>Most web browsers allow you to control cookies through their settings. You can:</p>
         <ul>
-            <li>We don't use advertising cookies</li>
-            <li>We don't track you across other websites</li>
-            <li>We don't sell cookie data to third parties</li>
-            <li>We don't use cookies for user profiling</li>
-            <li>We don't use social media tracking cookies</li>
+            <li>View what cookies are stored on your device</li>
+            <li>Delete existing cookies</li>
+            <li>Block cookies from specific sites</li>
+            <li>Block all third-party cookies</li>
+            <li>Clear all cookies when you close your browser</li>
         </ul>
-        
-        <h2>Your Cookie Choices</h2>
-        
-        <div class="cookie-control">
-            <h3>Managing Cookies</h3>
-            <p>You have full control over cookies on our website:</p>
-            <p><strong>Browser Settings:</strong> You can configure your browser to refuse all cookies or alert you when cookies are being sent.</p>
-            <p><strong>Note:</strong> If you disable cookies, some parts of our website may not function properly.</p>
-        </div>
-        
-        <h3>How to Control Cookies in Your Browser</h3>
-        <p>Most browsers allow you to control cookies through their settings:</p>
+
+        <p>Here's how to manage cookies in popular browsers:</p>
         <ul>
-            <li><strong>Chrome:</strong> Settings > Privacy and security > Cookies and other site data</li>
-            <li><strong>Safari:</strong> Preferences > Privacy > Cookies and website data</li>
-            <li><strong>Firefox:</strong> Settings > Privacy & Security > Cookies and Site Data</li>
-            <li><strong>Edge:</strong> Settings > Privacy, search, and services > Cookies and site permissions</li>
+            <li><strong>Google Chrome:</strong> Settings > Privacy and security > Cookies and other site data</li>
+            <li><strong>Safari:</strong> Preferences > Privacy > Manage Website Data</li>
+            <li><strong>Firefox:</strong> Options > Privacy & Security > Cookies and Site Data</li>
+            <li><strong>Microsoft Edge:</strong> Settings > Cookies and site permissions > Cookies and site data</li>
         </ul>
-        
-        <h2>Local Storage</h2>
-        <p>In addition to cookies, our website may use local storage (HTML5) for:</p>
+
+        <h3>5.2 Opt-Out Tools</h3>
+        <p>You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.</p>
+
+        <h3>5.3 Impact of Disabling Cookies</h3>
+        <p>Please note that blocking or deleting cookies may impact your experience on our website:</p>
         <ul>
-            <li>Remembering your preference for cookie consent</li>
-            <li>Temporary storage of form data to prevent loss</li>
+            <li>Some features may not work properly</li>
+            <li>You may need to re-enter information</li>
+            <li>Certain preferences may not be saved</li>
         </ul>
-        <p>You can clear local storage through your browser's developer tools or by clearing your browser data.</p>
-        
-        <h2>Do Not Track</h2>
-        <p>Our website responds to "Do Not Track" (DNT) browser signals. When DNT is enabled, we do not load any analytics or tracking scripts.</p>
-        
-        <h2>Updates to This Policy</h2>
-        <p>We may update this Cookie Policy from time to time to reflect changes in our practices or for legal reasons. We will post the updated policy on this page with a new "Last Updated" date.</p>
-        
-        <h2>Cookie Policy for Specific Regions</h2>
-        
-        <h3>European Users (GDPR)</h3>
-        <p>For users in the European Economic Area, we comply with GDPR requirements:</p>
+        <p>Essential cookies cannot be disabled as they are necessary for the website to function.</p>
+
+        <h2>6. Mobile Application</h2>
+        <p>The SMPLTSK mobile application does not use cookies. Instead, it uses:</p>
         <ul>
-            <li>We request consent before setting non-essential cookies</li>
-            <li>You can withdraw consent at any time</li>
-            <li>We provide clear information about each cookie's purpose</li>
+            <li>Firebase services for data storage and analytics</li>
+            <li>Local device storage for app preferences</li>
+            <li>Push notification tokens (with your permission)</li>
         </ul>
-        
-        <h3>California Users (CCPA)</h3>
-        <p>For California residents, under the CCPA:</p>
+        <p>For more information about data collection in the app, please see our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+
+        <h2>7. Do Not Track</h2>
+        <p>Some browsers have a "Do Not Track" (DNT) feature that lets you tell websites you do not want to be tracked. Currently, there is no industry standard for how websites should respond to DNT signals. Our website does not respond to DNT signals at this time.</p>
+
+        <h2>8. Changes to This Cookie Policy</h2>
+        <p>We may update this Cookie Policy from time to time to reflect changes in technology, legislation, or our practices. When we make changes:</p>
         <ul>
-            <li>We don't sell personal information collected via cookies</li>
-            <li>You have the right to opt-out of any cookie usage</li>
-            <li>We honor "Do Not Track" signals</li>
+            <li>We will update the "Last Updated" date at the top of this page</li>
+            <li>We encourage you to review this policy periodically</li>
+            <li>Continued use of our website after changes constitutes acceptance</li>
         </ul>
-        
-        <h3>Australian Users</h3>
-        <p>We comply with the Australian Privacy Act 1988 and the Privacy Amendment Act 2012:</p>
+
+        <h2>9. More Information</h2>
+        <p>For more information about cookies and how to manage them, visit:</p>
         <ul>
-            <li>We minimize cookie usage to essential functions only</li>
-            <li>We provide clear notice about any data collection</li>
-            <li>You can access and correct any personal information</li>
+            <li><a href="https://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer">www.allaboutcookies.org</a></li>
+            <li><a href="https://www.youronlinechoices.com/" target="_blank" rel="noopener noreferrer">www.youronlinechoices.com</a></li>
         </ul>
-        
+
         <div class="contact-info">
-            <h3>Questions About Cookies?</h3>
-            <p>If you have questions about our use of cookies or this policy:</p>
-            <p><strong>Email:</strong> support@smpltsk.com</p>
-            <p><strong>Support Page:</strong> <a href="support.html">smpltsk.com/support</a></p>
-        </div>
-        
-        <h2>Contact Information</h2>
-        <p>For any questions or concerns about this Cookie Policy:</p>
-        <p>
+            <h2>10. Contact Us</h2>
+            <p>If you have questions about our use of cookies or this Cookie Policy, please contact us:</p>
+            
+            <p style="margin-top: 1rem;">
             <strong>SMPLTSK</strong><br>
-            Melbourne, VIC, Australia<br>
-            Email: support@smpltsk.com<br>
-            Website: smpltsk.com
-        </p>
-        
-        <div class="footer">
-            <p>&copy; 2025 SMPLTSK. All rights reserved.</p>
-            <p><a href="index.html">Home</a> | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a> | <a href="data-deletion.html">Data Deletion</a></p>
+            ABN: 82591313062<br>
+            Sydney, Australia<br>
+            Email: <a href="mailto:support@smpltsk.com">support@smpltsk.com</a><br>
+            Website: <a href="https://smpltsk.com">smpltsk.com</a>
+            </p>
+            
+            <p style="margin-top: 1.5rem;">You can also reach us through our <a href="contact.html">contact page</a>.</p>
         </div>
     </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SMPLTSK. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a> | <a href="data-deletion.html">Data Deletion</a></p>
+        </div>
+    </footer>
 </body>
 </html>

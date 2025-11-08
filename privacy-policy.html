@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - SMPLTSK</title>
-    <meta name="description" content="SMPLTSK Privacy Policy - How we protect and handle your data">
-    
+    <meta name="description" content="SMPLTSK Privacy Policy - Learn how we collect, use, and protect your data">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -14,429 +15,471 @@
         }
         
         :root {
-            --primary-blue: #4169E1;
-            --primary-teal: #10B981;
-            --dark-gray: #1F2937;
-            --medium-gray: #6B7280;
-            --light-gray: #F3F4F6;
-            --white: #FFFFFF;
+            --app-blue: #3B5FE5;
+            --app-red: #EE4B4B;
+            --app-green: #4FD14A;
+            --white: #ffffff;
+            --light-bg: #fafbfc;
+            --text-dark: #0f172a;
+            --text-gray: #475569;
+            --border-color: #e2e8f0;
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+        
+        nav {
             background: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--app-blue);
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 3rem 2rem;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 60px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid var(--light-gray);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
         }
         
-        .header h1 {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 10px;
-        }
-        
-        .header .subtitle {
-            font-size: 18px;
-            color: var(--medium-gray);
-            margin-bottom: 20px;
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 30px;
-            transition: color 0.3s;
-        }
-        
-        .back-link:hover {
-            color: var(--primary-teal);
-        }
-        
-        .back-link::before {
-            content: "←";
-            margin-right: 8px;
-            font-size: 18px;
-        }
-        
-        .content {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .content h2 {
-            color: var(--dark-gray);
-            font-size: 24px;
-            margin: 40px 0 20px 0;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .content h2:first-child {
-            margin-top: 0;
-        }
-        
-        .content h3 {
-            color: var(--dark-gray);
-            font-size: 18px;
-            margin: 30px 0 15px 0;
-            font-weight: 600;
-        }
-        
-        .content p {
-            margin-bottom: 20px;
-            color: var(--dark-gray);
-            font-size: 16px;
-        }
-        
-        .content ul {
-            margin: 20px 0;
-            padding-left: 30px;
-        }
-        
-        .content li {
-            margin-bottom: 10px;
-            color: var(--dark-gray);
-        }
-        
-        .content strong {
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
-        
-        .highlight {
-            background: linear-gradient(120deg, var(--primary-teal) 0%, var(--primary-blue) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-        }
-        
-        .contact-info {
-            background: var(--light-gray);
-            padding: 30px;
-            border-radius: 8px;
-            margin: 40px 0;
-            text-align: center;
-        }
-        
-        .contact-info h3 {
-            color: var(--dark-gray);
-            margin-bottom: 15px;
-        }
-        
-        .contact-info p {
-            margin-bottom: 10px;
-        }
-        
-        .contact-info a {
-            color: var(--primary-blue);
-            text-decoration: none;
-        }
-        
-        .contact-info a:hover {
-            text-decoration: underline;
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
         }
         
         .last-updated {
-            text-align: center;
-            color: var(--medium-gray);
-            font-style: italic;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid var(--light-gray);
+            color: var(--text-gray);
+            font-size: 0.95rem;
         }
         
-        .update-date {
-            background: var(--light-gray);
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--medium-gray);
-            font-weight: 500;
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
         }
         
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 15px;
-            }
-            
-            .header h1 {
-                font-size: 36px;
-            }
-            
-            .content {
-                padding: 25px;
-            }
-            
-            .content h2 {
-                font-size: 20px;
-            }
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+        }
+        
+        strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(59, 95, 229, 0.05) 0%, rgba(79, 209, 74, 0.05) 100%);
+            border-left: 4px solid var(--app-blue);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .contact-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+            border: 1px solid var(--border-color);
+        }
+        
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        footer p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--app-blue);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="70" height="70" rx="14" ry="14" fill="#3B5FE5"/>
+                    <circle cx="35" cy="35" r="29.75" fill="#EE4B4B"/>
+                    <circle cx="35" cy="35" r="22.75" fill="#4FD14A"/>
+                    <text x="35" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="45" font-weight="bold" fill="#3B5FE5" dominant-baseline="middle">S</text>
+                </svg>
+                <span>SMPLTSK</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="terms-of-service.html">Terms</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <div class="header">
-            <h1>SMPLTSK</h1>
-            <p class="subtitle">Privacy Policy</p>
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last Updated: November 8, 2025</p>
         </div>
+
+        <p>Welcome to SMPLTSK. We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, share, and protect information when you use our mobile application and services.</p>
+
+        <h2>1. Information We Collect</h2>
         
-        <a href="index.html" class="back-link">Back to Home</a>
+        <h3>1.1 Account Information</h3>
+        <p><strong>Authentication providers:</strong></p>
+        <ul>
+            <li>Google Sign-In (Google account email and profile)</li>
+            <li>Apple Sign-In (Apple ID email and name)</li>
+        </ul>
+        <p><strong>Note:</strong> SMPLTSK does not offer email/password registration. You must use Google or Apple to create an account.</p>
+
+        <h3>1.2 Photos and Visual Content</h3>
+        <ul>
+            <li>Photos you upload to create tasks</li>
+            <li>Visual markers (red for incomplete, green for complete) placed on photos</li>
+            <li>Task descriptions and annotations</li>
+        </ul>
+
+        <h3>1.3 Task and Communication Data</h3>
+        <ul>
+            <li>Task batches you create</li>
+            <li>In-app messages and comments between users</li>
+            <li>Folder organization (Sent, Received, Mine, Drafts)</li>
+            <li>Task completion status and history</li>
+        </ul>
+
+        <h3>1.4 Contact Information</h3>
+        <ul>
+            <li>Contacts you explicitly import from your device's contact list</li>
+            <li>We only access contacts you choose to import, not your entire contact list</li>
+        </ul>
+
+        <h3>1.5 Device and Usage Information</h3>
+        <ul>
+            <li>Device type, operating system, and version</li>
+            <li>App version and settings</li>
+            <li>Usage patterns and feature interactions</li>
+            <li>Crash reports and error logs</li>
+            <li>Performance metrics</li>
+        </ul>
+
+        <h2>2. Service Tiers and Data Collection</h2>
+
+        <h3>2.1 Free Version</h3>
+        <p>Free users can create and send 1 image with up to 6 tasks. We collect:</p>
+        <ul>
+            <li>Basic account information</li>
+            <li>Photos and task data (limited to 1 image, 6 tasks)</li>
+            <li>Usage metrics for the free tier</li>
+        </ul>
+
+        <h3>2.2 Premium Subscription ($60/year or $150 lifetime)</h3>
+        <p>Subscribers get unlimited tasks and images. We collect:</p>
+        <ul>
+            <li>All free tier data</li>
+            <li>Subscription status and payment history (processed by App Store/Play Store/Stripe)</li>
+            <li>Extended usage analytics for unlimited features</li>
+        </ul>
+
+        <h2>3. How We Use Firebase</h2>
         
-        <div class="update-date">
-            <strong>Last Updated:</strong> August 2, 2025
-        </div>
+        <p><strong>Server Location:</strong> Your data is stored on Firebase servers located in Sydney, Australia.</p>
+
+        <p><strong>Firebase Services We Use:</strong></p>
+        <p>We utilize the full suite of Firebase services to ensure optimal app performance:</p>
+        <ul>
+            <li><strong>Firebase Authentication</strong> - Google and Apple Sign-In</li>
+            <li><strong>Firebase Cloud Firestore</strong> - Task and user data storage</li>
+            <li><strong>Firebase Cloud Storage</strong> - Image storage</li>
+            <li><strong>Firebase Analytics</strong> - Usage patterns and feature adoption</li>
+            <li><strong>Firebase Crashlytics</strong> - Crash reporting and debugging</li>
+            <li><strong>Firebase Performance Monitoring</strong> - App speed and responsiveness</li>
+            <li><strong>Firebase Cloud Messaging</strong> - Push notifications (you grant permission on signup)</li>
+            <li><strong>Firebase Remote Config</strong> - Feature flags and A/B testing</li>
+            <li><strong>Firebase App Distribution</strong> - Beta testing</li>
+            <li><strong>Firebase Test Lab</strong> - Quality assurance</li>
+        </ul>
+
+        <p>All Firebase services comply with Google's privacy standards and our data protection commitments.</p>
+
+        <h2>4. SMPLTSK-Specific Features</h2>
+
+        <h3>4.1 Photo-Based Task Management</h3>
+        <ul>
+            <li>You upload photos which are stored in Firebase Cloud Storage (Sydney)</li>
+            <li>Visual markers (red for undone, green for done) are stored with each task</li>
+            <li>Task batches can contain multiple images</li>
+        </ul>
+
+        <h3>4.2 Folder Organization</h3>
+        <p>Your tasks are automatically organized into folders:</p>
+        <ul>
+            <li><strong>Sent:</strong> Tasks you've sent to others</li>
+            <li><strong>Received:</strong> Tasks others have sent to you</li>
+            <li><strong>Mine:</strong> Personal tasks for yourself</li>
+            <li><strong>Drafts:</strong> Unsent/incomplete task batches</li>
+        </ul>
+        <p>We store folder metadata to maintain this organization.</p>
+
+        <h3>4.3 Contact System</h3>
+        <ul>
+            <li>You can import contacts from your device's native contact list</li>
+            <li>Imported contacts are stored in our system to enable task sharing</li>
+            <li>We only access contact names and identifiers you explicitly import</li>
+        </ul>
+
+        <h3>4.4 In-App Messaging</h3>
+        <ul>
+            <li>Comments and messages between task senders and recipients are stored in Firebase</li>
+            <li>Messages are linked to specific tasks and retained as long as the task exists</li>
+        </ul>
+
+        <h3>4.5 Task Limitations</h3>
+        <ul>
+            <li>Once a task is sent, the photo, markers, and descriptions cannot be edited</li>
+            <li>Only completion status (red/green) can be changed</li>
+            <li>This ensures task integrity and clear accountability</li>
+        </ul>
+
+        <h2>5. How We Use Your Information</h2>
+        <p>We use your information to:</p>
+        <ul>
+            <li>Provide and maintain the SMPLTSK service</li>
+            <li>Enable task creation, sharing, and management</li>
+            <li>Process and sync your data across devices</li>
+            <li>Send push notifications about tasks (with your permission)</li>
+            <li>Improve app performance and user experience</li>
+            <li>Identify and fix bugs and crashes</li>
+            <li>Analyze usage patterns to enhance features</li>
+            <li>Provide customer support</li>
+            <li>Communicate important updates about the service</li>
+        </ul>
+
+        <h2>6. Information Sharing</h2>
         
-        <div class="content">
-            <p>Designhouse ("we," "our," or "us") operates the <span class="highlight">SMPLTSK</span> mobile application (the "Service"). This Privacy Policy informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service.</p>
+        <h3>6.1 With Other Users</h3>
+        <p>When you send tasks to other users:</p>
+        <ul>
+            <li>Recipients see your name, the photo, markers, and task descriptions</li>
+            <li>Recipients can view in-app messages you send</li>
+            <li>Task completion status is visible to both sender and recipient</li>
+        </ul>
+
+        <h3>6.2 With Service Providers</h3>
+        <p>We share data with trusted service providers who help us operate SMPLTSK:</p>
+        <ul>
+            <li><strong>Google Firebase</strong> - Hosting, storage, and app infrastructure</li>
+            <li><strong>Apple App Store / Google Play Store</strong> - Subscription management</li>
+            <li><strong>Stripe</strong> - Payment processing (web subscriptions)</li>
+        </ul>
+
+        <h3>6.3 Legal Requirements</h3>
+        <p>We may disclose information if required by law or to:</p>
+        <ul>
+            <li>Comply with legal obligations</li>
+            <li>Protect our rights and property</li>
+            <li>Prevent fraud or abuse</li>
+            <li>Protect user safety</li>
+        </ul>
+
+        <h3>6.4 We Do Not</h3>
+        <ul>
+            <li>Sell your personal information to third parties</li>
+            <li>Display advertisements</li>
+            <li>Share your data for marketing purposes</li>
+        </ul>
+
+        <h2>7. Data Security</h2>
+        <p>We implement industry-standard security measures:</p>
+        <ul>
+            <li>Encrypted data transmission (HTTPS/SSL)</li>
+            <li>Secure Firebase authentication and storage</li>
+            <li>Regular security audits and updates</li>
+            <li>Access controls and monitoring</li>
+        </ul>
+        <p>However, no method of transmission or storage is 100% secure. We cannot guarantee absolute security but continuously work to protect your data.</p>
+
+        <h2>8. Data Retention</h2>
+
+        <h3>8.1 Active Accounts</h3>
+        <ul>
+            <li>We retain your data as long as your account is active</li>
+            <li>Data includes all tasks, photos, messages, and account information</li>
+        </ul>
+
+        <h3>8.2 After Subscription Cancellation</h3>
+        <ul>
+            <li>You maintain full access to all your data</li>
+            <li>No features are removed</li>
+            <li>Data remains until you choose to delete it</li>
+        </ul>
+
+        <h3>8.3 Account Deletion</h3>
+        <ul>
+            <li>When you delete your account, we begin deletion process immediately</li>
+            <li>Active data deleted within 30 days</li>
+            <li>Backup systems cleared within 90 days</li>
+            <li>See our <a href="data-deletion.html">Data Deletion Policy</a> for full details</li>
+        </ul>
+
+        <h3>8.4 Shared Tasks</h3>
+        <ul>
+            <li>If you delete your account, tasks you shared with others remain accessible to recipients</li>
+            <li>Your name may still appear as the task creator</li>
+            <li>Delete shared tasks before account deletion if you want them removed</li>
+        </ul>
+
+        <h2>9. Your Rights and Choices</h2>
+
+        <h3>9.1 Access and Correction</h3>
+        <ul>
+            <li>View and edit your profile information in the app</li>
+            <li>Review your tasks and data at any time</li>
+        </ul>
+
+        <h3>9.2 Data Export</h3>
+        <ul>
+            <li>Request a copy of your data by contacting support@smpltsk.com</li>
+        </ul>
+
+        <h3>9.3 Account Deletion</h3>
+        <ul>
+            <li>Delete your account through app settings</li>
+            <li>Or contact support@smpltsk.com for assistance</li>
+        </ul>
+
+        <h3>9.4 Push Notifications</h3>
+        <ul>
+            <li>Manage notification preferences in your device settings</li>
+            <li>Or within the SMPLTSK app settings</li>
+        </ul>
+
+        <h3>9.5 Contact Import</h3>
+        <ul>
+            <li>You control which contacts you import</li>
+            <li>Delete imported contacts anytime in app settings</li>
+        </ul>
+
+        <h2>10. Children's Privacy</h2>
+        <p>SMPLTSK is not intended for users under 13 years of age. We do not knowingly collect information from children under 13. If we discover we have collected data from a child under 13, we will delete it immediately.</p>
+
+        <h2>11. International Data Transfers</h2>
+        <p>Your data is stored on Firebase servers in Sydney, Australia. If you access SMPLTSK from outside Australia, your information may be transferred to and processed in Australia. By using SMPLTSK, you consent to this transfer and processing.</p>
+
+        <h2>12. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. When we make changes:</p>
+        <ul>
+            <li>We will update the "Last Updated" date</li>
+            <li>For significant changes, we'll notify you via email or in-app notification</li>
+            <li>Continued use of SMPLTSK after changes constitutes acceptance</li>
+        </ul>
+
+        <h2>13. Cookie Policy</h2>
+        <p>For information about cookies on our website, please see our <a href="cookie-policy.html">Cookie Policy</a>.</p>
+
+        <div class="contact-info">
+            <h2>14. Contact Information</h2>
+            <p><strong>SMPLTSK</strong><br>
+            ABN: 82591313062<br>
+            Sydney, Australia<br>
+            Email: <a href="mailto:support@smpltsk.com">support@smpltsk.com</a><br>
+            Website: <a href="https://smpltsk.com">https://smpltsk.com</a></p>
             
-            <h2>App Permissions</h2>
-            <p>Our app requests the following permissions:</p>
-            <ul>
-                <li><strong>Camera</strong> - To take photos for task documentation</li>
-                <li><strong>Photo Library/Storage</strong> - To save and access task images</li>
-                <li><strong>Location</strong> - To geotag images and tasks for context</li>
-                <li><strong>Notifications</strong> - To alert you about task updates</li>
-                <li><strong>Internet</strong> - To sync data and enable collaboration</li>
-                <li><strong>Network State</strong> - To optimize performance based on connectivity</li>
-            </ul>
-            <p>You can manage these permissions in your device settings at any time.</p>
-            
-            <h2>Information We Collect</h2>
-            
-            <h3>Information You Provide Directly</h3>
-            
-            <p><strong>Account Information</strong></p>
-            <ul>
-                <li>Username or display name</li>
-                <li>Email address</li>
-                <li>Account credentials</li>
-                <li>Profile information from third-party authentication providers (Google, Apple, Facebook)</li>
-                <li>Profile picture (if provided)</li>
-            </ul>
-            
-            <p><strong>Task Data</strong></p>
-            <ul>
-                <li>Task descriptions and titles</li>
-                <li>Task status (complete/incomplete)</li>
-                <li>Comments on tasks</li>
-                <li>Images uploaded for tasks</li>
-                <li>Sender and receiver relationship data</li>
-            </ul>
-            
-            <p><strong>Communications</strong></p>
-            <ul>
-                <li>Customer support inquiries</li>
-                <li>Feedback and suggestions</li>
-                <li>User-to-user communications within the app</li>
-            </ul>
-            
-            <h3>Information Collected Automatically</h3>
-            
-            <p><strong>Location Data</strong></p>
-            <ul>
-                <li>Geolocation data automatically attached to images and tasks (GPS coordinates)</li>
-                <li>This data is collected when you create or upload images for tasks</li>
-            </ul>
-            
-            <p><strong>Time Information</strong></p>
-            <ul>
-                <li>Timestamps for all tasks created, modified, or completed</li>
-                <li>Activity timestamps</li>
-            </ul>
-            
-            <p><strong>Device Information</strong></p>
-            <ul>
-                <li>Device type and model</li>
-                <li>Operating system version</li>
-                <li>Unique device identifiers</li>
-                <li>Mobile network information</li>
-                <li>App instance ID (Firebase)</li>
-            </ul>
-            
-            <p><strong>Usage Analytics</strong></p>
-            <ul>
-                <li>Number of tasks created, sent, and completed</li>
-                <li>Average tasks per user</li>
-                <li>Task categories or types</li>
-                <li>File management actions (saves, deletions)</li>
-                <li>App feature usage patterns</li>
-                <li>Session duration and frequency</li>
-                <li>App crashes and performance data</li>
-                <li>Firebase Analytics events and user properties</li>
-                <li>Firebase Performance Monitoring data</li>
-                <li>In-app purchase history (if applicable)</li>
-                <li>Ad interaction data (if ads are displayed)</li>
-            </ul>
-            
-            <h3>Image Data</h3>
-            <ul>
-                <li>Photos taken or uploaded within the app</li>
-                <li>EXIF data from images (including location and time)</li>
-                <li>Image modifications or markup data</li>
-            </ul>
-            
-            <h2>How We Use Your Information</h2>
-            
-            <h3>Service Provision</h3>
-            <ul>
-                <li>Enable task creation and sharing between users</li>
-                <li>Display tasks with their associated images, locations, and timestamps</li>
-                <li>Facilitate communication through comments</li>
-                <li>Authenticate users and manage accounts</li>
-                <li>Send push notifications about task updates</li>
-            </ul>
-            
-            <h3>Communications</h3>
-            <ul>
-                <li>Send task-related notifications</li>
-                <li>Respond to customer support inquiries</li>
-                <li>Send important service updates and announcements</li>
-                <li>Send promotional communications (with your consent)</li>
-            </ul>
-            
-            <h3>Service Improvement</h3>
-            <ul>
-                <li>Analyze usage patterns to improve app features</li>
-                <li>Identify popular task types and user workflows</li>
-                <li>Optimize app performance and fix bugs</li>
-                <li>Conduct A/B testing to improve user experience</li>
-            </ul>
-            
-            <h2>Data Sharing and Disclosure</h2>
-            <p>We may share your information in the following circumstances:</p>
-            
-            <h3>With Other Users</h3>
-            <ul>
-                <li>Task senders can see receiver's completion status and comments</li>
-                <li>Task receivers can see sender's task details, images, and location data</li>
-            </ul>
-            
-            <h3>Service Providers</h3>
-            <p><strong>Firebase (Google) for:</strong></p>
-            <ul>
-                <li>Cloud Firestore for data storage</li>
-                <li>Firebase Authentication for user accounts</li>
-                <li>Firebase Cloud Storage for image storage</li>
-                <li>Firebase Analytics for usage tracking</li>
-                <li>Firebase Crashlytics for crash reporting</li>
-                <li>Firebase Performance Monitoring</li>
-                <li>Firebase Cloud Messaging for push notifications</li>
-                <li>Firebase Remote Config for feature flags</li>
-            </ul>
-            
-            <p><strong>Authentication providers:</strong></p>
-            <ul>
-                <li>Google Sign-In</li>
-                <li>Apple Sign-In</li>
-                <li>Facebook Login (if implemented)</li>
-                <li>Email/password authentication</li>
-            </ul>
-            
-            <h2>Data Storage and Security</h2>
-            <ul>
-                <li>Your data is stored on secure cloud servers</li>
-                <li>We implement encryption for data in transit and at rest</li>
-                <li>Access to personal data is restricted to authorized personnel</li>
-                <li>We cannot guarantee absolute security but use industry-standard measures</li>
-            </ul>
-            
-            <h2>Data Retention</h2>
-            <ul>
-                <li>Active account data is retained while your account is active</li>
-                <li>Deleted tasks and images are removed from our servers within 30 days</li>
-                <li>Analytics data is retained in anonymized form for up to 2 years</li>
-                <li>Crash logs are retained for up to 90 days</li>
-                <li>You may request account deletion at any time</li>
-                <li>Some data may be retained longer if required by law</li>
-            </ul>
-            
-            <h2>Your Rights and Choices</h2>
-            
-            <h3>Access and Portability</h3>
-            <ul>
-                <li>Request a copy of your personal data</li>
-                <li>Export your task data</li>
-            </ul>
-            
-            <h3>Correction</h3>
-            <ul>
-                <li>Update or correct your information through the app</li>
-                <li>Contact us for assistance with corrections</li>
-            </ul>
-            
-            <h3>Deletion</h3>
-            <ul>
-                <li>Delete individual tasks or images</li>
-                <li>Request complete account deletion</li>
-                <li>Note: Some data may be retained for legal compliance</li>
-            </ul>
-            
-            <h2>Children's Privacy</h2>
-            <p>Our Service is not intended for children under 13. We do not knowingly collect personal information from children under 13. If you are a parent and believe your child has provided us with personal data, please contact us.</p>
-            
-            <h2>International Data Transfers</h2>
-            <p>Your information may be transferred to and maintained on servers located outside of your country. By using our Service, you consent to such transfers.</p>
-            
-            <h2>Changes to This Privacy Policy</h2>
-            <p>We may update this Privacy Policy periodically. We will notify you of any changes by updating the "Last Updated" date and, for significant changes, providing prominent notice in the app.</p>
-            
-            <div class="contact-info">
-                <h3>Contact Us</h3>
-                <p>If you have questions about this Privacy Policy, please contact us:</p>
-                <p><strong>Email:</strong> <a href="mailto:steve@smpltsk.com">steve@smpltsk.com</a></p>
-                <p><strong>Company:</strong> Designhouse</p>
-                <p><strong>Address:</strong> Melbourne, Australia</p>
-                <p><strong>Website:</strong> <a href="https://smpltsk.com">https://smpltsk.com</a></p>
-                <p><strong>Response Time:</strong> We will respond to privacy inquiries within 30 days</p>
-            </div>
-            
-            <h2>Regional Specific Rights</h2>
-            
-            <h3>For European Union Users (GDPR)</h3>
-            <ul>
-                <li>Right to access, rectify, or erase personal data</li>
-                <li>Right to restrict or object to processing</li>
-                <li>Right to data portability</li>
-                <li>Right to lodge a complaint with supervisory authorities</li>
-            </ul>
-            
-            <h3>For California Residents (CCPA)</h3>
-            <ul>
-                <li>Right to know what personal information is collected</li>
-                <li>Right to delete personal information</li>
-                <li>Right to opt-out of the sale of personal information</li>
-                <li>Right to non-discrimination for exercising privacy rights</li>
-            </ul>
-            
-            <h3>For Australian Consumers</h3>
-            <p>Nothing in this Privacy Policy excludes, restricts or modifies any consumer guarantees under Australian Consumer Law.</p>
-            
-            <div class="last-updated">
-                <p><strong>Version:</strong> 1.0 | <strong>Last Review Date:</strong> August 2, 2025</p>
-                <p>By using SMPLTSK, you consent to our Privacy Policy and agree to its terms.</p>
-            </div>
+            <p style="margin-top: 1.5rem;">If you have questions about this Privacy Policy or how we handle your data, please contact us at <a href="mailto:support@smpltsk.com">support@smpltsk.com</a>.</p>
         </div>
     </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SMPLTSK. All rights reserved. | <a href="terms-of-service.html">Terms of Service</a> | <a href="data-deletion.html">Data Deletion</a> | <a href="cookie-policy.html">Cookie Policy</a></p>
+        </div>
+    </footer>
 </body>
 </html>

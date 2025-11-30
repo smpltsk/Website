@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnership Opportunities - SMPLTSK</title>
+    <meta name="description" content="Partner with SMPLTSK to enhance field adoption for your construction management platform. White-label, API integration, and referral partnership options available.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --app-blue: #3B5FE5;
+            --app-red: #EE4B4B;
+            --app-green: #4FD14A;
+            --white: #ffffff;
+            --light-bg: #fafbfc;
+            --text-dark: #0f172a;
+            --text-gray: #475569;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Background Gradient */
+        .bg-gradient-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 50%, #fafbfc 100%);
+        }
+        
+        .bg-gradient-animated::before,
+        .bg-gradient-animated::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+        }
+        
+        .bg-gradient-animated::before {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 95, 229, 0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+        }
+        
+        .bg-gradient-animated::after {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(79, 209, 74, 0.12) 0%, transparent 70%);
+            bottom: -150px;
+            left: -100px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid rgba(59, 95, 229, 0.08);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.75rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+        
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            filter: drop-shadow(0 4px 12px rgba(59, 95, 229, 0.15));
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 140px 4rem 80px 4rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--app-blue);
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            color: var(--text-dark);
+            margin-top: 5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            color: var(--text-dark);
+            margin-top: 3rem;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(59, 95, 229, 0.08), rgba(59, 95, 229, 0.04));
+            border-left: 4px solid var(--app-blue);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 12px;
+        }
+
+        .highlight-box p {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+            color: var(--text-dark);
+        }
+
+        .workflow-steps {
+            background: rgba(59, 95, 229, 0.04);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 2.5rem 0;
+            border: 1px solid rgba(59, 95, 229, 0.1);
+        }
+
+        .workflow-steps h3 {
+            margin-top: 0;
+            color: var(--text-dark);
+        }
+
+        .workflow-steps ol {
+            margin-left: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .workflow-steps li {
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            color: var(--text-gray);
+        }
+
+        .workflow-steps strong {
+            color: var(--app-blue);
+            font-weight: 700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(59, 95, 229, 0.08);
+        }
+
+        th, td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(59, 95, 229, 0.08);
+        }
+
+        th {
+            background: rgba(59, 95, 229, 0.06);
+            color: var(--app-blue);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        td {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .checkmark-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .checkmark-list li {
+            padding: 0.75rem 0;
+            color: var(--text-gray);
+            font-size: 1.125rem;
+        }
+
+        .checkmark-list li:before {
+            content: "✓ ";
+            color: var(--app-green);
+            font-weight: bold;
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .bullet-list {
+            margin-left: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .bullet-list li {
+            margin-bottom: 0.75rem;
+            color: var(--app-red);
+            font-size: 1.125rem;
+        }
+
+        .partnership-options {
+            background: var(--white);
+            padding: 1.75rem;
+            margin: 1rem 0;
+            border-radius: 12px;
+            border-left: 4px solid var(--app-blue);
+            box-shadow: 0 2px 12px rgba(59, 95, 229, 0.06);
+        }
+
+        .partnership-options strong {
+            color: var(--app-blue);
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+
+        .partnership-options p {
+            margin-bottom: 0;
+            margin-top: 0.5rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, rgba(59, 95, 229, 0.1), rgba(79, 209, 74, 0.08));
+            padding: 4rem;
+            margin: 5rem 0 3rem 0;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid rgba(59, 95, 229, 0.15);
+        }
+
+        .cta-section h3 {
+            margin-top: 0;
+            color: var(--text-dark);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--app-blue);
+            color: var(--white);
+            padding: 1.25rem 3rem;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 24px rgba(59, 95, 229, 0.25);
+        }
+
+        .cta-button:hover {
+            background: #2d4bc4;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(59, 95, 229, 0.35);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .contact-info a {
+            color: var(--app-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--light-bg);
+            padding: 3rem 0 2rem 0;
+            border-top: 1px solid rgba(59, 95, 229, 0.08);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 120px 1.5rem 60px 1.5rem;
+            }
+
+            .nav-container {
+                padding: 0.75rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            .subtitle {
+                font-size: 1.25rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+                margin-top: 3rem;
+            }
+
+            h3 {
+                font-size: 1.35rem;
+            }
+
+            p, .workflow-steps li, .checkmark-list li, .bullet-list li {
+                font-size: 1rem;
+            }
+
+            .highlight-box, .workflow-steps, .cta-section {
+                padding: 1.5rem;
+            }
+
+            th, td {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .footer-content {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient-animated"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="70" height="70" rx="14" ry="14" fill="#3B5FE5"/>
+                    <circle cx="35" cy="35" r="29.75" fill="#EE4B4B"/>
+                    <circle cx="35" cy="35" r="22.75" fill="#4FD14A"/>
+                    <text x="35" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="45" font-weight="bold" fill="#3B5FE5" dominant-baseline="middle">S</text>
+                </svg>
+                <span>SMPLTSK</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Bridge the Last Mile Between Your Platform and the Field</h1>
+        <p class="subtitle">SMPLTSK: The Field-First Companion for Enterprise Construction Software</p>
+
+        <p>Your platform does what it's designed to do brilliantly—managing projects, tracking budgets, coordinating schedules, and providing the oversight that keeps complex operations running smoothly. These are essential tools that construction businesses depend on.</p>
+
+        <p><strong style="color: var(--text-dark);">But here's the reality:</strong> Even the best management software faces a common adoption challenge at the field level.</p>
+
+        <h2>The Last-Mile Problem</h2>
+
+        <p>Your users chose your platform because it delivers powerful business intelligence and control. But that same feature depth that makes your software invaluable to managers can create friction for tradespeople on site—the people whose input ultimately determines data accuracy.</p>
+
+        <p>When field workers resist using tools because they're designed for office workflows, businesses face:</p>
+        <ul class="bullet-list">
+            <li>Delayed or inaccurate task reporting</li>
+            <li>Communication gaps that lead to costly rework</li>
+            <li>Lower ROI on software investments due to incomplete field adoption</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p><strong>This isn't a software problem. It's a user context problem.</strong></p>
+        </div>
+
+        <h2>SMPLTSK: Purpose-Built for the Other 65%</h2>
+
+        <p>SMPLTSK doesn't replace what your platform does—it complements it by solving a specific challenge: <strong style="color: var(--text-dark);">getting accurate, timely input from visual learners working in fast-paced field conditions.</strong></p>
+
+        <div class="workflow-steps">
+            <h3>The 30-Second Visual Workflow:</h3>
+            <ol>
+                <li><strong>SNAP</strong> - Photograph the work area</li>
+                <li><strong>MARK</strong> - Place numbered markers directly on the image</li>
+                <li><strong>SEND</strong> - Task assigned with visual clarity</li>
+            </ol>
+            <p style="margin-bottom: 0; margin-top: 1.5rem;">This approach works because it matches how field teams naturally communicate: visually, quickly, and with minimal text entry.</p>
+        </div>
+
+        <h2>Why Partner with SMPLTSK?</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Your Platform's Strength</th>
+                    <th>SMPLTSK's Complement</th>
+                    <th>Combined Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Comprehensive project management and business intelligence</td>
+                    <td>Ultra-simple, visual field task capture optimized for tradespeople</td>
+                    <td>Complete data loop—from field reality to management insight—with higher field adoption rates</td>
+                </tr>
+                <tr>
+                    <td>Feature-rich tools for office and management teams</td>
+                    <td>Purpose-built interface that field workers actually want to use</td>
+                    <td>Improved data quality feeding your analytics, with less manual follow-up needed</td>
+                </tr>
+                <tr>
+                    <td>Established user base and enterprise relationships</td>
+                    <td>Proven field conversion with minimal training required</td>
+                    <td>Faster deployment, higher engagement, stronger customer retention</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Integration That Makes Sense</h2>
+
+        <h3>Skip the 12-Month Development Cycle</h3>
+
+        <p>Building a field-optimized module from scratch requires significant R&D investment, extensive field testing, and ongoing maintenance—all while your core platform development continues.</p>
+
+        <p><strong style="color: var(--text-dark);">SMPLTSK is already:</strong></p>
+        <ul class="checkmark-list">
+            <li><strong style="color: var(--text-dark);">Battle-tested</strong> by tradespeople in real-world conditions</li>
+            <li><strong style="color: var(--text-dark);">API-ready</strong> for seamless data flow into your existing systems</li>
+            <li><strong style="color: var(--text-dark);">Optimized</strong> for the visual workflow that drives field adoption</li>
+        </ul>
+
+        <h3>Flexible Partnership Models:</h3>
+
+        <div class="partnership-options">
+            <strong>White-Label Licensing:</strong>
+            <p>Offer SMPLTSK's field capture capabilities under your brand</p>
+        </div>
+
+        <div class="partnership-options">
+            <strong>API Integration:</strong>
+            <p>Connect SMPLTSK as a recommended companion app for field teams</p>
+        </div>
+
+        <div class="partnership-options">
+            <strong>Referral Partnership:</strong>
+            <p>Simple revenue-share model for mutual client referrals</p>
+        </div>
+
+        <h2>The Bottom Line</h2>
+
+        <p>Construction businesses need both: the strategic oversight your platform provides <strong style="color: var(--text-dark);">and</strong> the field-level execution that SMPLTSK enables.</p>
+
+        <p>When field teams can capture tasks in 30 seconds with visual precision, your platform receives better data, faster. When your platform processes that data into actionable business intelligence, the entire operation runs more efficiently.</p>
+
+        <div class="cta-section">
+            <h3>Let's explore how SMPLTSK can strengthen your platform's value proposition by solving the field adoption challenge.</h3>
+            <a href="mailto:partnerships@smpltsk.com?subject=Partnership Inquiry - SMPLTSK Integration" class="cta-button">Request Partnership Information</a>
+            <div class="contact-info">
+                <p>Contact: <a href="mailto:partnerships@smpltsk.com">partnerships@smpltsk.com</a></p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 SMPLTSK. All rights reserved. Make it a SMPLTSK.</p>
+        </div>
+    </footer>
+</body>
+</html>

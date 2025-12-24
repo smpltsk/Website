@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQs - SMPLTSK</title>
+    <title>FAQ - SMPLTSK</title>
+    <meta name="description" content="Frequently Asked Questions about SMPLTSK - Visual Task Management for Construction">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
         * {
             margin: 0;
@@ -13,260 +14,1386 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --app-blue: #3B5FE5;
+            --app-red: #EE4B4B;
+            --app-green: #4FD14A;
+            --white: #ffffff;
+            --light-bg: #fafbfc;
+            --text-dark: #0f172a;
+            --text-gray: #475569;
+        }
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light-bg);
+            color: var(--text-dark);
             line-height: 1.6;
-            color: #0f172a;
-            background: #fafbfc;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        nav {
+            background: white;
+            border-bottom: 1px solid rgba(59, 95, 229, 0.1);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--app-blue);
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
         
-        header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
         h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #0f172a;
+            font-size: 3.5rem;
+            font-weight: 900;
             margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.1;
         }
         
         .subtitle {
             font-size: 1.25rem;
-            color: #475569;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
         }
         
-        .content {
+        .faq-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .category-nav {
             background: white;
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            padding: 1.25rem 1.5rem;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-align: center;
+        }
+        
+        .category-nav:hover {
+            border-color: var(--app-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(59, 95, 229, 0.15);
+        }
+        
+        .faq-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            color: var(--app-blue);
+        }
+        
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
         }
         
         .faq-item {
-            margin-bottom: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
         }
         
-        .faq-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
+        .faq-item:hover {
+            border-color: var(--app-blue);
+            box-shadow: 0 4px 16px rgba(59, 95, 229, 0.1);
         }
         
-        .question {
+        .faq-question {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            line-height: 1.4;
+        }
+        
+        .faq-question::before {
+            content: "Q:";
+            color: var(--app-blue);
+            font-weight: 900;
+            flex-shrink: 0;
             font-size: 1.5rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 1rem;
         }
         
-        .answer {
-            font-size: 1.125rem;
+        .faq-answer {
+            color: var(--text-gray);
+            font-size: 1.0625rem;
             line-height: 1.8;
-            color: #475569;
+            padding-left: 2.5rem;
         }
         
-        .answer p {
-            margin-bottom: 1rem;
+        .faq-answer p {
+            margin-bottom: 1.25rem;
         }
         
-        .category-header {
-            font-size: 2rem;
+        .faq-answer ul, .faq-answer ol {
+            margin: 1.25rem 0 1.25rem 1.5rem;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .faq-answer strong {
+            color: var(--text-dark);
             font-weight: 700;
-            color: #3B5FE5;
-            margin: 3rem 0 2rem 0;
-            padding-top: 2rem;
-            border-top: 2px solid #f1f5f9;
         }
         
-        .category-header:first-child {
-            margin-top: 0;
-            padding-top: 0;
-            border-top: none;
+        .tip-box {
+            background: linear-gradient(135deg, rgba(79, 209, 74, 0.06) 0%, rgba(59, 95, 229, 0.06) 100%);
+            border-left: 4px solid var(--app-green);
+            padding: 1.75rem;
+            margin: 1.75rem 0;
+            border-radius: 8px;
         }
         
-        .back-link {
-            display: inline-block;
-            margin-top: 3rem;
-            color: #3B5FE5;
-            text-decoration: none;
-            font-weight: 600;
+        .tip-box strong {
+            color: var(--app-green);
+            display: block;
+            margin-bottom: 0.75rem;
             font-size: 1.125rem;
         }
         
-        .back-link:hover {
-            text-decoration: underline;
+        .warning-box {
+            background: rgba(238, 75, 75, 0.06);
+            border-left: 4px solid var(--app-red);
+            padding: 1.75rem;
+            margin: 1.75rem 0;
+            border-radius: 8px;
         }
         
-        a {
-            color: #3B5FE5;
+        .warning-box strong {
+            color: var(--app-red);
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+        }
+        
+        .info-box {
+            background: rgba(59, 95, 229, 0.06);
+            border-left: 4px solid var(--app-blue);
+            padding: 1.75rem;
+            margin: 1.75rem 0;
+            border-radius: 8px;
+        }
+        
+        .info-box strong {
+            color: var(--app-blue);
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+        }
+        
+        .steps {
+            background: var(--light-bg);
+            padding: 1.75rem;
+            border-radius: 8px;
+            margin: 1.25rem 0;
+        }
+        
+        .steps ol {
+            margin-left: 1.75rem;
+        }
+        
+        .steps li {
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+            line-height: 1.7;
+        }
+        
+        .steps li strong {
+            color: var(--text-dark);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--app-blue) 0%, #2a4bc7 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+        }
+        
+        footer a {
+            color: white;
             text-decoration: none;
             font-weight: 600;
+            transition: opacity 0.3s ease;
         }
         
-        a:hover {
+        footer a:hover {
+            opacity: 0.8;
             text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .faq-question {
+                font-size: 1.125rem;
+            }
+            
+            .faq-item {
+                padding: 1.75rem;
+            }
+            
+            .faq-answer {
+                padding-left: 0;
+            }
+            
+            .faq-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Frequently Asked Questions</h1>
-            <p class="subtitle">Quick answers to common questions about SMPLTSK</p>
-        </header>
-        
-        <div class="content">
-            <h2 class="category-header">Getting Started</h2>
-            
-            <div class="faq-item">
-                <div class="question">Is SMPLTSK free to use?</div>
-                <div class="answer">
-                    <p>Yes! SMPLTSK is free to use with a limit of 6 tasks on 1 image. If you need more tasks or multiple images, you'll see a prompt to subscribe via the App Store or Google Play Store. Subscribers get unlimited tasks and images.</p>
-                </div>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="70" height="70" rx="14" ry="14" fill="#3B5FE5"/>
+                    <circle cx="35" cy="35" r="29.75" fill="#EE4B4B"/>
+                    <circle cx="35" cy="35" r="22.75" fill="#4FD14A"/>
+                    <text x="35" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="45" font-weight="bold" fill="#3B5FE5" dominant-baseline="middle">S</text>
+                </svg>
+                <span>SMPLTSK</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="user-guide.html">User Guide</a>
+                <a href="support.html">Support</a>
             </div>
-            
-            <div class="faq-item">
-                <div class="question">Do my workers need to download the app?</div>
-                <div class="answer">
-                    <p>It depends. If you're a subscriber, you can send unlimited tasks to non-subscribers who can view them in a web browser and mark them complete. They'll receive a message with a link to open the tasks in their browser.</p>
-                    <p>However, non-subscribers can only send 1 image with up to 6 tasks. To send more tasks or images, they'll need to subscribe via the App Store or Google Play Store.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="question">What devices does SMPLTSK work on?</div>
-                <div class="answer">
-                    <p>SMPLTSK is available for iOS (iPhone and iPad) and Android devices. It works on phones and tablets running recent operating system versions.</p>
-                </div>
-            </div>
-            
-            <h2 class="category-header">Using SMPLTSK</h2>
-            
-            <div class="faq-item">
-                <div class="question">Can I add multiple markers to one photo?</div>
-                <div class="answer">
-                    <p>Yes! Add as many markers as needed to a single photo. Each marker can have its own description and can be marked complete independently.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="question">How do I mark a task as complete?</div>
-                <div class="answer">
-                    <p>Tap the red marker on any task and change it to green. This shows everyone that the work is finished. You can switch it back to red if additional work is needed.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="question">How are tasks organized in SMPLTSK?</div>
-                <div class="answer">
-                    <p>SMPLTSK uses four folders to keep your task batches organized:</p>
-                    <ul>
-                        <li><strong>Sent:</strong> Task batches you've sent to others</li>
-                        <li><strong>Received:</strong> Task batches others have sent to you</li>
-                        <li><strong>Mine:</strong> Task batches you've created for yourself</li>
-                        <li><strong>Drafts:</strong> Unfinished task batches you haven't sent yet</li>
-                    </ul>
-                    <p>To delete a task batch, press and hold it in any folder and follow the delete prompt.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="question">Can I edit a task after I've sent it?</div>
-                <div class="answer">
-                    <p>No. Once a task is sent, the photo, markers, and descriptions cannot be edited. The only thing that can be changed is the completion status—recipients can change markers from red (undone) to green (done).</p>
-                    <p>If you need to communicate additional information about a task, use the in-app messaging feature to discuss details with the recipient.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="question">How do I share tasks with my team?</div>
-                <div class="answer">
-                    <p>SMPLTSK uses its own contact system. You can add contacts manually or import them from your phone's native contact list. Once added to SMPLTSK, you can send task batches to any contact.</p>
-                    <p>If the recipient doesn't have the app, they'll receive a message with a link to view the tasks in their web browser. Subscribers can send unlimited tasks to anyone, while free users are limited to 1 image with 6 tasks.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="question">How do I communicate with recipients about tasks?</div>
-                <div class="answer">
-                    <p>SMPLTSK has a built-in messaging feature. You can send comments and messages directly within the app about any task. This keeps all communication in one place for speed and convenience—no need to switch to SMS or email.</p>
-                </div>
-            </div>
-            
-            <h2 class="category-header">Technical Questions</h2>
-            
-            <div class="faq-item">
-                <div class="question">Does SMPLTSK work offline?</div>
-                <div class="answer">
-                    <p>You can view previously loaded tasks offline. Creating new tasks and sharing them requires an internet connection. Once a task is shared, recipients can view it offline after initial loading.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="question">Where are my photos stored?</div>
-                <div class="answer">
-                    <p>Photos and tasks are securely stored in the cloud using Firebase. This means you can access them from any device once logged in. Your data is backed up automatically and only accessible to you and people you share tasks with.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="question">Is my data secure?</div>
-                <div class="answer">
-                    <p>Yes. SMPLTSK uses industry-standard encryption for all data transmission and storage. Your photos and tasks are private and only visible to people you explicitly share them with.</p>
-                </div>
-            </div>
-            
-            <h2 class="category-header">Business Use</h2>
-            
-            <div class="faq-item">
-                <div class="question">What's the difference between free and subscriber accounts?</div>
-                <div class="answer">
-                    <p><strong>Free accounts:</strong> Can send 1 image with up to 6 tasks. Perfect for trying SMPLTSK or occasional use.</p>
-                    <p><strong>Subscriber accounts:</strong> Send unlimited tasks and images. Can send tasks to non-subscribers who can view and respond in their browser. Ideal for builders, contractors, and anyone managing multiple projects or workers.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="question">Can multiple people on my team use SMPLTSK?</div>
-                <div class="answer">
-                    <p>Absolutely! Each team member can have their own account. You can share tasks between accounts, making it perfect for builders, supervisors, and workers collaborating on projects.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="question">Does SMPLTSK integrate with project management software?</div>
-                <div class="answer">
-                    <p>SMPLTSK is designed to complement your existing construction software, not replace it. Use your project management tools for scheduling and admin, and use SMPLTSK for visual task communication with trades on-site. Currently, SMPLTSK works as a standalone tool, with integration options under consideration for future releases.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="question">Can I use SMPLTSK for punch lists?</div>
-                <div class="answer">
-                    <p>Yes—this is one of the most popular uses! Walk through a completed project with your client, photograph and mark defects as you go. Instant visual punch list that everyone can track.</p>
-                </div>
-            </div>
-            
-            <h2 class="category-header">Still Have Questions?</h2>
-            
-            <div class="faq-item">
-                <div class="question">How do I get support?</div>
-                <div class="answer">
-                    <p>Contact us at <a href="mailto:support@smpltsk.com">support@smpltsk.com</a> and we'll respond within 24 hours. We're here to help you get the most out of SMPLTSK.</p>
-                </div>
-            </div>
-            
-            <a href="index.html" class="back-link">← Back to Home</a>
         </div>
+    </nav>
+
+    <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        <p class="subtitle">Everything you need to know about using SMPLTSK to save time and reduce mental load</p>
+
+        <!-- Quick Navigation -->
+        <div class="faq-categories">
+            <div class="category-nav" onclick="location.href='#getting-started'">🚀 Getting Started</div>
+            <div class="category-nav" onclick="location.href='#permissions'">⚙️ Permissions & Settings</div>
+            <div class="category-nav" onclick="location.href='#organization'">📁 Folders & Organization</div>
+            <div class="category-nav" onclick="location.href='#using-app'">✅ Using the App</div>
+            <div class="category-nav" onclick="location.href='#sharing'">📤 Sharing Tasks</div>
+            <div class="category-nav" onclick="location.href='#troubleshooting'">🔧 Troubleshooting</div>
+            <div class="category-nav" onclick="location.href='#privacy'">🔒 Privacy & Data</div>
+            <div class="category-nav" onclick="location.href='#subscription'">💳 Subscription</div>
+        </div>
+
+        <!-- GETTING STARTED -->
+        <div class="faq-section" id="getting-started">
+            <h2 class="section-title">🚀 Getting Started</h2>
+            <p class="section-description">New to SMPLTSK? Start here to understand the basics.</p>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What is SMPLTSK and how does it work?</h3>
+                <div class="faq-answer">
+                    <p>SMPLTSK is visual task management designed specifically for construction and trades. Instead of writing long text descriptions or making phone calls to explain tasks, you simply:</p>
+                    <div class="steps">
+                        <ol>
+                            <li><strong>Take a photo</strong> of the job site or problem area</li>
+                            <li><strong>Tap to place numbered markers</strong> directly on the photo where work is needed</li>
+                            <li><strong>Add task descriptions</strong> to each marker (tap marker to add text)</li>
+                            <li><strong>Send it</strong> to your team via SMS</li>
+                            <li><strong>Track progress</strong> as markers turn from red (pending) to green (complete)</li>
+                        </ol>
+                    </div>
+                    <div class="tip-box">
+                        <strong>💡 Time Saver:</strong>
+                        Visual instructions eliminate confusion and costly miscommunication. Workers see exactly what needs doing and where - no need to call for clarification or make return trips because something wasn't clear.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Do I need any special skills or training to use SMPLTSK?</h3>
+                <div class="faq-answer">
+                    <p><strong>No.</strong> If you can take a photo on your phone, you can use SMPLTSK.</p>
+                    <p>There's no training required, no complex setup process, and no learning curve. The app is designed to match how construction workers naturally think - visually and practically.</p>
+                    <div class="tip-box">
+                        <strong>💡 Mental Load Reduction:</strong>
+                        SMPLTSK frees your mind by letting you quickly delegate or save tasks. Instead of trying to remember all the details, you capture them once and move on - the app remembers for you.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How long does it take to create and send a task?</h3>
+                <div class="faq-answer">
+                    <p><strong>Under 60 seconds for most tasks.</strong></p>
+                    <p>Here's the typical breakdown:</p>
+                    <ul>
+                        <li><strong>Take photo:</strong> 10 seconds</li>
+                        <li><strong>Place markers:</strong> 20 seconds (for 3-4 tasks)</li>
+                        <li><strong>Add descriptions:</strong> 20 seconds</li>
+                        <li><strong>Send via SMS:</strong> 5 seconds</li>
+                        <li><strong>Total:</strong> ~55 seconds</li>
+                    </ul>
+                    <p>Compare this to traditional methods:</p>
+                    <ul>
+                        <li>Writing detailed text instructions: 5-10 minutes</li>
+                        <li>Phone call to explain each task: 10-15 minutes</li>
+                        <li>Walking workers around site explaining in person: 15-30 minutes</li>
+                    </ul>
+                    <div class="tip-box">
+                        <strong>💡 Time Saver:</strong>
+                        One minute to create a task vs. 10-15 minutes explaining it. If you create 10 tasks per day, that's 90-140 minutes saved daily. Over a month, that's 30-45 hours of your time back.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Does the person receiving tasks need to install the app?</h3>
+                <div class="faq-answer">
+                    <p><strong>No - and this is one of SMPLTSK's biggest advantages.</strong></p>
+                    <p>When you share a task, the recipient receives an SMS text message with a link. They simply tap the link and see the task immediately in their mobile browser - no app download required, no login needed, zero friction.</p>
+                    <p>What recipients can do without installing the app:</p>
+                    <ul>
+                        <li>View the photo with all markers and descriptions</li>
+                        <li>Tap each marker to read task details</li>
+                        <li>Mark tasks as complete (markers turn green)</li>
+                        <li>View tasks on any device (phone, tablet, computer)</li>
+                    </ul>
+                    <div class="tip-box">
+                        <strong>💡 Ease of Use:</strong>
+                        This means you can send tasks to subcontractors, suppliers, clients, or anyone without asking them to "download the app first." Zero friction = better adoption and faster results.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What makes SMPLTSK different from other task management apps?</h3>
+                <div class="faq-answer">
+                    <p><strong>SMPLTSK is built specifically for visual, hands-on work - not office desk jobs.</strong></p>
+                    <p>Key differences:</p>
+                    <ul>
+                        <li><strong>Visual-first:</strong> Photos with markers, not text-heavy task lists</li>
+                        <li><strong>No app required for recipients:</strong> SMS link opens in browser instantly</li>
+                        <li><strong>Folder/File organization:</strong> Find job photos instantly instead of scrolling through your gallery</li>
+                        <li><strong>Zero learning curve:</strong> If you can take a photo, you can use it</li>
+                        <li><strong>Built for trades:</strong> Designed by a builder who lives this problem daily</li>
+                        <li><strong>Local storage:</strong> Your data stays on your device, under your control</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>🎯 Bottom Line:</strong>
+                        Other apps try to force construction workflows into office-style task managers. SMPLTSK works the way builders and trades actually work - visually, practically, and fast.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PERMISSIONS & SETTINGS -->
+        <div class="faq-section" id="permissions">
+            <h2 class="section-title">⚙️ Permissions & Settings</h2>
+            <p class="section-description">Troubleshooting camera access and app settings.</p>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Why isn't my camera working in SMPLTSK?</h3>
+                <div class="faq-answer">
+                    <p><strong>Camera permission MUST be enabled for SMPLTSK to function.</strong> Without camera access, you cannot take photos to create visual tasks.</p>
+                    
+                    <div class="warning-box">
+                        <strong>⚠️ Common Issue:</strong>
+                        If you see an error when trying to take a photo, or the camera button doesn't work, you likely denied camera permission when you first opened the app. This is easy to fix.
+                    </div>
+
+                    <p><strong>Method 1 - Fix it in SMPLTSK (Recommended):</strong></p>
+                    <div class="steps">
+                        <ol>
+                            <li>Open the <strong>SMPLTSK app</strong></li>
+                            <li>Tap the <strong>Gear icon ⚙️</strong> (bottom icon of the three dashboard icons)</li>
+                            <li>Tap <strong>Settings</strong></li>
+                            <li>Find the <strong>Permissions</strong> section</li>
+                            <li>Make sure <strong>Camera</strong> permission is <strong>enabled/allowed</strong></li>
+                            <li>Continue by tapping the Camera button to take a photo</li>
+                        </ol>
+                    </div>
+
+                    <p><strong>Method 2 - Fix it in iPhone Settings (iOS):</strong></p>
+                    <div class="steps">
+                        <ol>
+                            <li>Go to your phone's <strong>Settings</strong> app</li>
+                            <li>Scroll down and find <strong>SMPLTSK</strong></li>
+                            <li>Tap <strong>SMPLTSK</strong></li>
+                            <li>Tap <strong>Camera</strong></li>
+                            <li>Select <strong>Allow</strong></li>
+                            <li>Return to SMPLTSK and try again</li>
+                        </ol>
+                    </div>
+
+                    <p><strong>Method 3 - Fix it in Android Settings:</strong></p>
+                    <div class="steps">
+                        <ol>
+                            <li>Go to your phone's <strong>Settings</strong></li>
+                            <li>Tap <strong>Apps</strong> or <strong>Applications</strong></li>
+                            <li>Find and tap <strong>SMPLTSK</strong></li>
+                            <li>Tap <strong>Permissions</strong></li>
+                            <li>Find <strong>Camera</strong> and enable it</li>
+                            <li>Return to SMPLTSK and try again</li>
+                        </ol>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>📌 Still Not Working?</strong>
+                        Try restarting your phone after changing permissions. If the camera still doesn't work, contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4f3c3a3f3f203d3b0f3c223f233b3c24612c2022">[email&#160;protected]</a> with your device model and operating system version.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Where do I find app settings?</h3>
+                <div class="faq-answer">
+                    <p><strong>Tap the Gear icon ⚙️ in SMPLTSK to access Settings.</strong></p>
+                    <p>The Settings menu lets you:</p>
+                    <ul>
+                        <li><strong>Manage permissions</strong> (camera, notifications, contacts)</li>
+                        <li><strong>View subscription details</strong> and manage billing</li>
+                        <li><strong>Update account information</strong> (email, password)</li>
+                        <li><strong>Access support resources</strong> (FAQ, User Guide, Contact Support)</li>
+                        <li><strong>Review legal documents</strong> (Privacy Policy, Terms of Service)</li>
+                        <li><strong>App preferences</strong> (notifications, default settings)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What permissions does SMPLTSK need and why?</h3>
+                <div class="faq-answer">
+                    <p>SMPLTSK requests minimal permissions to function effectively:</p>
+                    
+                    <p><strong>Required Permission:</strong></p>
+                    <ul>
+                        <li><strong>Camera (REQUIRED):</strong> To take photos of job sites and create visual tasks. SMPLTSK cannot function without camera access.</li>
+                    </ul>
+
+                    <p><strong>Optional Permissions (enhance functionality):</strong></p>
+                    <ul>
+                        <li><strong>Location:</strong> Enhances your experience by adding location data to tasks</li>
+                        <li><strong>Microphone:</strong> Enables Voice-to-Text for adding descriptions hands-free</li>
+                        <li><strong>Notifications:</strong> Alerts you when tasks are marked complete or team members add comments</li>
+                        <li><strong>Contacts:</strong> Makes it easy to select recipients when sharing tasks</li>
+                    </ul>
+
+                    <p><strong>Permissions SMPLTSK does NOT need or request:</strong></p>
+                    <ul>
+                        <li>Access to your files or documents (beyond photos you choose)</li>
+                        <li>Access to other apps on your device</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <strong>🔒 Privacy Note:</strong>
+                        All your photos and tasks are stored locally on your device. SMPLTSK staff cannot access, view, or read your content. See the Privacy section below for more details.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOLDERS & ORGANIZATION -->
+        <div class="faq-section" id="organization">
+            <h2 class="section-title">📁 Folders & Organization</h2>
+            <p class="section-description">Master SMPLTSK's folder system - your competitive advantage for staying organized.</p>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How does the Folder/File organization system work?</h3>
+                <div class="faq-answer">
+                    <p><strong>SMPLTSK includes a powerful two-level organization system that transforms how you manage job photos.</strong></p>
+                    
+                    <p>The structure is simple:</p>
+                    <ul>
+                        <li><strong>FOLDERS</strong> (📁) = Projects, properties, or main categories</li>
+                        <li><strong>FILES</strong> (📄) = Specific trade, area, or task type within a project</li>
+                    </ul>
+
+                    <p><strong>Example structure you might create:</strong></p>
+                    <div class="info-box">
+                        <strong>Real-world example:</strong>
+                        <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                            <li>📁 <strong>Main Street Renovation</strong> (Folder)
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li>📄 Plumbing</li>
+                                    <li>📄 Electrical</li>
+                                    <li>📄 Defects List</li>
+                                </ul>
+                            </li>
+                            <li>📁 <strong>Beach House Project</strong> (Folder)
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li>📄 Roofing</li>
+                                    <li>📄 Plumbing</li>
+                                </ul>
+                            </li>
+                            <li>📄 <strong>Smith Residence</strong> (File at root level)</li>
+                            <li>📄 <strong>Office Extension</strong> (File at root level)</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Creating a Folder:</strong></p>
+                    <div class="steps">
+                        <ol>
+                            <li>Navigate to the Folders screen in SMPLTSK</li>
+                            <li>Tap the <strong>+ (Plus) button</strong> or <strong>Create</strong> button</li>
+                            <li>Select <strong>Create Folder</strong></li>
+                            <li>Name it (e.g., "Main St Renovation", "Smith House", "Unit 14")</li>
+                            <li>Tap <strong>Save</strong> or <strong>Done</strong></li>
+                        </ol>
+                    </div>
+
+                    <p><strong>Creating a File within a Folder:</strong></p>
+                    <div class="steps">
+                        <ol>
+                            <li>Open the Folder where you want to add a File</li>
+                            <li>Tap the <strong>+ (Plus) button</strong> or <strong>Create</strong> button</li>
+                            <li>Select <strong>Create File</strong></li>
+                            <li>Name it (e.g., "Electrical", "Plumbing", "Kitchen", "Defects")</li>
+                            <li>Tap <strong>Save</strong> or <strong>Done</strong></li>
+                        </ol>
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>💡 Pro Tip:</strong>
+                        Spend 5 minutes at the start of each project setting up your folder structure. This small investment will save you hours over the project lifecycle by making every photo instantly findable.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How do I assign photos/tasks to Folders or Files?</h3>
+                <div class="faq-answer">
+                    <p><strong>It's a simple 3-tap process: File icon → Select → Apply.</strong></p>
+                    
+                    <p><strong>When viewing an image with markers:</strong></p>
+                    <div class="steps">
+                        <ol>
+                            <li>Open the image you want to organize</li>
+                            <li>Tap the <strong>File icon 📁</strong> (usually near the top of the screen)</li>
+                            <li>You'll see the "Select Folders" screen with all your Folders and Files</li>
+                            <li><strong>Option A:</strong> Tap an existing Folder or File to select it (it gets a checkmark ✓)</li>
+                            <li><strong>Option B:</strong> Tap the <strong>Create</strong> button to make a new Folder/File on the spot</li>
+                            <li>Tap <strong>Apply</strong> at the bottom</li>
+                            <li>Done! Your image is now organized under that Folder/File</li>
+                        </ol>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>📌 Editing and Deleting:</strong>
+                        On the "Select Folders" screen, you'll also see <strong>Edit</strong> and <strong>Delete</strong> buttons. Use Edit to rename Folders/Files, and Delete to remove ones you no longer need.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What's the advantage of using Folders vs. my phone's photo gallery?</h3>
+                <div class="faq-answer">
+                    <p><strong>Speed, organization, and mental load reduction.</strong></p>
+                    
+                    <p><strong>Scenario: You need to find "that plumbing photo from the Main Street job"</strong></p>
+
+                    <p><strong>WITHOUT SMPLTSK Folders (using phone gallery):</strong></p>
+                    <ul>
+                        <li>Open Photos app</li>
+                        <li>Scroll through hundreds of random photos</li>
+                        <li>Try to remember: "Was it from last Tuesday? Or Wednesday?"</li>
+                        <li>Keep scrolling: family photos, screenshots, other job sites...</li>
+                        <li>Still scrolling: "Where IS that photo?"</li>
+                        <li><strong>Time wasted: 1-3 minutes (sometimes can't find it at all)</strong></li>
+                        <li>Mental frustration: High</li>
+                    </ul>
+
+                    <p><strong>WITH SMPLTSK Folders:</strong></p>
+                    <div class="steps">
+                        <ol>
+                            <li>Open SMPLTSK</li>
+                            <li>Tap Folders</li>
+                            <li>Tap "Main Street" Folder</li>
+                            <li>Tap "Plumbing" File</li>
+                            <li>See all plumbing photos for that job</li>
+                        </ol>
+                    </div>
+                    <p><strong>Time taken: 5-10 seconds</strong></p>
+                    <p>Mental load: Zero. No remembering dates, no scrolling, no frustration.</p>
+
+                    <div class="tip-box">
+                        <strong>💡 Time Saver:</strong>
+                        Even saving just 1-2 minutes per photo search adds up quickly. If you search for job photos 10 times per day, that's 10-20 minutes saved daily - time you can spend on actual work instead of hunting through your phone.
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>💡 Mental Load Reduction:</strong>
+                        Your brain doesn't have to remember WHERE and WHEN you took each photo. The folder system does the remembering for you. This is huge when you're managing multiple jobs simultaneously.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How should I organize my Folders for maximum efficiency?</h3>
+                <div class="faq-answer">
+                    <p><strong>The best structure depends on your workflow, but here are proven approaches:</strong></p>
+
+                    <p><strong>Approach 1: Organize by Project/Property</strong></p>
+                    <p>Best for: Builders managing multiple simultaneous projects</p>
+                    <div class="info-box">
+                        <strong>Example:</strong>
+                        <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                            <li>📁 <strong>Main St Renovation</strong>
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li>📄 Electrical</li>
+                                    <li>📄 Plumbing</li>
+                                    <li>📄 Defects List</li>
+                                    <li>📄 Client Requests</li>
+                                </ul>
+                            </li>
+                            <li>📁 <strong>Smith House Extension</strong>
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li>📄 Kitchen</li>
+                                    <li>📄 Bathroom</li>
+                                    <li>📄 Exterior</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Approach 2: Organize by Trade</strong></p>
+                    <p>Best for: Specialists working across multiple sites</p>
+                    <div class="info-box">
+                        <strong>Example (Electrician):</strong>
+                        <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                            <li>📁 <strong>Electrical Jobs - North</strong>
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li>📄 Site A - Rewire</li>
+                                    <li>📄 Site B - New Build</li>
+                                    <li>📄 Site C - Defects</li>
+                                </ul>
+                            </li>
+                            <li>📁 <strong>Emergency Callouts</strong>
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li>📄 Dec 2024</li>
+                                    <li>📄 Jan 2025</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Approach 3: Hybrid (Project + Trade)</strong></p>
+                    <p>Best for: Complex projects with multiple trades</p>
+                    <div class="info-box">
+                        <strong>Example:</strong>
+                        <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                            <li>📁 <strong>Unit 14 Apartment</strong>
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li>📄 Electrical - Living</li>
+                                    <li>📄 Electrical - Bedrooms</li>
+                                    <li>📄 Plumbing - Kitchen</li>
+                                    <li>📄 Plumbing - Bathrooms</li>
+                                    <li>📄 Defects - All</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>💡 Best Practice:</strong>
+                        Keep Folder names short and File names descriptive. "Main St" + "Plumbing Issues" is better than "Property at Main Street" + "All Plumbing Related Tasks and Problems." Shorter names = faster scanning.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I move images between Folders or change their File assignment?</h3>
+                <div class="faq-answer">
+                    <p><strong>Yes, easily.</strong></p>
+                    <p>To move an image to a different Folder/File:</p>
+                    <div class="steps">
+                        <ol>
+                            <li>Open the image</li>
+                            <li>Tap the <strong>File icon 📁</strong></li>
+                            <li>Select a different Folder or File</li>
+                            <li>Tap <strong>Apply</strong></li>
+                        </ol>
+                    </div>
+                    <p>The image is now organized under the new location. Simple reorganization whenever your project structure changes.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can one image belong to multiple Folders or Files?</h3>
+                <div class="faq-answer">
+                    <p><strong>Yes, if needed.</strong></p>
+                    <p>Some tasks span multiple categories. For example, a defect that involves both electrical and plumbing work can be assigned to both:</p>
+                    <ul>
+                        <li>📄 Electrical - Defects</li>
+                        <li>📄 Plumbing - Defects</li>
+                    </ul>
+                    <p>When assigning Folders/Files, you can select multiple items before tapping Apply.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How do I filter my tasks by Folder or File category?</h3>
+                <div class="faq-answer">
+                    <p><strong>Use the "Filter by Files" feature on the FILES screen.</strong></p>
+                    <p>On the FILES screen, you'll see:</p>
+                    <ul>
+                        <li>Four main categories at the top: <strong>SENT</strong>, <strong>RECEIVED</strong>, <strong>MINE</strong>, <strong>DRAFTS</strong> (with counts showing how many items in each)</li>
+                        <li>Below that, a <strong>"Filter by Files"</strong> section</li>
+                        <li>Tap "expand to see all categories" to view all your Folders and Files</li>
+                        <li>Select any Folder or File to filter and see only tasks assigned to that category</li>
+                    </ul>
+                    <div class="tip-box">
+                        <strong>💡 Quick Navigation:</strong>
+                        The Filter by Files feature makes it easy to jump straight to a specific project or trade. Instead of scrolling through all your tasks, just tap the Folder/File you want to see.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- USING THE APP -->
+        <div class="faq-section" id="using-app">
+            <h2 class="section-title">✅ Using the App</h2>
+            <p class="section-description">Creating tasks, placing markers, and tracking completion.</p>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How do I create a task with SMPLTSK?</h3>
+                <div class="faq-answer">
+                    <p><strong>It's a 4-step process that takes less than 60 seconds:</strong></p>
+                    <div class="steps">
+                        <ol>
+                            <li><strong>Take a photo</strong> of the area where work is needed (or select existing photo from gallery)</li>
+                            <li><strong>Tap on the photo</strong> exactly where you want to place a marker for the first task</li>
+                            <li>A <strong>numbered red marker</strong> (1) appears at that spot</li>
+                            <li><strong>Type a description</strong> for that marker (e.g., "Fix crack in drywall", "Replace outlet", "Paint this wall")</li>
+                            <li><strong>Repeat steps 2-4</strong> for additional tasks on the same photo (markers #2, #3, etc.)</li>
+                            <li>When done adding all markers, tap <strong>Send</strong> or <strong>Share</strong></li>
+                            <li>Select recipients and send via SMS</li>
+                        </ol>
+                    </div>
+                    <div class="tip-box">
+                        <strong>💡 Ease of Use:</strong>
+                        The interface is so intuitive that most users create their first complete task within 2 minutes of opening the app for the first time - no manual, no tutorial needed.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How many markers can I add to one photo?</h3>
+                <div class="faq-answer">
+                    <p><strong>Unlimited.</strong> Add as many markers as you need to fully communicate the work required.</p>
+                    <p>Common scenarios:</p>
+                    <ul>
+                        <li><strong>Simple repair:</strong> 1-2 markers</li>
+                        <li><strong>Defects list inspection:</strong> 5-10 markers on one photo showing multiple issues</li>
+                        <li><strong>Complete room renovation:</strong> 15+ markers covering walls, ceiling, floors, fixtures</li>
+                        <li><strong>Complex equipment:</strong> 20+ markers labeling parts, repairs, maintenance points</li>
+                    </ul>
+                    <div class="tip-box">
+                        <strong>💡 Mental Load Reduction:</strong>
+                        Instead of trying to remember or write down "all the things wrong with this room," just tap each problem location once as you spot it. SMPLTSK remembers everything for you - you can focus on the work, not the documentation.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How do I (or my team) mark a task as complete?</h3>
+                <div class="faq-answer">
+                    <p><strong>One tap marks it complete - plus team members can add comments.</strong></p>
+                    <p>When a task is finished:</p>
+                    <div class="steps">
+                        <ol>
+                            <li>Open the image with markers (either in SMPLTSK app or via the SMS/WhatsApp/email link)</li>
+                            <li>Tap the red marker for the completed task</li>
+                            <li>The marker instantly turns <strong>green</strong></li>
+                            <li><strong>Optional:</strong> Add a comment or note about the task (e.g., "Used copper instead of PVC as discussed")</li>
+                            <li>The status and any comments automatically update on the sender's phone</li>
+                        </ol>
+                    </div>
+                    <p><strong>For the person who sent the task:</strong></p>
+                    <ul>
+                        <li>You get a <strong>notification</strong> when a task is marked complete (if you've enabled Notification permission)</li>
+                        <li>Open SMPLTSK to see the green marker and read any comments</li>
+                        <li>No need to call or text to check progress - it updates automatically</li>
+                    </ul>
+                    <div class="tip-box">
+                        <strong>💡 Communication & Progress Tracking:</strong>
+                        Team members can add notes like "needs more materials" or "finished ahead of schedule." You see status updates and comments in real-time without interrupting your workflow or theirs.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I edit or delete markers after creating them?</h3>
+                <div class="faq-answer">
+                    <p><strong>Yes - before sending the task batch.</strong></p>
+                    <ul>
+                        <li><strong>Edit description:</strong> Tap the marker → Select "Edit" → Change the text → Save</li>
+                        <li><strong>Delete marker:</strong> Tap marker → Select "Delete" → Confirm</li>
+                        <li><strong>Move marker:</strong> Tap and hold the marker → Drag to new position → Release</li>
+                        <li><strong>Change marker number:</strong> Markers are numbered automatically; delete and recreate in desired order if needed</li>
+                    </ul>
+                    <p><strong>Important:</strong> Make all corrections <strong>before sending</strong> the task batch. Once sent, the batch cannot be edited (for security reasons - prevents accidental or intentional deletion of tasks by team members).</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What if I spot more tasks after I've already sent the photo?</h3>
+                <div class="faq-answer">
+                    <p><strong>Create a new task batch with the additional markers.</strong></p>
+                    <p>Once a batch is sent, it cannot be edited for security reasons. However, you can:</p>
+                    <ul>
+                        <li><strong>Open the same photo</strong> and add new markers</li>
+                        <li><strong>Send the new batch</strong> to your team</li>
+                        <li>Both the original batch and the new batch remain accessible</li>
+                    </ul>
+                    <p>This keeps a complete record of all tasks and prevents accidental changes to sent batches.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I add notes or comments beyond the marker descriptions?</h3>
+                <div class="faq-answer">
+                    <p><strong>Each marker has its own description field where you can add detailed notes.</strong></p>
+                    <p>Best practices for marker descriptions:</p>
+                    <ul>
+                        <li><strong>Be specific:</strong> "Replace 3-gang power outlet - current one is loose" instead of just "Fix outlet"</li>
+                        <li><strong>Include materials:</strong> "Paint this wall - use Dulux Antique White USA" instead of just "Paint wall"</li>
+                        <li><strong>Add deadlines if needed:</strong> "Fix by Friday COB - client visiting Saturday"</li>
+                        <li><strong>Note safety concerns:</strong> "Asbestos present - call licensed removalist before touching"</li>
+                    </ul>
+                    <p>There's no character limit - write as much detail as needed for each marker.</p>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+        <!-- SHARING TASKS -->
+        <div class="faq-section" id="sharing">
+            <h2 class="section-title">📤 Sharing Tasks</h2>
+            <p class="section-description">How to send tasks to your team and collaborate effectively.</p>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How do I share tasks with my team?</h3>
+                <div class="faq-answer">
+                    <p><strong>SMPLTSK uses your phone's native sharing options - SMS, WhatsApp, email, and more.</strong></p>
+                    <div class="steps">
+                        <ol>
+                            <li>Create your task (photo + markers + descriptions)</li>
+                            <li>Tap the <strong>Share</strong> or <strong>Send</strong> button</li>
+                            <li>Your phone's share menu appears with options like:
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li>SMS/Messages</li>
+                                    <li>WhatsApp</li>
+                                    <li>Email</li>
+                                    <li>Other messaging apps you have installed</li>
+                                </ul>
+                            </li>
+                            <li>Choose your preferred method and select recipients</li>
+                            <li>Send - recipients receive a link</li>
+                            <li>They tap the link to see the task in their mobile browser</li>
+                        </ol>
+                    </div>
+                    <div class="tip-box">
+                        <strong>💡 Flexibility:</strong>
+                        Use whatever communication method works best for each recipient. Some prefer SMS, others use WhatsApp, and clients might prefer email. SMPLTSK works with all of them.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I send one task to multiple people?</h3>
+                <div class="faq-answer">
+                    <p><strong>Yes, absolutely.</strong></p>
+                    <p>When sharing, you can select multiple recipients. Everyone receives the same SMS link and can view the task. This is useful for:</p>
+                    <ul>
+                        <li><strong>Team coordination:</strong> Send to supervisor, lead hand, and trades working together</li>
+                        <li><strong>Multi-trade tasks:</strong> Send to electrician, plumber, and carpenter for coordinated work</li>
+                        <li><strong>Client updates:</strong> Include the client so they can see progress</li>
+                        <li><strong>Documentation:</strong> All sent tasks are automatically saved in your SENT folder for record-keeping</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>📁 Automatic Organization:</strong>
+                        SMPLTSK automatically organizes your tasks into categories:
+                        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                            <li><strong>SENT:</strong> Tasks you've sent to others</li>
+                            <li><strong>RECEIVED:</strong> Tasks others have sent to you</li>
+                            <li><strong>MINE:</strong> Tasks you've created for yourself</li>
+                            <li><strong>DRAFTS:</strong> Unfinished tasks not yet sent</li>
+                        </ul>
+                        No need to manually organize or "CC yourself" - it's all tracked automatically.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can people who receive tasks mark them as complete?</h3>
+                <div class="faq-answer">
+                    <p><strong>Yes - that's a key feature of SMPLTSK.</strong></p>
+                    <p>Anyone who receives the SMS link can:</p>
+                    <ul>
+                        <li>View all markers and descriptions</li>
+                        <li>Tap markers to mark them complete (red → green)</li>
+                        <li>See real-time progress as others complete tasks</li>
+                    </ul>
+                    <p>This allows workers in the field to update task status without needing to call or text you - they just tap the marker green when done.</p>
+                    <div class="tip-box">
+                        <strong>💡 Time Saver:</strong>
+                        No more "checking in" phone calls. Workers mark tasks complete, you see the green markers, everyone stays in sync without interrupting each other's workflow.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Do recipients need to have SMPLTSK installed to view tasks?</h3>
+                <div class="faq-answer">
+                    <p><strong>No - this is one of SMPLTSK's biggest advantages.</strong></p>
+                    <p>Recipients can view and interact with tasks directly in their mobile browser. No app download, no account creation, no barriers.</p>
+                    <p>This means you can send tasks to:</p>
+                    <ul>
+                        <li>Subcontractors who work for multiple builders</li>
+                        <li>Suppliers and vendors</li>
+                        <li>Clients who want to see progress</li>
+                        <li>Building inspectors or certifiers</li>
+                        <li>Anyone with a phone - regardless of technical skill</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How long do the SMS links stay active?</h3>
+                <div class="faq-answer">
+                    <p><strong>Links remain active as long as you keep the task in SMPLTSK.</strong></p>
+                    <p>If you delete a task from your app, the link will no longer work. Otherwise, recipients can access the link days, weeks, or months later to check task status or review what was done.</p>
+                    <p>This makes SMPLTSK useful for:</p>
+                    <ul>
+                        <li>Long-term project documentation</li>
+                        <li>Before/after comparisons</li>
+                        <li>Warranty or defects periods</li>
+                        <li>Future reference on similar jobs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I share tasks via email?</h3>
+                <div class="faq-answer">
+                    <p><strong>Yes! Email is one of the sharing options available.</strong></p>
+                    <p>When you tap the Share button in SMPLTSK, your phone's native share menu appears with all your installed communication apps, including:</p>
+                    <ul>
+                        <li>Email (Mail app)</li>
+                        <li>SMS/Messages</li>
+                        <li>WhatsApp</li>
+                        <li>Any other messaging apps</li>
+                    </ul>
+                    <p>Simply select Email from the share options, choose recipients, and send. The task link works the same way regardless of how it's delivered - recipients tap the link to view and interact with the task in their browser.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TROUBLESHOOTING -->
+        <div class="faq-section" id="troubleshooting">
+            <h2 class="section-title">🔧 Troubleshooting</h2>
+            <p class="section-description">Common issues and how to fix them.</p>
+
+            <div class="faq-item">
+                <h3 class="faq-question">The app keeps crashing or freezing. What should I do?</h3>
+                <div class="faq-answer">
+                    <p><strong>Try these steps in order:</strong></p>
+                    <div class="steps">
+                        <ol>
+                            <li><strong>Close and reopen the app:</strong> Swipe up (iPhone) or tap Recent Apps button (Android) and close SMPLTSK, then reopen it</li>
+                            <li><strong>Restart your phone:</strong> Power off completely, wait 10 seconds, power back on</li>
+                            <li><strong>Check for app updates:</strong> Go to App Store or Google Play, search SMPLTSK, install any available updates</li>
+                            <li><strong>Check phone storage:</strong> SMPLTSK stores photos locally; if your phone storage is full, the app may struggle. Free up space by deleting old photos/videos</li>
+                            <li><strong>Reinstall the app:</strong> Delete SMPLTSK, restart phone, reinstall from App/Play Store (your data is stored locally so it should persist)</li>
+                        </ol>
+                    </div>
+                    <div class="info-box">
+                        <strong>📌 Still Having Issues?</strong>
+                        Contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="afdcdadfdfc0dddbefdcc2dfc3dbdcc481ccc0c2">[email&#160;protected]</a> with:
+                        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                            <li>Your phone model and operating system version</li>
+                            <li>When the crash occurs (specific action that triggers it)</li>
+                            <li>Screenshots if possible</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">My photos aren't saving or disappearing after I take them. Why?</h3>
+                <div class="faq-answer">
+                    <p><strong>This is usually a storage or permission issue.</strong></p>
+                    <p><strong>Check phone storage:</strong></p>
+                    <ul>
+                        <li>Go to Settings → Storage</li>
+                        <li>If you have less than 1GB free, delete old photos, videos, or apps</li>
+                        <li>SMPLTSK needs space to store your task photos locally</li>
+                    </ul>
+                    <p><strong>Check photo permissions:</strong></p>
+                    <ul>
+                        <li>Settings → SMPLTSK → Photos/Photo Library → Ensure it's enabled</li>
+                    </ul>
+                    <p><strong>Try taking a test photo:</strong></p>
+                    <ul>
+                        <li>Take a simple photo in SMPLTSK</li>
+                        <li>Add one marker</li>
+                        <li>Exit the app completely</li>
+                        <li>Reopen SMPLTSK - is the photo still there?</li>
+                        <li>If yes, the issue is resolved. If no, contact support.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">I can't send SMS messages from the app. What's wrong?</h3>
+                <div class="faq-answer">
+                    <p><strong>Check these potential issues:</strong></p>
+                    <p><strong>1. SMS/Messaging permission:</strong></p>
+                    <ul>
+                        <li>Tap Gear icon ⚙️ → Settings → Permissions</li>
+                        <li>Enable SMS or Messaging permission</li>
+                    </ul>
+                    <p><strong>2. Cellular service:</strong></p>
+                    <ul>
+                        <li>Ensure you have cellular signal (Wi-Fi alone isn't enough for SMS)</li>
+                        <li>Try sending a regular text message from your phone's Messages app - if that fails, it's a carrier/signal issue, not SMPLTSK</li>
+                    </ul>
+                    <p><strong>3. SMS plan:</strong></p>
+                    <ul>
+                        <li>Some phone plans don't include SMS or have run out of messages</li>
+                        <li>Contact your carrier if you suspect this is the issue</li>
+                    </ul>
+                    <p><strong>Workaround:</strong></p>
+                    <ul>
+                        <li>If SMS isn't working, you can copy the task link and share it via WhatsApp, email, or other messaging apps</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">The markers aren't appearing where I tap them. Why?</h3>
+                <div class="faq-answer">
+                    <p><strong>This could be a calibration or zoom issue.</strong></p>
+                    <p>Try these solutions:</p>
+                    <ul>
+                        <li><strong>Zoom level:</strong> If the photo is zoomed in/out, markers might not place accurately. Reset zoom to default view</li>
+                        <li><strong>Screen calibration:</strong> Restart the app and try again</li>
+                        <li><strong>Phone screen protector:</strong> Some thick or poor-quality screen protectors can affect touch accuracy</li>
+                        <li><strong>Tap deliberately:</strong> Single firm tap rather than light touch</li>
+                    </ul>
+                    <p>If markers consistently appear offset from your tap location, please contact support with your phone model.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">I'm not receiving notifications when tasks are marked complete. How do I fix this?</h3>
+                <div class="faq-answer">
+                    <p><strong>Enable notifications in two places:</strong></p>
+                    <p><strong>1. In SMPLTSK:</strong></p>
+                    <ul>
+                        <li>Tap Gear icon ⚙️ → Settings → Notifications → Enable</li>
+                    </ul>
+                    <p><strong>2. In phone settings:</strong></p>
+                    <p><strong>iOS:</strong></p>
+                    <ul>
+                        <li>Settings → SMPLTSK → Notifications → Allow Notifications (toggle ON)</li>
+                        <li>Choose alert style (Banners recommended)</li>
+                    </ul>
+                    <p><strong>Android:</strong></p>
+                    <ul>
+                        <li>Settings → Apps → SMPLTSK → Notifications → Enable all</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRIVACY & DATA -->
+        <div class="faq-section" id="privacy">
+            <h2 class="section-title">🔒 Privacy & Data</h2>
+            <p class="section-description">How your data is stored and protected.</p>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Where is my data stored? Can SMPLTSK staff see my photos and tasks?</h3>
+                <div class="faq-answer">
+                    <p><strong>All your photos and tasks are stored locally on your device. SMPLTSK staff cannot access, view, or read your content.</strong></p>
+                    <p>Here's how it works:</p>
+                    <ul>
+                        <li><strong>Photos:</strong> Stored on your phone's local storage</li>
+                        <li><strong>Markers and descriptions:</strong> Stored on your device</li>
+                        <li><strong>Task data:</strong> All local - your device only</li>
+                    </ul>
+                    <p>Think of it like a filing cabinet in your office - your data lives on your device, under your physical control.</p>
+                    <div class="tip-box">
+                        <strong>🔒 Privacy Guarantee:</strong>
+                        SMPLTSK does not access, view, read, monitor, or analyze your photos, tasks, messages, or any content you create. Your work stays private.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What happens to my data if I delete the app?</h3>
+                <div class="faq-answer">
+                    <p><strong>Your data is stored locally, so deleting the app typically deletes your data.</strong></p>
+                    <p><strong>Before deleting SMPLTSK:</strong></p>
+                    <ul>
+                        <li>Export or save any important photos to your photo gallery</li>
+                        <li>Screenshot or copy any critical task descriptions</li>
+                        <li>Note that your phone's automatic backup (iCloud/Google Drive) may have backed up SMPLTSK data</li>
+                    </ul>
+                    <p><strong>Reinstalling:</strong></p>
+                    <ul>
+                        <li>If your phone backs up app data, reinstalling SMPLTSK may restore your tasks</li>
+                        <li>This depends on your phone's backup settings</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I export my data or tasks?</h3>
+                <div class="faq-answer">
+                    <p><strong>You already have your data - it's all on your device.</strong></p>
+                    <p>Since everything is stored locally:</p>
+                    <ul>
+                        <li><strong>Photos:</strong> Already accessible through SMPLTSK app anytime</li>
+                        <li><strong>Individual tasks:</strong> Share or export as needed using the Share button</li>
+                        <li><strong>Device backup:</strong> Your phone's backup system (iCloud for iPhone, Google Drive for Android) automatically includes SMPLTSK data</li>
+                    </ul>
+                    <p>There's no hidden data that SMPLTSK holds separately. Everything you create is under your direct control on your device.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Is my data secure?</h3>
+                <div class="faq-answer">
+                    <p><strong>Yes - because it never leaves your device unless you choose to share it.</strong></p>
+                    <p>Security features:</p>
+                    <ul>
+                        <li><strong>Local storage:</strong> Data stays on your device, protected by your phone's security (passcode, Face ID, fingerprint)</li>
+                        <li><strong>No cloud storage:</strong> We don't upload your photos to our servers</li>
+                        <li><strong>Controlled sharing:</strong> You decide who receives tasks via SMS</li>
+                        <li><strong>Encrypted transmission:</strong> When you share via SMS, the link uses secure connections</li>
+                    </ul>
+                    <p>Your phone's security is your data's security. Keep your phone locked and backed up.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Does SMPLTSK collect any usage data or analytics?</h3>
+                <div class="faq-answer">
+                    <p><strong>SMPLTSK collects minimal, anonymized usage data to improve the app.</strong></p>
+                    <p>What we collect (aggregated and anonymized):</p>
+                    <ul>
+                        <li>App crashes or errors (to fix bugs)</li>
+                        <li>General feature usage (which features are used most)</li>
+                        <li>Device type and OS version (for compatibility)</li>
+                    </ul>
+                    <p>What we DON'T collect:</p>
+                    <ul>
+                        <li>Your photos or images</li>
+                        <li>Your task descriptions or marker content</li>
+                        <li>Who you send tasks to</li>
+                        <li>Your personal or business information</li>
+                        <li>Your location or GPS data</li>
+                    </ul>
+                    <p>See our <a href="privacy-policy.html">Privacy Policy</a> for complete details.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUBSCRIPTION & PRICING -->
+        <div class="faq-section" id="subscription">
+            <h2 class="section-title">💳 Subscription & Pricing</h2>
+            <p class="section-description">Plans, pricing, and subscription management.</p>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Is there a free trial?</h3>
+                <div class="faq-answer">
+                    <p><strong>Yes! SMPLTSK offers a free version so you can test it risk-free on real jobs.</strong></p>
+                    <p>The free version allows you to:</p>
+                    <ul>
+                        <li>Create <strong>1 image with up to 6 markers/tasks</strong></li>
+                        <li>Test the folder/file organization system</li>
+                        <li>Share tasks via SMS, WhatsApp, email, or other methods</li>
+                        <li>Track progress (red → green markers)</li>
+                    </ul>
+                    <p>This gives you enough to test SMPLTSK on a real job and see if it fits your workflow. When you're ready for more, subscribe to create unlimited tasks.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What are the pricing plans?</h3>
+                <div class="faq-answer">
+                    <p><strong>SMPLTSK offers three simple, affordable plans (AUD):</strong></p>
+                    <ul>
+                        <li><strong>Monthly Plan:</strong> $7.99 AUD per month - Cancel anytime, no commitment</li>
+                        <li><strong>Annual Plan:</strong> $59.99 AUD per year - Save 38% compared to monthly ($5/month equivalent)</li>
+                        <li><strong>Lifetime Access:</strong> $149.99 AUD one-time payment - Pay once, use forever</li>
+                    </ul>
+                    <div class="tip-box">
+                        <strong>💡 ROI Perspective:</strong>
+                        If SMPLTSK saves you just 2 hours per week (conservative estimate), that's worth $100-200/week in labor costs. At $7.99/month, the app pays for itself in the first day.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I cancel my subscription anytime?</h3>
+                <div class="faq-answer">
+                    <p><strong>Yes - cancel anytime with no penalties or fees.</strong></p>
+                    <p>How to cancel:</p>
+                    <div class="steps">
+                        <ol>
+                            <li>Open SMPLTSK</li>
+                            <li>Tap Gear icon ⚙️ → Settings</li>
+                            <li>Tap Subscription or Manage Subscription</li>
+                            <li>Follow prompts to cancel</li>
+                        </ol>
+                    </div>
+                    <p><strong>Or cancel through your phone:</strong></p>
+                    <ul>
+                        <li><strong>iPhone:</strong> Settings → [Your Name] → Subscriptions → SMPLTSK → Cancel</li>
+                        <li><strong>Android:</strong> Google Play Store → Menu → Subscriptions → SMPLTSK → Cancel</li>
+                    </ul>
+                    <p>Your subscription remains active until the end of your current billing period. Your data stays on your device even after cancellation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What payment methods do you accept?</h3>
+                <div class="faq-answer">
+                    <p><strong>All payments are processed through the App Store (iOS) or Google Play Store (Android).</strong></p>
+                    <p>Accepted methods include:</p>
+                    <ul>
+                        <li>Credit/debit cards</li>
+                        <li>Apple Pay (iOS)</li>
+                        <li>Google Pay (Android)</li>
+                        <li>PayPal (if linked to your account)</li>
+                        <li>Store credit/gift cards</li>
+                    </ul>
+                    <p>SMPLTSK never sees or stores your payment information - it's all handled securely by Apple or Google.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Do you offer business or team pricing?</h3>
+                <div class="faq-answer">
+                    <p><strong>Currently, pricing is per individual user.</strong></p>
+                    <p>However, many businesses buy multiple subscriptions for their team. If you're interested in business/team pricing for 5+ users, contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9feceaefeff0edebdfecf2eff3ebecf4b1fcf0f2">[email&#160;protected]</a> to discuss custom options.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What happens if my subscription expires?</h3>
+                <div class="faq-answer">
+                    <p><strong>Your data stays safe on your device, but you lose access to create new tasks or share tasks until you renew.</strong></p>
+                    <p>When subscription expires:</p>
+                    <ul>
+                        <li><strong>Your existing photos and tasks:</strong> Still viewable in SMPLTSK (read-only)</li>
+                        <li><strong>Your folders/files:</strong> Still accessible</li>
+                        <li><strong>Creating new tasks:</strong> Blocked until renewal</li>
+                        <li><strong>Sharing via SMS:</strong> Blocked until renewal</li>
+                    </ul>
+                    <p>Renew anytime to restore full functionality. Your data remains intact.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Is the Lifetime Access truly "lifetime"?</h3>
+                <div class="faq-answer">
+                    <p><strong>Yes. One payment, use SMPLTSK forever.</strong></p>
+                    <p>Lifetime Access means:</p>
+                    <ul>
+                        <li>No recurring charges ever</li>
+                        <li>All future updates and features included</li>
+                        <li>As long as SMPLTSK exists, you have access</li>
+                    </ul>
+                    <p>Best value for builders and trades who plan to use SMPLTSK long-term. Lifetime Access pays for itself vs. Monthly plan in under 2 years, vs. Annual plan in 2.5 years.</p>
+                </div>
+            </div>
+        </div>
+
     </div>
-</body>
-</html>
+
+    <footer>
+        <p>&copy; 2025 SMPLTSK. All rights reserved.</p

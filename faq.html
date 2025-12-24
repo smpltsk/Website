@@ -138,6 +138,7 @@
             font-weight: 800;
             margin-bottom: 0.75rem;
             color: var(--app-blue);
+            text-align: center;
         }
         
         .section-description {
@@ -145,6 +146,7 @@
             color: var(--text-gray);
             margin-bottom: 2.5rem;
             line-height: 1.7;
+            text-align: center;
         }
         
         .faq-item {
@@ -485,10 +487,9 @@
                         <ol>
                             <li>Open the <strong>SMPLTSK app</strong></li>
                             <li>Tap the <strong>Gear icon ⚙️</strong> (bottom icon of the three dashboard icons)</li>
-                            <li>Tap <strong>Settings</strong></li>
-                            <li>Find the <strong>Permissions</strong> section</li>
+                            <li>Find the <strong>App Permissions</strong> section</li>
                             <li>Make sure <strong>Camera</strong> permission is <strong>enabled/allowed</strong></li>
-                            <li>Continue by tapping the Camera button to take a photo</li>
+                            <li>Continue by tapping the Camera button <strong>ON THE DASHBOARD</strong> to take a photo</li>
                         </ol>
                     </div>
 
@@ -518,7 +519,7 @@
 
                     <div class="info-box">
                         <strong>📌 Still Not Working?</strong>
-                        Try restarting your phone after changing permissions. If the camera still doesn't work, contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4f3c3a3f3f203d3b0f3c223f233b3c24612c2022">[email&#160;protected]</a> with your device model and operating system version.
+                        Try restarting your phone after changing permissions. If the camera still doesn't work, contact support@smpltsk.com with your device model and operating system version.
                     </div>
                 </div>
             </div>
@@ -565,7 +566,7 @@
 
                     <div class="tip-box">
                         <strong>🔒 Privacy Note:</strong>
-                        All your photos and tasks are stored locally on your device. SMPLTSK staff cannot access, view, or read your content. See the Privacy section below for more details.
+                        All your photos and tasks are stored securely in Firebase cloud storage and accessed through your device. SMPLTSK staff cannot access, view, or read your content. See the Privacy section below for more details.
                     </div>
                 </div>
             </div>
@@ -837,21 +838,51 @@
             <div class="faq-item">
                 <h3 class="faq-question">How do I create a task with SMPLTSK?</h3>
                 <div class="faq-answer">
-                    <p><strong>It's a 4-step process that takes less than 60 seconds:</strong></p>
+                    <p><strong>It's a simple 3-phase process that takes less than 60 seconds:</strong></p>
+                    
                     <div class="steps">
+                        <h4>Phase 1: Take Photo & Place Markers</h4>
                         <ol>
-                            <li><strong>Take a photo</strong> of the area where work is needed (or select existing photo from gallery)</li>
-                            <li><strong>Tap on the photo</strong> exactly where you want to place a marker for the first task</li>
-                            <li>A <strong>numbered red marker</strong> (1) appears at that spot</li>
-                            <li><strong>Type a description</strong> for that marker (e.g., "Fix crack in drywall", "Replace outlet", "Paint this wall")</li>
-                            <li><strong>Repeat steps 2-4</strong> for additional tasks on the same photo (markers #2, #3, etc.)</li>
-                            <li>When done adding all markers, tap <strong>Send</strong> or <strong>Share</strong></li>
-                            <li>Select recipients and send via SMS</li>
+                            <li><strong>Take a photo</strong> of the area where work is needed (or select existing photo)</li>
+                            <li><strong>Tap on the photo</strong> to place your first marker - a numbered red marker (1) appears</li>
+                            <li><strong>Tap additional locations</strong> to place more markers (2, 3, 4...) - just tap locations, no descriptions yet</li>
+                            <li>When you've placed all markers, tap the <strong>forward arrow →</strong></li>
                         </ol>
                     </div>
+
+                    <div class="steps">
+                        <h4>Phase 2: Describe Tasks (DESCRIBE Screen)</h4>
+                        <ol>
+                            <li>The <strong>DESCRIBE screen</strong> appears showing all your markers in a list</li>
+                            <li><strong>Tap each marker row</strong> to add a description (e.g., "Fix crack in drywall", "Replace outlet")</li>
+                            <li><strong>Optional features on DESCRIBE screen:</strong>
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li><strong>Folder icon 📁</strong> (top right) - assign to folders/files for organization</li>
+                                    <li><strong>HIDE LIST button</strong> - shows just the image with markers to refresh your memory of placement</li>
+                                    <li><strong>Back arrow ←</strong> - returns to image if you need to add more markers</li>
+                                    <li><strong>ADD IMAGE button</strong> - adds another image to this task batch</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="steps">
+                        <h4>Phase 3: Send or Keep</h4>
+                        <ol>
+                            <li>When descriptions are complete, choose:
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li><strong>ME button</strong> - keep this task for yourself (saved to MINE category)</li>
+                                    <li><strong>Forward arrow → button</strong> - share with others (opens phone's share menu)</li>
+                                </ul>
+                            </li>
+                            <li>If sharing: select SMS, WhatsApp, email, or other messaging app</li>
+                            <li>Choose recipients and send!</li>
+                        </ol>
+                    </div>
+
                     <div class="tip-box">
-                        <strong>💡 Ease of Use:</strong>
-                        The interface is so intuitive that most users create their first complete task within 2 minutes of opening the app for the first time - no manual, no tutorial needed.
+                        <strong>💡 Flexible Workflow:</strong>
+                        Place all your markers first (quick taps while walking the site), then sit down later to add detailed descriptions. Or hide the list to see the image and remember what each marker was for. The workflow adapts to how you work.
                     </div>
                 </div>
             </div>
@@ -1084,13 +1115,13 @@
                             <li><strong>Close and reopen the app:</strong> Swipe up (iPhone) or tap Recent Apps button (Android) and close SMPLTSK, then reopen it</li>
                             <li><strong>Restart your phone:</strong> Power off completely, wait 10 seconds, power back on</li>
                             <li><strong>Check for app updates:</strong> Go to App Store or Google Play, search SMPLTSK, install any available updates</li>
-                            <li><strong>Check phone storage:</strong> SMPLTSK stores photos locally; if your phone storage is full, the app may struggle. Free up space by deleting old photos/videos</li>
-                            <li><strong>Reinstall the app:</strong> Delete SMPLTSK, restart phone, reinstall from App/Play Store (your data is stored locally so it should persist)</li>
+                            <li><strong>Check phone storage:</strong> If your phone storage is full, the app may struggle. Free up space by deleting old photos/videos</li>
+                            <li><strong>Reinstall the app:</strong> Delete SMPLTSK, restart phone, reinstall from App/Play Store. Log back in and your data will be restored from Firebase</li>
                         </ol>
                     </div>
                     <div class="info-box">
                         <strong>📌 Still Having Issues?</strong>
-                        Contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="afdcdadfdfc0dddbefdcc2dfc3dbdcc481ccc0c2">[email&#160;protected]</a> with:
+                        Contact support@smpltsk.com with:
                         <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
                             <li>Your phone model and operating system version</li>
                             <li>When the crash occurs (specific action that triggers it)</li>
@@ -1131,7 +1162,7 @@
                     <p><strong>Check these potential issues:</strong></p>
                     <p><strong>1. SMS/Messaging permission:</strong></p>
                     <ul>
-                        <li>Tap Gear icon ⚙️ → Settings → Permissions</li>
+                        <li>Tap Gear icon ⚙️ → App Permissions</li>
                         <li>Enable SMS or Messaging permission</li>
                     </ul>
                     <p><strong>2. Cellular service:</strong></p>
@@ -1172,7 +1203,7 @@
                     <p><strong>Enable notifications in two places:</strong></p>
                     <p><strong>1. In SMPLTSK:</strong></p>
                     <ul>
-                        <li>Tap Gear icon ⚙️ → Settings → Notifications → Enable</li>
+                        <li>Tap Gear icon ⚙️ → Notifications → Enable</li>
                     </ul>
                     <p><strong>2. In phone settings:</strong></p>
                     <p><strong>iOS:</strong></p>
@@ -1196,14 +1227,14 @@
             <div class="faq-item">
                 <h3 class="faq-question">Where is my data stored? Can SMPLTSK staff see my photos and tasks?</h3>
                 <div class="faq-answer">
-                    <p><strong>All your photos and tasks are stored locally on your device. SMPLTSK staff cannot access, view, or read your content.</strong></p>
+                    <p><strong>Your data is stored securely in Firebase (cloud storage) and accessed through your device. SMPLTSK staff cannot access, view, or read your content.</strong></p>
                     <p>Here's how it works:</p>
                     <ul>
-                        <li><strong>Photos:</strong> Stored on your phone's local storage</li>
-                        <li><strong>Markers and descriptions:</strong> Stored on your device</li>
-                        <li><strong>Task data:</strong> All local - your device only</li>
+                        <li><strong>Photos:</strong> Stored in Firebase cloud storage for reliability and backup</li>
+                        <li><strong>Markers and descriptions:</strong> Stored in your Firebase account</li>
+                        <li><strong>Task data:</strong> Securely stored and accessed only through your device</li>
                     </ul>
-                    <p>Think of it like a filing cabinet in your office - your data lives on your device, under your physical control.</p>
+                    <p>Firebase is Google's secure cloud platform. Your data is encrypted and protected by Firebase's security rules, which prevent SMPLTSK staff from accessing your content.</p>
                     <div class="tip-box">
                         <strong>🔒 Privacy Guarantee:</strong>
                         SMPLTSK does not access, view, read, monitor, or analyze your photos, tasks, messages, or any content you create. Your work stays private.
@@ -1214,47 +1245,50 @@
             <div class="faq-item">
                 <h3 class="faq-question">What happens to my data if I delete the app?</h3>
                 <div class="faq-answer">
-                    <p><strong>Your data is stored locally, so deleting the app typically deletes your data.</strong></p>
-                    <p><strong>Before deleting SMPLTSK:</strong></p>
+                    <p><strong>Your data remains in Firebase cloud storage even if you delete the app.</strong></p>
+                    <p><strong>What happens when you delete SMPLTSK:</strong></p>
                     <ul>
-                        <li>Export or save any important photos to your photo gallery</li>
-                        <li>Screenshot or copy any critical task descriptions</li>
-                        <li>Note that your phone's automatic backup (iCloud/Google Drive) may have backed up SMPLTSK data</li>
+                        <li>The app is removed from your device</li>
+                        <li>Your data stays in Firebase (cloud storage)</li>
+                        <li>You lose access to the app interface</li>
                     </ul>
                     <p><strong>Reinstalling:</strong></p>
                     <ul>
-                        <li>If your phone backs up app data, reinstalling SMPLTSK may restore your tasks</li>
-                        <li>This depends on your phone's backup settings</li>
+                        <li>Reinstall SMPLTSK from the App Store or Google Play</li>
+                        <li>Log in with your account</li>
+                        <li>Your tasks, photos, and folders will be restored</li>
                     </ul>
+                    <p><strong>To permanently delete your data:</strong> Contact support@smpltsk.com to request account and data deletion.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <h3 class="faq-question">Can I export my data or tasks?</h3>
                 <div class="faq-answer">
-                    <p><strong>You already have your data - it's all on your device.</strong></p>
-                    <p>Since everything is stored locally:</p>
+                    <p><strong>You can access all your data through the SMPLTSK app anytime.</strong></p>
+                    <p>Your data in Firebase cloud storage:</p>
                     <ul>
-                        <li><strong>Photos:</strong> Already accessible through SMPLTSK app anytime</li>
+                        <li><strong>Photos:</strong> Accessible through SMPLTSK app anytime</li>
                         <li><strong>Individual tasks:</strong> Share or export as needed using the Share button</li>
-                        <li><strong>Device backup:</strong> Your phone's backup system (iCloud for iPhone, Google Drive for Android) automatically includes SMPLTSK data</li>
+                        <li><strong>Backup:</strong> Your data persists in Firebase, so it's automatically backed up</li>
                     </ul>
-                    <p>There's no hidden data that SMPLTSK holds separately. Everything you create is under your direct control on your device.</p>
+                    <p>If you need to permanently export data before closing your account, contact support@smpltsk.com.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <h3 class="faq-question">Is my data secure?</h3>
                 <div class="faq-answer">
-                    <p><strong>Yes - because it never leaves your device unless you choose to share it.</strong></p>
+                    <p><strong>Yes - your data is protected by Firebase's enterprise-grade security and access controls.</strong></p>
                     <p>Security features:</p>
                     <ul>
-                        <li><strong>Local storage:</strong> Data stays on your device, protected by your phone's security (passcode, Face ID, fingerprint)</li>
-                        <li><strong>No cloud storage:</strong> We don't upload your photos to our servers</li>
-                        <li><strong>Controlled sharing:</strong> You decide who receives tasks via SMS</li>
-                        <li><strong>Encrypted transmission:</strong> When you share via SMS, the link uses secure connections</li>
+                        <li><strong>Firebase security rules:</strong> Prevent unauthorized access, including by SMPLTSK staff</li>
+                        <li><strong>Encrypted storage:</strong> Your data is encrypted in Firebase cloud storage</li>
+                        <li><strong>Controlled sharing:</strong> You decide who receives tasks via SMS/WhatsApp/email</li>
+                        <li><strong>Secure transmission:</strong> All data transfers use encrypted connections (HTTPS)</li>
+                        <li><strong>Account protection:</strong> Your data is tied to your account login credentials</li>
                     </ul>
-                    <p>Your phone's security is your data's security. Keep your phone locked and backed up.</p>
+                    <p>Firebase is Google's trusted cloud platform used by millions of apps. Your data is protected by industry-standard security measures.</p>
                 </div>
             </div>
 
@@ -1325,7 +1359,7 @@
                     <div class="steps">
                         <ol>
                             <li>Open SMPLTSK</li>
-                            <li>Tap Gear icon ⚙️ → Settings</li>
+                            <li>Tap Gear icon ⚙️</li>
                             <li>Tap Subscription or Manage Subscription</li>
                             <li>Follow prompts to cancel</li>
                         </ol>
@@ -1359,14 +1393,14 @@
                 <h3 class="faq-question">Do you offer business or team pricing?</h3>
                 <div class="faq-answer">
                     <p><strong>Currently, pricing is per individual user.</strong></p>
-                    <p>However, many businesses buy multiple subscriptions for their team. If you're interested in business/team pricing for 5+ users, contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9feceaefeff0edebdfecf2eff3ebecf4b1fcf0f2">[email&#160;protected]</a> to discuss custom options.</p>
+                    <p>However, many businesses buy multiple subscriptions for their team. If you're interested in business/team pricing for 5+ users, contact us at support@smpltsk.com to discuss custom options.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <h3 class="faq-question">What happens if my subscription expires?</h3>
                 <div class="faq-answer">
-                    <p><strong>Your data stays safe on your device, but you lose access to create new tasks or share tasks until you renew.</strong></p>
+                    <p><strong>Your data stays safe in Firebase, but you lose access to create new tasks or share tasks until you renew.</strong></p>
                     <p>When subscription expires:</p>
                     <ul>
                         <li><strong>Your existing photos and tasks:</strong> Still viewable in SMPLTSK (read-only)</li>
@@ -1386,14 +1420,4 @@
                     <ul>
                         <li>No recurring charges ever</li>
                         <li>All future updates and features included</li>
-                        <li>As long as SMPLTSK exists, you have access</li>
-                    </ul>
-                    <p>Best value for builders and trades who plan to use SMPLTSK long-term. Lifetime Access pays for itself vs. Monthly plan in under 2 years, vs. Annual plan in 2.5 years.</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2025 SMPLTSK. All rights reserved.</p
+                        <li>As long as SMPLTSK exists, you have acce

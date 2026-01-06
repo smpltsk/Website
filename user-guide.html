@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Guide - SMPLTSK</title>
+    <meta name="description" content="Complete guide to using SMPLTSK - Visual Task Management for Construction">
+    <link rel="canonical" href="https://smpltsk.com/user-guide.html" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
         * {
             margin: 0;
@@ -13,230 +15,1538 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --app-blue: #3B5FE5;
+            --app-red: #EE4B4B;
+            --app-green: #4FD14A;
+            --white: #ffffff;
+            --light-bg: #fafbfc;
+            --text-dark: #0f172a;
+            --text-gray: #475569;
+        }
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light-bg);
+            color: var(--text-dark);
             line-height: 1.6;
-            color: #0f172a;
-            background: #fafbfc;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        nav {
+            background: white;
+            border-bottom: 1px solid rgba(59, 95, 229, 0.1);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--app-blue);
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
         
-        header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
         h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #0f172a;
+            font-size: 3.5rem;
+            font-weight: 900;
             margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.1;
+            text-align: center;
         }
         
         .subtitle {
             font-size: 1.25rem;
-            color: #475569;
-        }
-        
-        .content {
-            background: white;
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-        }
-        
-        h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin: 3rem 0 1.5rem 0;
-            padding-top: 2rem;
-            border-top: 2px solid #f1f5f9;
-        }
-        
-        h2:first-child {
-            margin-top: 0;
-            padding-top: 0;
-            border-top: none;
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #0f172a;
-            margin: 2rem 0 1rem 0;
-        }
-        
-        p {
-            font-size: 1.125rem;
-            line-height: 1.8;
-            color: #475569;
-            margin-bottom: 1.5rem;
-        }
-        
-        .step {
-            background: #f8fafc;
-            border-left: 4px solid #3B5FE5;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-        }
-        
-        .step-number {
-            display: inline-block;
-            background: #3B5FE5;
-            color: white;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
             text-align: center;
-            line-height: 32px;
-            font-weight: 700;
-            margin-right: 0.75rem;
         }
         
-        .tip {
-            background: #f0fdf4;
-            border-left: 4px solid #4FD14A;
-            padding: 1.5rem;
-            margin: 2rem 0;
+        .guide-nav {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        
+        .guide-nav h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+            color: var(--app-blue);
+        }
+        
+        .guide-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.75rem;
+        }
+        
+        .guide-nav-link {
+            padding: 1rem 1.25rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .guide-nav-link:hover {
+            background: var(--app-blue);
+            color: white;
+            transform: translateX(4px);
+        }
+        
+        .section {
+            margin-bottom: 5rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 0.75rem;
+            color: var(--app-blue);
+            text-align: center;
+        }
+        
+        .section-intro {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .content-block {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        
+        .content-block h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .content-block h4 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            margin-top: 2rem;
+            color: var(--text-dark);
+        }
+        
+        .content-block p {
+            color: var(--text-gray);
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+        
+        .content-block ul,
+        .content-block ol {
+            margin: 1.25rem 0 1.25rem 1.5rem;
+        }
+        
+        .content-block li {
+            color: var(--text-gray);
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+        
+        .content-block strong {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        
+        .steps {
+            background: var(--light-bg);
+            border-left: 4px solid var(--app-blue);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .steps h4 {
+            color: var(--app-blue);
+            margin-top: 0;
+            margin-bottom: 1.25rem;
+        }
+        
+        .steps ol {
+            margin-left: 1.75rem;
+        }
+        
+        .steps li {
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+        }
+        
+        .steps li strong {
+            color: var(--text-dark);
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, rgba(79, 209, 74, 0.06) 0%, rgba(59, 95, 229, 0.06) 100%);
+            border-left: 4px solid var(--app-green);
+            padding: 1.75rem;
+            margin: 1.75rem 0;
             border-radius: 8px;
         }
         
-        .tip strong {
-            color: #166534;
+        .tip-box strong {
+            color: var(--app-green);
             display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        ul {
-            margin-left: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        li {
             margin-bottom: 0.75rem;
             font-size: 1.125rem;
-            color: #475569;
         }
         
-        .back-link {
-            display: inline-block;
-            margin-top: 3rem;
-            color: #3B5FE5;
-            text-decoration: none;
-            font-weight: 600;
+        .warning-box {
+            background: rgba(238, 75, 75, 0.06);
+            border-left: 4px solid var(--app-red);
+            padding: 1.75rem;
+            margin: 1.75rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box strong {
+            color: var(--app-red);
+            display: block;
+            margin-bottom: 0.75rem;
             font-size: 1.125rem;
         }
         
-        .back-link:hover {
+        .info-box {
+            background: rgba(59, 95, 229, 0.06);
+            border-left: 4px solid var(--app-blue);
+            padding: 1.75rem;
+            margin: 1.75rem 0;
+            border-radius: 8px;
+        }
+        
+        .info-box strong {
+            color: var(--app-blue);
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+        }
+        
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .workflow-step {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .workflow-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+        
+        .workflow-number {
+            width: 60px;
+            height: 60px;
+            background: var(--app-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 900;
+            margin: 0 auto 1.25rem;
+        }
+        
+        .workflow-step.red .workflow-number {
+            background: var(--app-red);
+        }
+        
+        .workflow-step.green .workflow-number {
+            background: var(--app-green);
+        }
+        
+        .workflow-step h4 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+        
+        .scenario {
+            background: white;
+            border: 2px solid rgba(59, 95, 229, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .scenario:hover {
+            border-color: var(--app-blue);
+            box-shadow: 0 8px 24px rgba(59, 95, 229, 0.12);
+        }
+        
+        .scenario-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--app-blue);
+        }
+        
+        .scenario-problem {
+            background: rgba(238, 75, 75, 0.08);
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .scenario-problem strong {
+            color: var(--app-red);
+        }
+        
+        .scenario-solution {
+            background: rgba(79, 209, 74, 0.08);
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+        
+        .scenario-solution strong {
+            color: var(--app-green);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--app-blue) 0%, #2a4bc7 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+        
+        footer a:hover {
+            opacity: 0.8;
             text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .workflow-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-block {
+                padding: 2rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .guide-nav-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>User Guide</h1>
-            <p class="subtitle">Everything you need to know to use SMPLTSK effectively</p>
-        </header>
-        
-        <div class="content">
-            <h2>Getting Started</h2>
-            
-            <h3>Installation</h3>
-            <p>Download SMPLTSK from the App Store (iOS) or Google Play (Android). Create your account using your email address.</p>
-            
-            <p><strong>Free Version:</strong> SMPLTSK is free to use with a limit of 6 tasks on 1 image. If you need more tasks or multiple images, you'll be prompted to subscribe through the App Store or Google Play Store.</p>
-            
-            <h2>Creating Your First Task</h2>
-            
-            <div class="step">
-                <p><span class="step-number">1</span><strong>Take a Photo</strong></p>
-                <p>Open SMPLTSK and tap the camera button. Take a photo of the area where work needs to be done. You can also select an existing photo from your gallery.</p>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="70" height="70" rx="14" ry="14" fill="#3B5FE5"/>
+                    <circle cx="35" cy="35" r="29.75" fill="#EE4B4B"/>
+                    <circle cx="35" cy="35" r="22.75" fill="#4FD14A"/>
+                    <text x="35" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="45" font-weight="bold" fill="#3B5FE5" dominant-baseline="middle">S</text>
+                </svg>
+                <span>SMPLTSK</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="faq.html">FAQ</a>
+                <a href="support.html">Support</a>
             </div>
-            
-            <div class="step">
-                <p><span class="step-number">2</span><strong>Mark It</strong></p>
-                <p>Tap on the photo where the specific task needs attention. A red marker appears. You can add multiple markers to one photo if needed—each marker can have its own task description.</p>
-            </div>
-            
-            <div class="step">
-                <p><span class="step-number">3</span><strong>Describe It</strong></p>
-                <p>Tap a marker to add a description. Keep it clear and specific: "Replace this cracked tile" or "Touch up paint on this corner."</p>
-            </div>
-            
-            <div class="step">
-                <p><span class="step-number">4</span><strong>Send It</strong></p>
-                <p>Add contacts to SMPLTSK by manually entering them or importing from your phone's contact list. Send your task batch to any contact. If they don't have the app, they'll receive a message with a link to view tasks in their web browser.</p>
-            </div>
-            
-            
-            <h2>Managing Tasks</h2>
-            
-            <h3>Marking Tasks Complete</h3>
-            <p>When a task is finished, tap the red marker and change it to green. This provides visual confirmation that work is done. Your team and clients can see progress at a glance.</p>
-            
-            <h3>Organizing with Folders</h3>
-            <p>SMPLTSK organizes your task batches into folders:</p>
-            <ul>
-                <li><strong>Sent:</strong> Task batches you've sent to others</li>
-                <li><strong>Received:</strong> Task batches others have sent to you</li>
-                <li><strong>Mine:</strong> Task batches you've created for yourself</li>
-                <li><strong>Drafts:</strong> Unfinished task batches you haven't sent yet</li>
-            </ul>
-            <p>Navigate between folders to find and manage your tasks efficiently.</p>
-            
-            <h3>Editing Tasks</h3>
-            <p>Before sending a task, you can edit descriptions, move markers, or make any changes. However, once a task is sent, it cannot be edited. The only change that can be made is marking it complete (red to green).</p>
-            <p>If you need to communicate additional information, use the in-app messaging feature to discuss details with the recipient.</p>
-            
-            <h3>In-App Messaging</h3>
-            <p>SMPLTSK includes a built-in messaging system. Tap any task to send comments or questions to the recipient. All communication stays within the app for speed and convenience—no need to switch between SMS, email, or other apps.</p>
-            
-            <h2>Best Practices</h2>
-            
-            <h3>Clear Photos</h3>
-            <p>Take photos in good lighting. Get close enough to show context but not so close that the location becomes unclear. Think: "Will someone else immediately understand where this is?"</p>
-            
-            <h3>Specific Descriptions</h3>
-            <p>Instead of "Fix window," try "Replace cracked pane—bottom left window." The marker shows WHERE, the description explains WHAT.</p>
-            
-            <h3>One Task, One Focus</h3>
-            <p>If you have multiple issues in different areas, create separate photos. This makes it easier to track completion and prevents confusion.</p>
-            
-            <h3>Regular Updates</h3>
-            <p>Encourage workers to mark tasks green as soon as they're complete. This keeps everyone informed and reduces follow-up calls.</p>
-            
-            <div class="tip">
-                <strong>💡 Pro Tip:</strong>
-                <p>Use SMPLTSK for defects lists at the end of projects. Walk through with clients, photograph and mark issues as you go. Instant punch list that everyone can see and track.</p>
-            </div>
-            
-            <h2>Troubleshooting</h2>
-            
-            <h3>Can't see markers clearly?</h3>
-            <p>Zoom in on the photo. Pinch to zoom shows more detail around each marker.</p>
-            
-            <h3>Tasks not sending?</h3>
-            <p>Check your internet connection. SMPLTSK needs connectivity to share tasks. Once shared, recipients can view offline.</p>
-            
-            <h3>Need to delete something?</h3>
-            <p><strong>Delete a marker:</strong> Press and hold the marker on screen, then follow the delete prompt.</p>
-            <p><strong>Delete an image from a task batch:</strong> If your task batch has multiple images, press and hold the selected image from the list of images at the top of the screen, then follow the delete prompt.</p>
-            <p><strong>Delete entire task batches:</strong> Navigate to any of your folders (Sent, Received, Mine, or Drafts), press and hold the task batch you want to delete, and follow the delete prompt. This permanently removes the task batch.</p>
-            
-            <h2>Need More Help?</h2>
-            
-            <p>Contact us at <a href="mailto:support@smpltsk.com" style="color: #3B5FE5; text-decoration: none; font-weight: 600;">support@smpltsk.com</a> and we'll respond within 24 hours.</p>
-            
-            <a href="index.html" class="back-link">← Back to Home</a>
         </div>
+    </nav>
+
+    <div class="container">
+        <h1>SMPLTSK User Guide</h1>
+        <p class="subtitle">Master visual task management for construction - from first task to power user</p>
+
+        <!-- Quick Navigation -->
+        <div class="guide-nav">
+            <h3>📖 Jump to Section</h3>
+            <div class="guide-nav-grid">
+                <a href="#quick-start" class="guide-nav-link">Quick Start (5 Minutes)</a>
+                <a href="#first-task" class="guide-nav-link">Your First Task</a>
+                <a href="#folders" class="guide-nav-link">Folders & Organization</a>
+                <a href="#sharing" class="guide-nav-link">Sharing & Collaboration</a>
+                <a href="#advanced" class="guide-nav-link">Advanced Features</a>
+                <a href="#best-practices" class="guide-nav-link">Best Practices</a>
+                <a href="#scenarios" class="guide-nav-link">Common Scenarios</a>
+                <a href="#pro-tips" class="guide-nav-link">Pro Tips</a>
+            </div>
+        </div>
+
+        <!-- QUICK START -->
+        <section class="section" id="quick-start">
+            <h2 class="section-title">🚀 Quick Start Guide</h2>
+            <p class="section-intro">Get your first task created and sent in 5 minutes or less</p>
+
+            <div class="content-block">
+                <h3>The SMPLTSK Workflow</h3>
+                
+                <div class="workflow-grid">
+                    <div class="workflow-step red">
+                        <div class="workflow-number">1</div>
+                        <h4>See It</h4>
+                        <p>Take a photo of the job site or problem area</p>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="workflow-number">2</div>
+                        <h4>Mark It</h4>
+                        <p>Tap to place numbered markers where work is needed</p>
+                    </div>
+                    <div class="workflow-step green">
+                        <div class="workflow-number">3</div>
+                        <h4>Send It</h4>
+                        <p>Share via SMS, WhatsApp, or email</p>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 That's It!</strong>
+                    No complex project management software, no lengthy written instructions, no phone calls to explain what needs doing. Just visual communication that workers actually understand.
+                </div>
+
+                <h4>Your First 5 Minutes</h4>
+                
+                <div class="steps">
+                    <h4>Step 1: Open SMPLTSK (30 seconds)</h4>
+                    <ol>
+                        <li>Launch the SMPLTSK app on your phone</li>
+                        <li>If this is your first time, you may need to allow camera permission</li>
+                        <li>Tap the <strong>Camera button ON THE DASHBOARD</strong></li>
+                    </ol>
+                </div>
+
+                <div class="steps">
+                    <h4>Step 2: Take a Photo (10 seconds)</h4>
+                    <ol>
+                        <li>Point your camera at the work area</li>
+                        <li>Tap the shutter button</li>
+                        <li>The photo appears on screen, ready for marking</li>
+                    </ol>
+                </div>
+
+                <div class="steps">
+                    <h4>Step 3: Place All Markers (1 minute)</h4>
+                    <ol>
+                        <li><strong>Tap once</strong> on the photo where the first task is located</li>
+                        <li>A <strong>red marker with number "1"</strong> appears</li>
+                        <li><strong>Keep tapping</strong> on other task locations - markers 2, 3, 4, etc. appear</li>
+                        <li>Place ALL markers first - <strong>no descriptions yet</strong></li>
+                        <li>When all markers are placed, tap the <strong>forward arrow →</strong></li>
+                    </ol>
+                </div>
+
+                <div class="steps">
+                    <h4>Step 4: Describe Tasks (1-2 minutes)</h4>
+                    <ol>
+                        <li>The <strong>DESCRIBE screen</strong> appears with a list of all your markers</li>
+                        <li><strong>Tap each marker row</strong> to add a description</li>
+                        <li>Type descriptions like "Fix crack in drywall" or "Replace outlet"</li>
+                        <li><strong>Optional DESCRIBE screen features:</strong>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li><strong>Folder icon 📁</strong> (top right) - organize into folders/files</li>
+                                <li><strong>HIDE LIST</strong> button - shows image with markers (refresh your memory)</li>
+                                <li><strong>Back arrow ←</strong> - return to image to add more markers</li>
+                                <li><strong>ADD IMAGE</strong> button - add another image to this batch</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="steps">
+                    <h4>Step 5: Send or Keep (30 seconds)</h4>
+                    <ol>
+                        <li>When descriptions are complete, choose:
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li><strong>ME</strong> button - keep for yourself (saved to MINE category)</li>
+                                <li><strong>Forward arrow →</strong> button - share with team</li>
+                            </ul>
+                        </li>
+                        <li>If sharing: choose SMS, WhatsApp, email, or other app</li>
+                        <li>Select recipient(s) and send!</li>
+                    </ol>
+                </div>
+
+                <div class="steps">
+                    <h4>Step 6: Track Progress (Ongoing)</h4>
+                    <ol>
+                        <li>Recipients tap the link you sent</li>
+                        <li>They see the photo with all markers</li>
+                        <li>As they complete each task, they tap the marker</li>
+                        <li>Marker turns from <strong>red → green</strong></li>
+                        <li>You get a notification (if enabled)</li>
+                        <li>Open SMPLTSK to see green markers = done!</li>
+                    </ol>
+                </div>
+
+                <div class="info-box">
+                    <strong>📱 Recipients Don't Need the App</strong>
+                    The person receiving your task taps the SMS/WhatsApp/email link and sees everything in their mobile browser. No app download, no login, zero friction.
+                </div>
+            </div>
+        </section>
+
+        <!-- FIRST TASK DETAILED -->
+        <section class="section" id="first-task">
+            <h2 class="section-title">✅ Creating Your First Task (Detailed)</h2>
+            <p class="section-intro">A complete walkthrough with tips for best results</p>
+
+            <div class="content-block">
+                <h3>Before You Start</h3>
+                <p><strong>Make sure you have camera permission enabled:</strong></p>
+                <ul>
+                    <li>Tap the Gear icon ⚙️ (bottom icon of the three dashboard icons)</li>
+                    <li>Find <strong>App Permissions</strong></li>
+                    <li>Make sure <strong>Camera</strong> is enabled</li>
+                </ul>
+
+                <div class="tip-box">
+                    <strong>💡 Optional but Helpful:</strong>
+                    Enable Location (for geotagging), Microphone (for voice-to-text descriptions), and Notifications (to know when tasks are completed).
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Taking the Perfect Task Photo</h3>
+                
+                <h4>Photo Tips for Clear Communication</h4>
+                <ul>
+                    <li><strong>Get close enough:</strong> Workers should be able to see details when zooming</li>
+                    <li><strong>Good lighting:</strong> Take photos in daylight or with adequate site lighting</li>
+                    <li><strong>Stable shot:</strong> Hold phone steady for sharp, clear images</li>
+                    <li><strong>Show context:</strong> Include enough surrounding area so workers know where to find the task</li>
+                    <li><strong>Multiple angles:</strong> For complex areas, take several photos from different angles</li>
+                </ul>
+
+                <div class="warning-box">
+                    <strong>⚠️ Avoid These Common Mistakes:</strong>
+                    <ul style="margin-top: 0.75rem;">
+                        <li>Photos too dark to see details</li>
+                        <li>Too far away - workers can't tell what needs fixing</li>
+                        <li>Blurry from camera shake</li>
+                        <li>Missing context - task location unclear</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Placing Markers & Adding Descriptions</h3>
+                
+                <p><strong>SMPLTSK uses a two-phase workflow that keeps you focused:</strong></p>
+                
+                <h4>Phase 1: Place All Markers First</h4>
+                <p>Walk the site and quickly tap locations where work is needed. Don't stop to write descriptions - just tap, tap, tap to mark everything.</p>
+                <ul>
+                    <li><strong>Tap exactly on the problem:</strong> Place marker directly on the crack, outlet, wall, or area that needs work</li>
+                    <li><strong>One marker per task:</strong> "Fix crack" = 1 marker. Don't use multiple markers for the same task</li>
+                    <li><strong>Spread them out:</strong> If markers overlap, workers can't tap them - space them apart</li>
+                    <li><strong>Number order matters:</strong> Markers are numbered in the order you place them (1, 2, 3...)</li>
+                    <li><strong>Place them all:</strong> Mark every task before moving to descriptions</li>
+                </ul>
+                
+                <p>When you've placed all markers, tap the <strong>forward arrow →</strong> to go to the DESCRIBE screen.</p>
+
+                <h4>Phase 2: Describe on the DESCRIBE Screen</h4>
+                <p>Now you'll see all your markers in a list. Tap each one to add descriptions.</p>
+                <ul>
+                    <li><strong>Be specific:</strong> "Replace 3-gang power outlet - current one is loose" not just "Fix outlet"</li>
+                    <li><strong>Include materials:</strong> "Paint this wall - use Dulux Antique White USA"</li>
+                    <li><strong>Add deadlines if needed:</strong> "Fix by Friday COB - client visiting Saturday"</li>
+                    <li><strong>Note safety concerns:</strong> "Asbestos present - call licensed removalist before touching"</li>
+                    <li><strong>Use voice-to-text:</strong> If Microphone permission is enabled, tap the mic icon and speak your description</li>
+                </ul>
+
+                <h4>DESCRIBE Screen Features</h4>
+                <ul>
+                    <li><strong>Folder icon 📁</strong> (top right) - Organize this image into folders/files</li>
+                    <li><strong>HIDE LIST button</strong> - Shows just the image with markers so you can see where they are</li>
+                    <li><strong>Back arrow ←</strong> - Return to the image to add more markers if needed</li>
+                    <li><strong>ADD IMAGE button</strong> - Add another image to this task batch</li>
+                </ul>
+
+                <div class="tip-box">
+                    <strong>💡 Why This Workflow Works:</strong>
+                    Separating placement from description lets you work at different speeds. Quick taps while walking the site, then sit down later (maybe in the truck, maybe at the office) to add detailed descriptions. Your markers remember where everything is.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Organizing Your Task</h3>
+                
+                <p>On the DESCRIBE screen, tap the <strong>folder icon 📁</strong> (top right) to organize this image:</p>
+                
+                <div class="steps">
+                    <ol>
+                        <li>Tap the folder icon 📁</li>
+                        <li>The "Select Folders" screen appears</li>
+                        <li>Tap an existing Folder/File OR tap <strong>Create</strong> to make a new one</li>
+                        <li>Selected item gets a checkmark ✓</li>
+                        <li>Tap <strong>Apply</strong></li>
+                        <li>You're back on the DESCRIBE screen</li>
+                    </ol>
+                </div>
+
+                <p>Example: Assign to Folder "Main Street Renovation" → File "Electrical" so you can find all electrical tasks for that job instantly.</p>
+
+                <div class="info-box">
+                    <strong>📁 Organization is Your Competitive Advantage</strong>
+                    This is where SMPLTSK saves you massive time. See the Folders & Organization section below for full details.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Finishing Up: Send or Keep</h3>
+                
+                <p>Once you've added descriptions to all markers, choose what to do with this task batch:</p>
+                
+                <div class="steps">
+                    <h4>Option 1: Keep for Yourself (ME Button)</h4>
+                    <ol>
+                        <li>Tap the green <strong>ME</strong> button at the bottom of the DESCRIBE screen</li>
+                        <li>Task is saved to your <strong>MINE</strong> category</li>
+                        <li>Use for personal checklists, reminders, or tasks you'll complete yourself</li>
+                    </ol>
+                </div>
+
+                <div class="steps">
+                    <h4>Option 2: Share with Team (Forward Arrow Button)</h4>
+                    <ol>
+                        <li>Tap the green <strong>forward arrow →</strong> button at the bottom</li>
+                        <li>Your phone's native share menu appears with options:
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Messages (SMS)</li>
+                                <li>WhatsApp</li>
+                                <li>Email</li>
+                                <li>Other installed messaging apps</li>
+                            </ul>
+                        </li>
+                        <li>Choose your preferred method</li>
+                        <li>Select one or multiple recipients</li>
+                        <li>Add a personal message if you want (optional)</li>
+                        <li>Send!</li>
+                        <li>Task is automatically saved to your <strong>SENT</strong> category</li>
+                    </ol>
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 Multiple Recipients:</strong>
+                    Sending to electrician, plumber, and site supervisor? Select all three. Everyone gets the same link and can see real-time progress as tasks are completed.
+                </div>
+
+                <h4>What Recipients See</h4>
+                <ul>
+                    <li>They receive a message with a link</li>
+                    <li>Tap the link → opens in their mobile browser (no app needed)</li>
+                    <li>They see the photo with all numbered markers</li>
+                    <li>Tap any marker to read the task description</li>
+                    <li>Tap marker again to mark it complete (turns green)</li>
+                    <li>Optionally add a comment: "Used copper instead of PVC" or "Need more materials"</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Tracking Completion</h3>
+                
+                <p><strong>Automatic Updates:</strong></p>
+                <ul>
+                    <li>When a worker marks a task complete, you get a <strong>notification</strong> (if enabled)</li>
+                    <li>Open SMPLTSK and navigate to the task</li>
+                    <li>Green markers = completed tasks</li>
+                    <li>Read any comments workers added</li>
+                    <li>No need to call or text for status updates - it's all visual</li>
+                </ul>
+
+                <p><strong>Where to Find Sent Tasks:</strong></p>
+                <ul>
+                    <li>Open SMPLTSK</li>
+                    <li>Tap <strong>FILES</strong> on the dashboard</li>
+                    <li>Your tasks are organized into categories:
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>SENT:</strong> Tasks you've sent to others</li>
+                            <li><strong>RECEIVED:</strong> Tasks others have sent to you</li>
+                            <li><strong>MINE:</strong> Tasks you created for yourself</li>
+                            <li><strong>DRAFTS:</strong> Unfinished tasks not yet sent</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="info-box">
+                    <strong>📊 Visual Progress Tracking:</strong>
+                    At a glance: Red = pending, Green = done. No spreadsheets, no status meetings, no "checking in" phone calls. The photo tells you everything.
+                </div>
+            </div>
+        </section>
+
+        <!-- FOLDERS & ORGANIZATION -->
+        <section class="section" id="folders">
+            <h2 class="section-title">📁 Mastering Folders & Organization</h2>
+            <p class="section-intro">Your competitive advantage - find any job photo instantly instead of scrolling through hundreds</p>
+
+            <div class="content-block">
+                <h3>Why Folders Matter</h3>
+                
+                <p><strong>The Problem:</strong> You've taken 500+ photos on your phone. Now you need "that plumbing photo from the Main Street job." You scroll... and scroll... and scroll. Family photos, screenshots, other jobs... where IS that photo?</p>
+
+                <p><strong>Time wasted:</strong> 1-3 minutes every single time you search. Multiply by 10 searches per day = 10-30 minutes daily just hunting for photos.</p>
+
+                <p><strong>The SMPLTSK Solution:</strong> Hierarchical folder organization.</p>
+
+                <div class="steps">
+                    <h4>Finding Photos With Folders (5-10 seconds)</h4>
+                    <ol>
+                        <li>Open SMPLTSK</li>
+                        <li>Tap <strong>Folders</strong></li>
+                        <li>Tap "Main Street Renovation" folder</li>
+                        <li>Tap "Plumbing" file</li>
+                        <li>All plumbing photos for that job appear</li>
+                    </ol>
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 Time Saver:</strong>
+                    Even saving 1-2 minutes per search adds up. 10 searches × 2 minutes = 20 minutes saved daily. That's real money and mental energy back in your pocket.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Understanding the Folder/File System</h3>
+                
+                <p><strong>Two-Level Hierarchy:</strong></p>
+                <ul>
+                    <li><strong>FOLDERS</strong> (📁) = Projects, properties, or main categories</li>
+                    <li><strong>FILES</strong> (📄) = Specific trades, areas, or task types within a project</li>
+                </ul>
+
+                <p><strong>Example Structure:</strong></p>
+                <div class="info-box">
+                    <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                        <li>📁 <strong>Main Street Renovation</strong> (Folder)
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>📄 Electrical</li>
+                                <li>📄 Plumbing</li>
+                                <li>📄 Defects List</li>
+                                <li>📄 Client Requests</li>
+                            </ul>
+                        </li>
+                        <li>📁 <strong>Beach House Project</strong> (Folder)
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>📄 Kitchen</li>
+                                <li>📄 Bathrooms</li>
+                                <li>📄 Exterior</li>
+                            </ul>
+                        </li>
+                        <li>📄 <strong>Smith Residence</strong> (File at root level - for simple jobs)</li>
+                        <li>📄 <strong>Emergency Repairs</strong> (File at root level)</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ Keep It Simple:</strong>
+                    SMPLTSK uses a two-level system (Folders → Files). Don't overthink it. Most jobs need 1 folder with 3-8 files under it.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Creating Your Folder Structure</h3>
+                
+                <h4>Method 1: By Project/Property (Most Common)</h4>
+                <p>Best for builders managing multiple jobs simultaneously.</p>
+                <div class="info-box">
+                    <strong>Example:</strong>
+                    <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                        <li>📁 Unit 14 Apartment → Files: Kitchen, Bathrooms, Living Area, Defects</li>
+                        <li>📁 Office Extension → Files: Electrical, Plumbing, HVAC, Finishes</li>
+                        <li>📁 Warehouse Fit-out → Files: By Zone (Zone A, Zone B, Zone C)</li>
+                    </ul>
+                </div>
+
+                <h4>Method 2: By Trade (For Specialists)</h4>
+                <p>Best for electricians, plumbers, or other trades working across multiple sites.</p>
+                <div class="info-box">
+                    <strong>Example (Electrician):</strong>
+                    <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                        <li>📁 Active Electrical Jobs → Files: Site A, Site B, Site C</li>
+                        <li>📁 Emergency Callouts → Files: December, January, February</li>
+                        <li>📁 Maintenance Contracts → Files: Client X, Client Y, Client Z</li>
+                    </ul>
+                </div>
+
+                <h4>Method 3: Hybrid Approach</h4>
+                <p>Combine project and trade for complex jobs.</p>
+                <div class="info-box">
+                    <strong>Example:</strong>
+                    <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                        <li>📁 Hospital Expansion → Files: Electrical - East Wing, Electrical - West Wing, Plumbing - All, HVAC - All</li>
+                    </ul>
+                </div>
+
+                <div class="steps">
+                    <h4>Creating a New Folder</h4>
+                    <ol>
+                        <li>Navigate to the Folders screen in SMPLTSK</li>
+                        <li>Tap the <strong>+ (Plus) button</strong> or <strong>Create</strong> button</li>
+                        <li>Select <strong>Create Folder</strong></li>
+                        <li>Name it (keep it short: "Main St" not "Property at Main Street Renovation Project")</li>
+                        <li>Tap <strong>Save</strong></li>
+                    </ol>
+                </div>
+
+                <div class="steps">
+                    <h4>Creating Files Within a Folder</h4>
+                    <ol>
+                        <li>Open the Folder you just created</li>
+                        <li>Tap the <strong>+ (Plus) button</strong> or <strong>Create</strong> button</li>
+                        <li>Select <strong>Create File</strong></li>
+                        <li>Name it descriptively: "Electrical", "Kitchen", "Defects"</li>
+                        <li>Tap <strong>Save</strong></li>
+                    </ol>
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 Best Practice:</strong>
+                    Spend 5 minutes at the start of each new project creating your folder structure. This small upfront investment saves hours over the project lifecycle.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Assigning Images to Folders/Files</h3>
+                
+                <div class="steps">
+                    <h4>The 3-Tap Process</h4>
+                    <ol>
+                        <li>Open the image you want to organize</li>
+                        <li>Tap the <strong>File icon 📁</strong></li>
+                        <li>The "Select Folders" screen appears</li>
+                        <li>Tap the Folder or File you want (gets a checkmark ✓)</li>
+                        <li>Tap <strong>Apply</strong></li>
+                        <li>Done! Image is now filed under that category</li>
+                    </ol>
+                </div>
+
+                <p><strong>Multiple Categories:</strong> Need to assign one image to both "Electrical" and "Defects"? Select both before tapping Apply.</p>
+
+                <p><strong>Create On-The-Fly:</strong> If the right Folder/File doesn't exist yet, tap <strong>Create</strong> button right from the "Select Folders" screen.</p>
+
+                <p><strong>Edit/Delete:</strong> Use the <strong>Edit</strong> button to rename Folders/Files, or <strong>Delete</strong> button to remove ones you no longer need.</p>
+            </div>
+
+            <div class="content-block">
+                <h3>Using the Filter Feature</h3>
+                
+                <p>Once you've organized your images, finding them is instant.</p>
+
+                <div class="steps">
+                    <h4>Finding Organized Tasks</h4>
+                    <ol>
+                        <li>Tap <strong>FILES</strong> on the dashboard</li>
+                        <li>You see four main categories: SENT, RECEIVED, MINE, DRAFTS (with counts)</li>
+                        <li>Below that, find <strong>"Filter by Files"</strong></li>
+                        <li>Tap "expand to see all categories"</li>
+                        <li>All your Folders and Files appear</li>
+                        <li>Tap any Folder/File to filter - only those tasks show</li>
+                    </ol>
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 Mental Load Reduction:</strong>
+                    Your brain doesn't have to remember "which job was that photo from?" or "when did I take that picture?" The folder system remembers for you. Tap, tap, found it.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Organization Best Practices</h3>
+                
+                <ul>
+                    <li><strong>Start organized, stay organized:</strong> File images as you create them, not later when you have 50 unfiled photos</li>
+                    <li><strong>Short names:</strong> "Main St" is faster to scan than "Property at 123 Main Street"</li>
+                    <li><strong>Consistent naming:</strong> Pick a convention and stick to it: "Electrical", "Plumbing" (not "Electric", "Plumb")</li>
+                    <li><strong>Archive completed jobs:</strong> Delete folders for finished projects to keep your list clean</li>
+                    <li><strong>Use DRAFTS:</strong> Started a task but not ready to send? It auto-saves to DRAFTS</li>
+                </ul>
+
+                <div class="warning-box">
+                    <strong>⚠️ Don't Overthink It:</strong>
+                    The perfect folder structure is the one you'll actually use. Simple and consistent beats complex and abandoned.
+                </div>
+            </div>
+        </section>
+
+        <!-- SHARING & COLLABORATION -->
+        <section class="section" id="sharing">
+            <h2 class="section-title">📤 Sharing & Collaboration</h2>
+            <p class="section-intro">How to work effectively with your team using SMPLTSK</p>
+
+            <div class="content-block">
+                <h3>Choosing the Right Sharing Method</h3>
+                
+                <p>SMPLTSK works with your phone's native sharing options. Choose based on your recipient's preferences:</p>
+
+                <ul>
+                    <li><strong>SMS/Messages:</strong> Most universal - works for everyone with a phone number</li>
+                    <li><strong>WhatsApp:</strong> Popular with trades, instant delivery, shows read receipts</li>
+                    <li><strong>Email:</strong> Better for clients, architects, or formal documentation</li>
+                    <li><strong>Other apps:</strong> Telegram, Slack, Teams - whatever your team uses</li>
+                </ul>
+
+                <div class="tip-box">
+                    <strong>💡 Know Your Audience:</strong>
+                    Older subcontractors might prefer SMS. Younger workers use WhatsApp. Clients expect email. SMPLTSK works with all of them - you choose.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Team Communication Workflows</h3>
+                
+                <h4>Scenario 1: Delegating to a Single Worker</h4>
+                <div class="steps">
+                    <ol>
+                        <li>Create task with markers and descriptions</li>
+                        <li>Share via their preferred method (SMS/WhatsApp)</li>
+                        <li>They receive link, tap it, see the tasks</li>
+                        <li>As they complete tasks, markers turn green</li>
+                        <li>They can add comments: "Done, but need touch-up paint" or "Waiting on parts"</li>
+                        <li>You get notification when complete</li>
+                    </ol>
+                </div>
+
+                <h4>Scenario 2: Coordinating Multiple Trades</h4>
+                <div class="steps">
+                    <ol>
+                        <li>Create task batch with markers for different trades</li>
+                        <li>Example: Markers 1-3 for electrician, 4-6 for plumber, 7-8 for painter</li>
+                        <li>Send to all three recipients at once</li>
+                        <li>Everyone sees the full picture and knows what others are doing</li>
+                        <li>Reduces coordination conflicts and duplicate work</li>
+                    </ol>
+                </div>
+
+                <h4>Scenario 3: Client Updates</h4>
+                <div class="steps">
+                    <ol>
+                        <li>Take "before" photo with markers showing planned work</li>
+                        <li>Send to client via email with note: "Here's what we'll be addressing this week"</li>
+                        <li>As work completes, markers turn green</li>
+                        <li>Client can check progress anytime by opening the same link</li>
+                        <li>Take "after" photo and send new task showing completed work</li>
+                    </ol>
+                </div>
+
+                <div class="info-box">
+                    <strong>📊 Automatic Organization:</strong>
+                    All tasks you send are automatically saved in your <strong>SENT</strong> folder. Tasks you receive from others go to <strong>RECEIVED</strong>. No manual filing needed.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Using Comments for Two-Way Communication</h3>
+                
+                <p><strong>How Comments Work:</strong></p>
+                <ul>
+                    <li>Worker taps a marker to view the task</li>
+                    <li>Taps marker again to mark complete</li>
+                    <li>Before or after marking complete, can add a comment</li>
+                    <li>Examples: "Used alternative material - client approved", "Need inspection before proceeding", "Finished early - also fixed adjacent issue"</li>
+                    <li>Comments automatically sync to sender's SMPLTSK</li>
+                    <li>Sender gets notification (if enabled)</li>
+                </ul>
+
+                <div class="tip-box">
+                    <strong>💡 Communication Without Interruption:</strong>
+                    Workers can update status and leave notes without calling or texting. You see updates when you check SMPLTSK. Everyone stays in their workflow, no constant interruptions.
+                </div>
+
+                <p><strong>Best Practices for Comments:</strong></p>
+                <ul>
+                    <li>Keep them brief and factual</li>
+                    <li>Note any variations from the original task</li>
+                    <li>Flag issues that need attention: "Problem found - call me"</li>
+                    <li>Document materials used if different from spec</li>
+                    <li>Add time estimates if task takes longer than expected</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Managing Sent Tasks</h3>
+                
+                <p><strong>Important Security Feature:</strong> Once a task batch is sent, it <strong>cannot be edited</strong>. This prevents accidental or intentional deletion of tasks by team members.</p>
+
+                <p><strong>If you need to add more tasks after sending:</strong></p>
+                <div class="steps">
+                    <ol>
+                        <li>Open the same photo in SMPLTSK</li>
+                        <li>Add new markers with new task numbers</li>
+                        <li>Send as a <strong>new batch</strong></li>
+                        <li>Both the original batch and new batch remain accessible</li>
+                        <li>Workers see both sets of tasks on the same photo</li>
+                    </ol>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ Double-Check Before Sending:</strong>
+                    Since you can't edit after sending, review all marker positions and descriptions before tapping Send. Better to spend 30 seconds reviewing than to send a correction batch.
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED FEATURES -->
+        <section class="section" id="advanced">
+            <h2 class="section-title">⚙️ Advanced Features</h2>
+            <p class="section-intro">Power user features to maximize efficiency</p>
+
+            <div class="content-block">
+                <h3>Voice-to-Text Descriptions</h3>
+                
+                <p>If you've enabled Microphone permission, you can dictate task descriptions instead of typing.</p>
+
+                <div class="steps">
+                    <h4>Using Voice-to-Text</h4>
+                    <ol>
+                        <li>Place a marker on your photo</li>
+                        <li>When the description field appears, tap the <strong>microphone icon</strong></li>
+                        <li>Speak clearly: "Fix crack in drywall along west wall"</li>
+                        <li>Tap <strong>Done</strong> when finished</li>
+                    </ol>
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 Time Saver:</strong>
+                    Voice-to-text is 3-4x faster than typing, especially for longer descriptions. Great for complex tasks that need detailed instructions.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Location Tagging (Optional)</h3>
+                
+                <p>If you've enabled Location permission, SMPLTSK can add GPS coordinates to your tasks.</p>
+
+                <p><strong>Benefits:</strong></p>
+                <ul>
+                    <li>Automatically record which job site a photo was taken at</li>
+                    <li>Useful for projects with multiple locations</li>
+                    <li>Helps with record-keeping and documentation</li>
+                    <li>Can prove you were on-site at specific times (if needed for disputes)</li>
+                </ul>
+
+                <p><strong>Privacy Note:</strong> Location data is stored in your Firebase account and accessed only through your device. SMPLTSK staff cannot see your location data.</p>
+            </div>
+
+            <div class="content-block">
+                <h3>Batch Management</h3>
+                
+                <p><strong>Understanding Batches:</strong> Each time you send a task (or group of tasks on one photo), it becomes a "batch." You can have multiple batches for the same photo.</p>
+
+                <p><strong>Why Multiple Batches Are Useful:</strong></p>
+                <ul>
+                    <li><strong>Phased work:</strong> Batch 1 = rough-in tasks, Batch 2 = finish tasks</li>
+                    <li><strong>Different recipients:</strong> Batch 1 to electrician, Batch 2 to plumber (same photo, different tasks)</li>
+                    <li><strong>Additions:</strong> Batch 1 sent Monday, Batch 2 with extra tasks sent Tuesday</li>
+                </ul>
+
+                <div class="info-box">
+                    <strong>📌 Finding Your Batches:</strong>
+                    All sent batches are in FILES → SENT. Filter by folder/file to find specific projects. Each batch shows creation date and number of tasks (e.g., "0/5" = 0 complete out of 5 total).
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Notifications Management</h3>
+                
+                <p>Control how and when SMPLTSK notifies you:</p>
+
+                <div class="steps">
+                    <ol>
+                        <li>Tap Gear icon ⚙️ (bottom dashboard icon)</li>
+                        <li>Tap <strong>Notifications</strong></li>
+                        <li>Choose your preferences:
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Task completed</li>
+                                <li>Comment added</li>
+                                <li>All notifications</li>
+                                <li>None</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 Recommended Setting:</strong>
+                    Enable "Task completed" and "Comment added" notifications. This keeps you informed without constant interruptions. Check SMPLTSK for full details when convenient.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Subscription Management</h3>
+                
+                <p><strong>Free Version Limits:</strong> 1 image with up to 6 markers</p>
+
+                <p><strong>Paid Plans:</strong></p>
+                <ul>
+                    <li><strong>Monthly:</strong> $7.99 AUD - Unlimited tasks, cancel anytime</li>
+                    <li><strong>Annual:</strong> $59.99 AUD - Save 38% (equivalent to $5/month)</li>
+                    <li><strong>Lifetime:</strong> $149.99 AUD - Pay once, use forever</li>
+                </ul>
+
+                <div class="steps">
+                    <h4>Managing Your Subscription</h4>
+                    <ol>
+                        <li>Tap Gear icon ⚙️</li>
+                        <li>Tap <strong>Subscription</strong> or <strong>Manage Subscription</strong></li>
+                        <li>View current plan, billing date, cancel, or upgrade</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- BEST PRACTICES -->
+        <section class="section" id="best-practices">
+            <h2 class="section-title">🏗️ Best Practices for Construction</h2>
+            <p class="section-intro">Industry-specific workflows to maximize SMPLTSK's value</p>
+
+            <div class="content-block">
+                <h3>Site Inspections & Defects Lists</h3>
+                
+                <p><strong>Traditional Way:</strong> Walk around with clipboard and notepad, write notes, try to remember locations, type it up later into formal defects list.</p>
+
+                <p><strong>SMPLTSK Way:</strong></p>
+                <div class="steps">
+                    <ol>
+                        <li>Walk the site with phone and SMPLTSK open</li>
+                        <li>Take photo of each area with defects</li>
+                        <li>Immediately place markers on each defect as you spot it</li>
+                        <li>Add description using voice-to-text while standing there</li>
+                        <li>File under Folder "Project Name" → File "Defects List"</li>
+                        <li>Send compiled defects to responsible parties when back at office</li>
+                    </ol>
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 Time Saver:</strong>
+                    Capture defects instantly while on-site instead of writing notes and transcribing later. Save 30-60 minutes per inspection.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Daily Site Coordination</h3>
+                
+                <p><strong>Morning Routine:</strong></p>
+                <ol>
+                    <li>Arrive on site 15 minutes before crew</li>
+                    <li>Quick walk-through to spot issues from yesterday</li>
+                    <li>Take photos, add markers for today's priority tasks</li>
+                    <li>Send to crew leads before they start work</li>
+                    <li>Everyone knows exactly what needs doing and where</li>
+                </ol>
+
+                <p><strong>End-of-Day Review:</strong></p>
+                <ol>
+                    <li>Check SMPLTSK for green markers = completed tasks</li>
+                    <li>Read any comments from workers</li>
+                    <li>Identify what didn't get done (still red)</li>
+                    <li>Plan tomorrow's priorities</li>
+                    <li>No need for end-of-day status meetings</li>
+                </ol>
+
+                <div class="info-box">
+                    <strong>📊 Daily Stand-up Meetings Eliminated:</strong>
+                    Visual task status replaces "what did you do today?" meetings. Workers focus on work, not reporting. You see progress in real-time.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Client Communication</h3>
+                
+                <p><strong>Before Work Starts:</strong></p>
+                <ul>
+                    <li>Take photo of area</li>
+                    <li>Add markers showing planned changes</li>
+                    <li>Email to client with description of work</li>
+                    <li>Client can review and approve before you start</li>
+                </ul>
+
+                <p><strong>During Work:</strong></p>
+                <ul>
+                    <li>Client can open the same link anytime to see green markers = completed work</li>
+                    <li>No need for daily update calls</li>
+                    <li>Transparent progress tracking</li>
+                </ul>
+
+                <p><strong>After Completion:</strong></p>
+                <ul>
+                    <li>Take "after" photo</li>
+                    <li>Send to client showing all green markers</li>
+                    <li>Visual proof of completion</li>
+                    <li>Reduces "did you do X?" questions</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Warranty & Maintenance</h3>
+                
+                <p><strong>Documenting Work for Warranty Claims:</strong></p>
+                <ul>
+                    <li>Before: Take photo, add markers showing defects</li>
+                    <li>During: Photos of repair in progress</li>
+                    <li>After: Photo showing completed repair (all green markers)</li>
+                    <li>File under Folder "Warranty Work" → File "Client Name"</li>
+                    <li>Easy to retrieve if dispute arises months later</li>
+                </ul>
+
+                <p><strong>Recurring Maintenance:</strong></p>
+                <ul>
+                    <li>Create Folder "Maintenance Contracts"</li>
+                    <li>File for each client</li>
+                    <li>Document each visit with photos and markers</li>
+                    <li>Build a visual history of the property over time</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Subcontractor Management</h3>
+                
+                <p><strong>Clear Scope Definition:</strong></p>
+                <ul>
+                    <li>Take photo of work area</li>
+                    <li>Mark exactly what's in scope (green markers)</li>
+                    <li>Mark what's NOT in scope or out of bounds (red markers)</li>
+                    <li>Send to subcontractor before quote</li>
+                    <li>Reduces "I thought that was included" disputes</li>
+                </ul>
+
+                <p><strong>Progress Payments:</strong></p>
+                <ul>
+                    <li>Payment milestone reached? Check SMPLTSK for green markers</li>
+                    <li>Visual confirmation that work is complete</li>
+                    <li>No arguments about whether tasks were done</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- COMMON SCENARIOS -->
+        <section class="section" id="scenarios">
+            <h2 class="section-title">💼 Common Scenarios</h2>
+            <p class="section-intro">Real-world examples of SMPLTSK in action</p>
+
+            <div class="scenario">
+                <h3 class="scenario-title">Scenario 1: Multi-Room Renovation</h3>
+                <div class="scenario-problem">
+                    <strong>Problem:</strong> 5-room renovation with different trades in each room. Workers keep asking "what am I supposed to be doing?" and "which room first?"
+                </div>
+                <div class="scenario-solution">
+                    <strong>SMPLTSK Solution:</strong>
+                    <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                        <li>Take photo of each room</li>
+                        <li>Add markers with priority numbers: "1 - Install electrical", "2 - Plumbing rough-in", "3 - Drywall"</li>
+                        <li>Send all 5 photos to crew lead</li>
+                        <li>Workers open link, see all rooms and tasks, work in numbered order</li>
+                        <li>Mark complete as they go</li>
+                        <li>You monitor progress remotely - no need to be on-site constantly</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="scenario">
+                <h3 class="scenario-title">Scenario 2: Final Inspection Defects</h3>
+                <div class="scenario-problem">
+                    <strong>Problem:</strong> Building inspector found 18 defects across the property. Need to communicate these to appropriate trades and track completion before re-inspection.
+                </div>
+                <div class="scenario-solution">
+                    <strong>SMPLTSK Solution:</strong>
+                    <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                        <li>Walk through with inspector, take photos of each defect</li>
+                        <li>Add markers immediately (use voice-to-text for inspector's exact wording)</li>
+                        <li>File all under Folder "Final Inspection" → File "Defects"</li>
+                        <li>Send plumbing defects to plumber, electrical to electrician, etc.</li>
+                        <li>Monitor green markers to know when ready for re-inspection</li>
+                        <li>Show inspector on re-visit: all green = all fixed</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="scenario">
+                <h3 class="scenario-title">Scenario 3: Emergency Repair</h3>
+                <div class="scenario-problem">
+                    <strong>Problem:</strong> Client calls about water leak. You're off-site. Need to send someone immediately but they don't know the property.
+                </div>
+                <div class="scenario-solution">
+                    <strong>SMPLTSK Solution:</strong>
+                    <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                        <li>Ask client to take photo of the problem area</li>
+                        <li>They send it to you via SMS/email</li>
+                        <li>You open photo in SMPLTSK</li>
+                        <li>Add markers: "1 - Shut off water here", "2 - Check for damage", "3 - Temporary patch"</li>
+                        <li>Send to your plumber via WhatsApp</li>
+                        <li>Plumber arrives, opens link, knows exactly what to do and where</li>
+                        <li>Marks complete, adds comment: "Fixed leak, needs permanent repair next week"</li>
+                        <li>You're kept informed without being on-site</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="scenario">
+                <h3 class="scenario-title">Scenario 4: Client Change Requests</h3>
+                <div class="scenario-problem">
+                    <strong>Problem:</strong> Client wants to add tasks to the scope mid-project. Need clear documentation of what's extra vs. original contract.
+                </div>
+                <div class="scenario-solution">
+                    <strong>SMPLTSK Solution:</strong>
+                    <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                        <li>Take photo of area where client wants changes</li>
+                        <li>Add markers for each requested change</li>
+                        <li>File under Folder "Project Name" → File "Client Variations"</li>
+                        <li>Email to client: "Here are the additional items you requested. Quote to follow."</li>
+                        <li>Later if client says "I never asked for that" - show them the marked photo with date stamp</li>
+                        <li>Clear visual record prevents disputes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="scenario">
+                <h3 class="scenario-title">Scenario 5: Coordinating Multiple Trades on Same Area</h3>
+                <div class="scenario-problem">
+                    <strong>Problem:</strong> Kitchen renovation needs electrician, plumber, tiler, and cabinet maker - all working in sequence. Coordination nightmare.
+                </div>
+                <div class="scenario-solution">
+                    <strong>SMPLTSK Solution:</strong>
+                    <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                        <li>Take photo of empty kitchen</li>
+                        <li>Markers 1-3: Electrical tasks (circuits, outlets, lights)</li>
+                        <li>Markers 4-6: Plumbing tasks (rough-in, drainage)</li>
+                        <li>Markers 7-9: Tiling tasks (floor, backsplash)</li>
+                        <li>Markers 10-12: Cabinet installation</li>
+                        <li>Send photo to ALL FOUR trades at once</li>
+                        <li>Everyone sees the full picture and the sequence</li>
+                        <li>Tiler knows not to start until electrician's markers 1-3 are green</li>
+                        <li>Cabinet maker knows to wait for green markers 7-9 from tiler</li>
+                        <li>Self-coordinating workflow, minimal supervision needed</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRO TIPS -->
+        <section class="section" id="pro-tips">
+            <h2 class="section-title">🎯 Pro Tips</h2>
+            <p class="section-intro">Advanced techniques from experienced SMPLTSK users</p>
+
+            <div class="content-block">
+                <h3>Photography Pro Tips</h3>
+                <ul>
+                    <li><strong>Use HDR mode:</strong> For high-contrast areas (bright windows + dark corners), HDR captures detail in both</li>
+                    <li><strong>Wide-angle for context:</strong> Show the whole room/area first, then close-ups for specific tasks</li>
+                    <li><strong>Consistent angles:</strong> Take "before" and "after" photos from same position for better comparison</li>
+                    <li><strong>Include reference points:</strong> Doorways, windows, or fixtures help workers orient themselves</li>
+                    <li><strong>Grid lines on:</strong> Enable camera grid for straight, level photos</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Marker Strategy</h3>
+                <ul>
+                    <li><strong>Number by priority:</strong> Marker 1 = most urgent, higher numbers = lower priority</li>
+                    <li><strong>Color coding in descriptions:</strong> Start descriptions with [URGENT], [SAFETY], or [OPTIONAL] for quick scanning</li>
+                    <li><strong>Group related tasks:</strong> Put all electrical tasks together (markers 1-5), then plumbing (6-10), etc.</li>
+                    <li><strong>Leave space:</strong> Don't cluster markers - workers on phones need to tap them individually</li>
+                    <li><strong>Zoom if needed:</strong> For detailed work, take close-up photo with fewer markers rather than cluttering wide shot</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Organization Hacks</h3>
+                <ul>
+                    <li><strong>Archive completed projects:</strong> Prefix with "DONE -" so they sort to top, then delete when truly finished</li>
+                    <li><strong>Active vs Archive folders:</strong> Create two top-level folders: "Active Jobs" and "Completed Jobs"</li>
+                    <li><strong>Emergency folder:</strong> Keep a folder "URGENT REPAIRS" for callouts - easy to find in crisis</li>
+                    <li><strong>Template files:</strong> For recurring work (weekly maintenance), save standard task templates</li>
+                    <li><strong>Consistent dating:</strong> If using dates in folder names, use YYYY-MM-DD format for correct sorting</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Communication Excellence</h3>
+                <ul>
+                    <li><strong>Set expectations upfront:</strong> First time sending task to someone? Include message: "Tap link to see tasks, tap markers when done"</li>
+                    <li><strong>Use emojis in descriptions:</strong> ⚡ for electrical, 🚰 for plumbing, ⚠️ for safety - quicker to scan</li>
+                    <li><strong>Request photo confirmation:</strong> Add marker: "Take photo when complete" for critical work</li>
+                    <li><strong>Loop in stakeholders:</strong> Send tasks to worker + supervisor + client so everyone's aligned</li>
+                    <li><strong>Thank your team:</strong> When tasks turn green, send a quick "Good work, thanks!" text</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Time-Saving Workflows</h3>
+                <ul>
+                    <li><strong>Batch similar tasks:</strong> All Monday's tasks in one session, all Tuesday's in another</li>
+                    <li><strong>Use DRAFTS strategically:</strong> Create tasks throughout the week, send them all Friday for next week</li>
+                    <li><strong>Voice-to-text everything:</strong> Typing is slow - speak your descriptions while walking the site</li>
+                    <li><strong>Filter shortcuts:</strong> Memorize your most-used filters - tap FILES → Expand → Tap your main project instantly</li>
+                    <li><strong>Reuse photos:</strong> Same area, new tasks? Add new markers to existing photo rather than taking new one</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Advanced Documentation</h3>
+                <ul>
+                    <li><strong>Progress photos series:</strong> Same area photographed weekly shows timeline of project</li>
+                    <li><strong>Before-during-after:</strong> Three photos of same task: problem, work in progress, completed</li>
+                    <li><strong>Comparison shots:</strong> For variations/upgrades, mark original spec on one photo, upgraded spec on another, send both</li>
+                    <li><strong>Material documentation:</strong> Photo of materials used with marker: "Used this brand/type" for future reference</li>
+                    <li><strong>Code compliance:</strong> For inspections, create file "Code Compliance Photos" with all required documentation</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Maximizing ROI</h3>
+                
+                <p><strong>Track Your Time Savings:</strong></p>
+                <ul>
+                    <li>Week 1: Note how long tasks take without SMPLTSK</li>
+                    <li>Week 2: Time same tasks with SMPLTSK</li>
+                    <li>Calculate time saved × your hourly rate = ROI</li>
+                </ul>
+
+                <div class="info-box">
+                    <strong>📊 Typical Savings:</strong>
+                    <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                        <li>Creating tasks: 10-15 minutes saved per task batch</li>
+                        <li>Finding photos: 1-2 minutes saved per search × 10 searches/day = 10-20 min/day</li>
+                        <li>Clarification calls: 3-5 minutes per call × 5 calls/day = 15-25 min/day</li>
+                        <li>Status meetings: 30-60 minutes/week eliminated</li>
+                        <li><strong>Total: 30-60 minutes saved daily = 2.5-5 hours per week</strong></li>
+                    </ul>
+                </div>
+
+                <p>At a conservative $50/hour rate, that's $125-250 per week saved, or $6,500-$13,000 per year in time value recovered.</p>
+
+                <div class="tip-box">
+                    <strong>💡 The subscription pays for itself on day 1.</strong>
+                    Monthly plan: $7.99 AUD. Time saved on first day: easily worth $50-100. That's a 600%+ ROI.
+                </div>
+            </div>
+        </section>
+
+        <!-- GETTING HELP -->
+        <section class="section">
+            <h2 class="section-title">📞 Need More Help?</h2>
+            <p class="section-intro">Additional resources and support</p>
+
+            <div class="content-block">
+                <h3>Resources</h3>
+                <ul>
+                    <li><strong><a href="faq.html">FAQ</a>:</strong> Answers to common questions about features, permissions, and troubleshooting</li>
+                    <li><strong><a href="support.html">Support</a>:</strong> Contact support team for technical issues</li>
+                    <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="63101613130c111723100e130f1710084d000c0e">[email&#160;protected]</a> for any questions</li>
+                </ul>
+
+                <h3>Quick Troubleshooting</h3>
+                <ul>
+                    <li><strong>Camera not working?</strong> Gear icon ⚙️ → App Permissions → Enable Camera</li>
+                    <li><strong>Not receiving notifications?</strong> Gear icon ⚙️ → Notifications → Enable</li>
+                    <li><strong>Can't find a task?</strong> FILES → Filter by Files → Select your folder/file</li>
+                    <li><strong>App crashes?</strong> Restart phone, check for app updates in App Store/Google Play</li>
+                </ul>
+
+                <div class="info-box">
+                    <strong>🎓 Learning Curve:</strong>
+                    Most users master SMPLTSK basics in under 30 minutes. Power user features take a few days of practice. But even on day 1, you'll save time compared to traditional methods.
+                </div>
+            </div>
+        </section>
+
     </div>
-</body>
-</html>
+
+    <footer>
+        <p>&copy; 2025 SMPLTSK. All rights reserved.</p>
+        <p><a href="/">Home</a> | <a href="faq.html">FAQ</a> | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a> | <a href="support.html">Support</a></p>
+        <p>Email: <a href="/cdn-cgi/l/email-protection#f685838

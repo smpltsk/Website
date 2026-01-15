@@ -1019,6 +1019,67 @@
             font-weight: 600;
         }
         
+        /* Video Thumbnail Link Styles */
+        .video-thumbnail-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .video-thumbnail-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .play-button-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: rgba(59, 95, 229, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(59, 95, 229, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .video-thumbnail-link:hover .play-button-overlay {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--app-blue);
+            box-shadow: 0 12px 40px rgba(59, 95, 229, 0.5);
+        }
+        
+        .play-icon {
+            width: 40px;
+            height: 40px;
+            color: white;
+            margin-left: 6px;
+        }
+        
+        .video-label {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            backdrop-filter: blur(8px);
+            white-space: nowrap;
+        }
+        
         /* CTA Section */
         .cta-section {
             padding: 10rem 0;
@@ -1620,9 +1681,10 @@
                 aria-label="Watch SMPLTSK Demo Video on YouTube"
             >
                 <img 
-                    src="/images/feature-construction.jpg" 
-                    alt="Screenshot of SMPLTSK visual task management in action" 
+                    src="https://img.youtube.com/vi/BXI56I57wJg/maxresdefault.jpg" 
+                    alt="SMPLTSK Demo Video - Visual task management in action" 
                     class="video-thumbnail-image"
+                    onerror="this.src='https://img.youtube.com/vi/BXI56I57wJg/hqdefault.jpg'"
                 >
                 
                 <div class="play-button-overlay">

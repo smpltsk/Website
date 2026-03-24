@@ -117,14 +117,18 @@
     /* ─── SCROLL REVEAL ─────────────────────────── */
     .reveal {
         opacity: 0;
-        transform: translateY(28px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
+        transform: translateY(24px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .reveal.visible { opacity: 1; transform: none; }
     .reveal.d1 { transition-delay: 0.1s; }
-    .reveal.d2 { transition-delay: 0.2s; }
-    .reveal.d3 { transition-delay: 0.3s; }
-    .reveal.d4 { transition-delay: 0.4s; }
+    .reveal.d2 { transition-delay: 0.18s; }
+    .reveal.d3 { transition-delay: 0.26s; }
+    .reveal.d4 { transition-delay: 0.34s; }
+    /* Fallback — if JS observer fails, show everything */
+    @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; }
+    }
 
     /* ─── NAV ────────────────────────────────────── */
     nav {
@@ -350,12 +354,13 @@
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .pain-item {
         font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
-        font-weight: 700; font-size: 1.1rem;
-        text-transform: uppercase; letter-spacing: 0.05em;
-        color: rgba(255,255,255,0.9);
+        font-size: 1.15rem;
+        text-transform: uppercase; letter-spacing: 0.08em;
+        color: #ffffff;
+        text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
         display: flex; align-items: center; gap: 1.5rem; flex-shrink: 0;
     }
-    .pain-item::after { content: '•'; color: rgba(255,255,255,0.65); }
+    .pain-item::after { content: '●'; color: rgba(255,255,255,0.5); font-size: 0.5rem; }
 
     /* ─── PROBLEM SECTION ───────────────────────── */
     .problem {
@@ -385,30 +390,34 @@
     }
     .problem-list li {
         display: flex; align-items: flex-start; gap: 1rem;
-        padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-        font-size: 1.05rem; color: rgba(255,255,255,0.7);
+        padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+        font-size: 1.05rem; color: rgba(255,255,255,0.92);
         line-height: 1.5;
     }
     .problem-list li:last-child { border-bottom: none; }
     .problem-list .x-icon {
-        width: 22px; height: 22px; border-radius: 50%;
-        background: rgba(238,75,75,0.2); color: var(--red);
+        width: 24px; height: 24px; border-radius: 50%;
+        background: #EE4B4B;
+        color: #fff;
         display: flex; align-items: center; justify-content: center;
-        font-size: 0.8rem; font-weight: 900; flex-shrink: 0; margin-top: 1px;
+        font-size: 0.85rem; font-weight: 900; flex-shrink: 0; margin-top: 1px;
+        text-shadow: none;
+        box-shadow: 0 2px 8px rgba(238,75,75,0.5);
     }
     .problem-visual {
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.15);
         border-radius: 20px;
         padding: 3rem;
         text-align: center;
     }
     .cost-display {
         font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
-        font-size: 5rem; font-weight: 900;
-        color: var(--red); line-height: 1;
+        font-size: 5.5rem; font-weight: 900;
+        color: #EE4B4B; line-height: 1;
         margin-bottom: 1rem;
-        text-shadow: 0 0 40px rgba(238,75,75,0.3);
+        text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+        letter-spacing: 0.05em;
     }
     .cost-label {
         font-size: 1rem; color: rgba(255,255,255,0.78);
@@ -754,24 +763,27 @@
         content: '';
         position: absolute; inset: 0;
         background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.5) 100%);
+        z-index: 1;
     }
     .play-btn {
         position: absolute; top: 50%; left: 50%;
         transform: translate(-50%, -50%);
-        width: 80px; height: 80px; border-radius: 50%;
-        background: rgba(255,255,255,0.95);
+        width: 88px; height: 88px; border-radius: 50%;
+        background: #ffffff;
         display: flex; align-items: center; justify-content: center;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        box-shadow: 0 8px 40px rgba(0,0,0,0.5);
         transition: all 0.25s ease;
+        z-index: 10;
     }
-    .video-link:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); background: #fff; }
-    .play-btn svg { color: var(--blue); margin-left: 4px; }
+    .video-link:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); }
+    .play-btn svg { color: var(--blue); margin-left: 5px; }
     .video-label {
         position: absolute; bottom: 1.5rem; left: 50%;
         transform: translateX(-50%);
-        background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+        background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
         color: #fff; padding: 0.5rem 1.25rem; border-radius: 50px;
         font-size: 0.85rem; font-weight: 600; white-space: nowrap;
+        z-index: 10;
     }
 
     /* ─── WHO IT'S FOR ──────────────────────────── */
@@ -1110,7 +1122,7 @@
         </div>
         <div class="features-grid">
             <div class="feat-card reveal">
-                <img src="screenshot1.png" alt="Real site photo showing numbered red markers on bedroom windows with task descriptions below" class="feat-img">
+                <img src="screenshot1.png" loading="lazy" alt="Real site photo showing numbered red markers on bedroom windows with task descriptions below" class="feat-img">
                 <div class="feat-body">
                     <span class="feat-tag t-red">No More "I Thought You Meant"</span>
                     <h3>Precision Numbered Markers</h3>
@@ -1118,7 +1130,7 @@
                 </div>
             </div>
             <div class="feat-card reveal d1">
-                <img src="screenshot2.png" alt="SMPLTSK home screen — three simple buttons, no login required" class="feat-img">
+                <img src="screenshot2.png" loading="lazy" alt="SMPLTSK home screen — three simple buttons, no login required" class="feat-img">
                 <div class="feat-body">
                     <span class="feat-tag t-green">Zero Friction</span>
                     <h3>No Login For Your Team</h3>
@@ -1126,7 +1138,7 @@
                 </div>
             </div>
             <div class="feat-card reveal d2">
-                <img src="screenshot3.png" alt="SMPLTSK showing all 3 tasks complete — markers turned green, TASKS 3/3 100%" class="feat-img">
+                <img src="screenshot3.png" loading="lazy" alt="SMPLTSK showing all 3 tasks complete — markers turned green, TASKS 3/3 100%" class="feat-img">
                 <div class="feat-body">
                     <span class="feat-tag t-blue">Know It's Done</span>
                     <h3><span style="color:#FF6B6B; text-shadow: 1px 1px 0 rgba(0,0,0,0.6);">Red</span> <span style="color:rgba(255,255,255,0.95);">→</span> <span style="color:#5FE85A; text-shadow: 1px 1px 0 rgba(0,0,0,0.6);">Green</span> <span style="color:#fff;">Tracking</span></h3>
@@ -1134,7 +1146,7 @@
                 </div>
             </div>
             <div class="feat-card reveal d1">
-                <img src="screenshot4.png" alt="SMPLTSK drawing tool — yellow annotation lines and red markers on a real site photo" class="feat-img">
+                <img src="screenshot4.png" loading="lazy" alt="SMPLTSK drawing tool — yellow annotation lines and red markers on a real site photo" class="feat-img">
                 <div class="feat-body">
                     <span class="feat-tag t-blue">Sketch It Out</span>
                     <h3>Draw On Photos</h3>
@@ -1142,7 +1154,7 @@
                 </div>
             </div>
             <div class="feat-card reveal d2">
-                <img src="screenshot5.png" alt="SMPLTSK Set a Reminder screen — remind yourself and your recipients with one tap" class="feat-img">
+                <img src="screenshot5.png" loading="lazy" alt="SMPLTSK Set a Reminder screen — remind yourself and your recipients with one tap" class="feat-img">
                 <div class="feat-body">
                     <span class="feat-tag t-red">Never Forget</span>
                     <h3>Reminders Built In</h3>
@@ -1232,7 +1244,7 @@
         </div>
         <div class="ex-grid">
             <div class="ex-card reveal">
-                <img src="screenshot1.png" alt="Real site photo — bedroom windows job with 3 numbered tasks ready to send">
+                <img src="screenshot1.png" loading="lazy" alt="Real site photo — bedroom windows job with 3 numbered tasks ready to send">
                 <div class="ex-card-body">
                     <span class="ex-tag">Builders &amp; Tradies</span>
                     <h4>Mark The Job, Send It</h4>
@@ -1240,7 +1252,7 @@
                 </div>
             </div>
             <div class="ex-card reveal d1">
-                <img src="screenshot3.png" alt="All tasks complete — markers green, 3/3 done, 100%">
+                <img src="screenshot3.png" loading="lazy" alt="All tasks complete — markers green, 3/3 done, 100%">
                 <div class="ex-card-body">
                     <span class="ex-tag">Red → Green</span>
                     <h4>Watch It Get Done</h4>
@@ -1248,7 +1260,7 @@
                 </div>
             </div>
             <div class="ex-card reveal d2">
-                <img src="screenshot4.png" alt="Drawing annotations on a site photo with arrows and markers">
+                <img src="screenshot4.png" loading="lazy" alt="Drawing annotations on a site photo with arrows and markers">
                 <div class="ex-card-body">
                     <span class="ex-tag">Drawing Tool</span>
                     <h4>When A Line Says It Better</h4>
@@ -1413,17 +1425,22 @@
         navbar.classList.toggle('scrolled', window.pageYOffset > 50);
     });
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
+    // Scroll reveal — trigger visible immediately for anything already in view
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(e => {
             if (e.isIntersecting) {
                 e.target.classList.add('visible');
-                observer.unobserve(e.target);
+                revealObserver.unobserve(e.target);
             }
         });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Safety fallback — after 1.5s make everything visible regardless
+    setTimeout(() => {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }, 1500);
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {

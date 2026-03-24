@@ -53,7 +53,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -68,18 +68,20 @@
         --light:  #EEF2FF;
         --white:  #ffffff;
         --text:   #0D1835;
-        --muted:  #5A6478;
+        --muted:  #3D4860;
         --border: rgba(59,95,229,0.15);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-        font-family: 'DM Sans', -apple-system, sans-serif;
+        font-family: 'Inter', -apple-system, sans-serif;
         background: var(--white);
         color: var(--text);
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
         line-height: 1.6;
     }
 
@@ -94,7 +96,7 @@
         background-clip: text; display: inline-block;
         filter: saturate(1.3);
     }
-    .display { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; letter-spacing: -0.01em; text-transform: uppercase; }
+    .display { font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif; font-weight: 900; letter-spacing: -0.01em; text-transform: uppercase; }
     .section-label {
         display: inline-block;
         background: rgba(59,95,229,0.1);
@@ -145,9 +147,9 @@
     }
     .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
     .logo-icon { width: 40px; height: 40px; }
-    .logo-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.5rem; color: #fff; letter-spacing: 0.02em; }
+    .logo-name { font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.5rem; color: #fff; letter-spacing: 0.02em; }
     .nav-links { display: flex; gap: 2.5rem; align-items: center; }
-    .nav-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a { color: rgba(255,255,255,0.92); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: #fff; }
     .nav-cta {
         background: var(--green); color: #fff !important;
@@ -208,7 +210,7 @@
         flex-shrink: 0;
     }
     .hero h1 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 900;
         font-size: clamp(3.5rem, 6vw, 6rem);
         line-height: 0.95;
@@ -223,10 +225,10 @@
         background: linear-gradient(90deg, #EE4B4B 0%, #F97316 45%, #4FD14A 100%);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         background-clip: text;
-        filter: saturate(1.3);
+        filter: saturate(1.3) drop-shadow(1px 2px 0px rgba(0,0,0,0.4));
     }
     .hero-sub {
-        font-size: 1.25rem; color: rgba(255,255,255,0.65);
+        font-size: 1.25rem; color: rgba(255,255,255,0.92);
         line-height: 1.75; max-width: 540px;
         margin-bottom: 2.5rem; font-weight: 400;
     }
@@ -254,13 +256,13 @@
         border: 1.5px solid rgba(255,255,255,0.2);
         transition: all 0.25s ease;
     }
-    .btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: #fff; background: rgba(255,255,255,0.06); }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.78); color: #fff; background: rgba(255,255,255,0.06); }
     .hero-trust {
         display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;
     }
     .trust-item {
         display: flex; align-items: center; gap: 0.5rem;
-        font-size: 0.85rem; color: rgba(255,255,255,0.5);
+        font-size: 0.85rem; color: rgba(255,255,255,0.78);
     }
     .trust-item svg { opacity: 0.6; flex-shrink: 0; }
 
@@ -306,13 +308,13 @@
     }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .pain-item {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 700; font-size: 1.1rem;
         text-transform: uppercase; letter-spacing: 0.05em;
         color: rgba(255,255,255,0.9);
         display: flex; align-items: center; gap: 1.5rem; flex-shrink: 0;
     }
-    .pain-item::after { content: '•'; color: rgba(255,255,255,0.4); }
+    .pain-item::after { content: '•'; color: rgba(255,255,255,0.65); }
 
     /* ─── PROBLEM SECTION ───────────────────────── */
     .problem {
@@ -326,14 +328,14 @@
         align-items: center;
     }
     .problem h2 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 900; font-size: clamp(2.5rem, 4vw, 3.75rem);
         text-transform: uppercase; line-height: 1.0;
         color: #fff; margin-bottom: 2rem;
     }
     .problem p {
         font-size: 1.1rem; line-height: 1.9;
-        color: rgba(255,255,255,0.6);
+        color: rgba(255,255,255,0.88);
         margin-bottom: 1.5rem;
     }
     .problem p strong { color: rgba(255,255,255,0.9); }
@@ -361,14 +363,14 @@
         text-align: center;
     }
     .cost-display {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-size: 5rem; font-weight: 900;
         color: var(--red); line-height: 1;
         margin-bottom: 1rem;
         text-shadow: 0 0 40px rgba(238,75,75,0.3);
     }
     .cost-label {
-        font-size: 1rem; color: rgba(255,255,255,0.5);
+        font-size: 1rem; color: rgba(255,255,255,0.78);
         line-height: 1.6; max-width: 280px; margin: 0 auto;
     }
     .cost-divider {
@@ -384,7 +386,7 @@
         display: flex; justify-content: space-between;
         padding: 0.9rem 0;
         border-bottom: 1px solid rgba(255,255,255,0.06);
-        font-size: 0.95rem; color: rgba(255,255,255,0.6);
+        font-size: 0.95rem; color: rgba(255,255,255,0.88);
     }
     .cost-item:last-child { border-bottom: none; }
     .cost-item .amount { color: var(--red); font-weight: 700; }
@@ -399,7 +401,7 @@
         max-width: 780px; margin: 0 auto 6rem;
     }
     .solution-header h2 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 900; font-size: clamp(2.75rem, 4.5vw, 4.25rem);
         text-transform: uppercase; line-height: 1.0;
         color: var(--text); margin-bottom: 1.5rem;
@@ -431,7 +433,7 @@
     .step-card:nth-child(2):hover { border-color: var(--blue); }
     .step-card:nth-child(3):hover { border-color: var(--green); }
     .step-num {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 900; font-size: 5rem; line-height: 1;
         margin-bottom: 0.5rem;
         opacity: 0.12;
@@ -448,7 +450,7 @@
     .step-card:nth-child(2) .step-icon-wrap { background: rgba(59,95,229,0.12); }
     .step-card:nth-child(3) .step-icon-wrap { background: rgba(79,209,74,0.12); }
     .step-card h3 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 800; font-size: 1.75rem; text-transform: uppercase;
         margin-bottom: 0.75rem; position: relative; z-index: 1;
     }
@@ -478,12 +480,12 @@
         margin: 0 auto 5rem;
     }
     .features-header h2 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 900; font-size: clamp(2.5rem, 4vw, 3.75rem);
         text-transform: uppercase; line-height: 1.0;
         color: #fff; margin-bottom: 1.25rem;
     }
-    .features-header p { font-size: 1.1rem; color: rgba(255,255,255,0.55); line-height: 1.8; }
+    .features-header p { font-size: 1.1rem; color: rgba(255,255,255,0.88); line-height: 1.8; }
     .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -518,7 +520,7 @@
     .feat-tag.t-blue { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
     .feat-tag.t-green { background: rgba(79,209,74,0.25); color: #7EE87A; border: 1px solid rgba(79,209,74,0.45); }
     .feat-body h3 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 800; font-size: 1.6rem; text-transform: uppercase;
         color: #fff; margin-bottom: 0.75rem; line-height: 1.1;
         text-shadow: 0 1px 8px rgba(0,0,0,0.3);
@@ -536,7 +538,7 @@
         max-width: 1300px; margin: 0 auto; padding: 0 2.5rem;
     }
     .founder-left h2 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 900; font-size: clamp(2.5rem, 3.5vw, 3.5rem);
         text-transform: uppercase; line-height: 1.0;
         color: var(--text); margin-bottom: 2rem;
@@ -570,7 +572,7 @@
     .quote-block::before {
         content: '"';
         position: absolute; top: -1rem; left: 2rem;
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-size: 12rem; font-weight: 900;
         color: var(--blue); opacity: 0.1;
         line-height: 1; pointer-events: none;
@@ -590,12 +592,12 @@
         width: 52px; height: 52px; border-radius: 50%;
         background: linear-gradient(135deg, var(--blue) 0%, var(--green) 100%);
         display: flex; align-items: center; justify-content: center;
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-size: 1.3rem; font-weight: 900; color: #fff;
         flex-shrink: 0;
     }
     .quote-name { font-weight: 700; color: #fff; font-size: 1rem; }
-    .quote-title { font-size: 0.85rem; color: rgba(255,255,255,0.45); margin-top: 0.2rem; }
+    .quote-title { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 0.2rem; }
 
     /* ─── IMPACT NUMBERS ────────────────────────── */
     .impact {
@@ -615,7 +617,7 @@
     }
     .impact-stat:last-child { border-right: none; }
     .impact-num {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 900; font-size: 5rem; line-height: 1;
         margin-bottom: 0.75rem;
     }
@@ -635,7 +637,7 @@
         margin: 0 auto 5rem;
     }
     .examples-header h2 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 900; font-size: clamp(2.5rem, 4vw, 3.75rem);
         text-transform: uppercase; line-height: 1.0;
         color: var(--text); margin-bottom: 1.25rem;
@@ -674,7 +676,7 @@
         display: block;
     }
     .ex-card-body h4 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 800; font-size: 1.3rem; text-transform: uppercase;
         color: var(--text); margin-bottom: 0.5rem;
     }
@@ -690,12 +692,12 @@
         margin: 0 auto 4rem;
     }
     .video-header h2 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 900; font-size: clamp(2.5rem, 4vw, 3.75rem);
         text-transform: uppercase; line-height: 1.0;
         color: #fff; margin-bottom: 1.25rem;
     }
-    .video-header p { font-size: 1.1rem; color: rgba(255,255,255,0.55); }
+    .video-header p { font-size: 1.1rem; color: rgba(255,255,255,0.88); }
     .video-wrap {
         max-width: 860px; margin: 0 auto;
         border-radius: 20px; overflow: hidden;
@@ -741,7 +743,7 @@
         margin: 0 auto 5rem;
     }
     .who-header h2 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 900; font-size: clamp(2.5rem, 4vw, 3.75rem);
         text-transform: uppercase; line-height: 1.0;
         color: var(--text); margin-bottom: 1.25rem;
@@ -761,7 +763,7 @@
     .who-card:hover { border-color: var(--blue); background: #fff; box-shadow: 0 12px 32px rgba(59,95,229,0.1); transform: translateY(-4px); }
     .who-icon { font-size: 2.5rem; margin-bottom: 1rem; }
     .who-card h4 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 800; font-size: 1.25rem; text-transform: uppercase;
         color: var(--text); margin-bottom: 0.5rem;
     }
@@ -784,14 +786,14 @@
     }
     .final-cta-inner { position: relative; z-index: 1; }
     .final-cta h2 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 900; font-size: clamp(3rem, 6vw, 5.5rem);
         text-transform: uppercase; line-height: 0.95;
         color: #fff; margin-bottom: 1.5rem;
     }
     .final-cta h2 span { display: block; }
     .final-cta p {
-        font-size: 1.2rem; color: rgba(255,255,255,0.6);
+        font-size: 1.2rem; color: rgba(255,255,255,0.88);
         max-width: 520px; margin: 0 auto 3rem;
         line-height: 1.75;
     }
@@ -800,7 +802,7 @@
         flex-wrap: wrap; margin-bottom: 2.5rem;
     }
     .no-login-note {
-        font-size: 0.9rem; color: rgba(255,255,255,0.4);
+        font-size: 0.9rem; color: rgba(255,255,255,0.65);
         display: flex; align-items: center; justify-content: center; gap: 0.5rem;
     }
     .no-login-note svg { opacity: 0.6; }
@@ -819,11 +821,11 @@
     }
     .footer-brand .logo-name { font-size: 1.4rem; }
     .footer-brand p {
-        font-size: 0.9rem; color: rgba(255,255,255,0.4);
+        font-size: 0.9rem; color: rgba(255,255,255,0.65);
         line-height: 1.7; margin-top: 1.25rem; max-width: 280px;
     }
     .footer-col h5 {
-        font-family: 'Barlow Condensed', sans-serif;
+        font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
         font-weight: 800; font-size: 1rem; text-transform: uppercase;
         letter-spacing: 0.08em; color: rgba(255,255,255,0.7);
         margin-bottom: 1.25rem;
@@ -831,7 +833,7 @@
     .footer-col ul { list-style: none; }
     .footer-col li { margin-bottom: 0.6rem; }
     .footer-col a {
-        font-size: 0.875rem; color: rgba(255,255,255,0.4);
+        font-size: 0.875rem; color: rgba(255,255,255,0.65);
         text-decoration: none; transition: color 0.2s;
     }
     .footer-col a:hover { color: rgba(255,255,255,0.8); }
@@ -1084,7 +1086,7 @@
                 <img src="screenshot3.png" alt="SMPLTSK showing all 3 tasks complete — markers turned green, TASKS 3/3 100%" class="feat-img">
                 <div class="feat-body">
                     <span class="feat-tag t-blue">Know It's Done</span>
-                    <h3><span style="color:#FF8A8A;">Red</span> <span style="color:rgba(255,255,255,0.9);">→</span> <span style="color:#7EE87A;">Green</span> <span style="color:#fff;">Tracking</span></h3>
+                    <h3><span style="color:#FF6B6B; text-shadow: 1px 1px 0 rgba(0,0,0,0.6);">Red</span> <span style="color:rgba(255,255,255,0.95);">→</span> <span style="color:#5FE85A; text-shadow: 1px 1px 0 rgba(0,0,0,0.6);">Green</span> <span style="color:#fff;">Tracking</span></h3>
                     <p>Watch your tasks flip from red to green as your team works through them. 0% to 100% — simple, satisfying, and impossible to argue with.</p>
                 </div>
             </div>
@@ -1157,7 +1159,7 @@
         </div>
         <div class="reveal d2">
             <div class="quote-block">
-                <blockquote>"To protect your profits, you need <strong>sausage-in-bread site tech.</strong> I was trapped between scribbling on blocks of wood and software no one on-site could actually use, so I built SMPLTSK. If your subbies can open a text, they'll use it. <strong>No logins, no hurdles — just instant clarity.</strong>"</blockquote>
+                <blockquote>"To protect my profits, I needed <strong>sausage-in-bread site tech.</strong> I was trapped between scribbling on blocks of wood and software no one on-site could actually use, so I built SMPLTSK to stop mistakes eating my profit. My subbies can open a text, so they can use it. <strong>No logins, no hurdles — just instant clarity and a fix for site mistakes.</strong>"</blockquote>
                 <div class="quote-attr">
                     <div class="quote-avatar">S</div>
                     <div>
@@ -1273,11 +1275,11 @@
         <div class="final-cta-inner">
             <div class="section-label light reveal" style="margin-bottom: 2rem;">Try It Free</div>
             <h2 class="reveal d1">
-                <span style="display:block; font-family:'Barlow Condensed',sans-serif; font-weight:900; text-transform:uppercase; line-height:0.95;">
-                    <span style="color:#EE4B4B; text-shadow: 0 0 40px rgba(238,75,75,0.4);">Make It</span>
+                <span style="display:block; font-family:'Bebas Neue','Barlow Condensed',sans-serif; font-weight:900; text-transform:uppercase; line-height:0.95; letter-spacing:0.02em;">
+                    <span style="color:#EE4B4B; text-shadow: 2px 2px 0px rgba(0,0,0,0.5), 0 0 20px rgba(238,75,75,0.3);">Make It</span>
                 </span>
-                <span style="display:block; font-family:'Barlow Condensed',sans-serif; font-weight:900; text-transform:uppercase; line-height:0.95;">
-                    <span style="color:#4FD14A; text-shadow: 0 0 40px rgba(79,209,74,0.4);">A SMPLTSK.</span>
+                <span style="display:block; font-family:'Bebas Neue','Barlow Condensed',sans-serif; font-weight:900; text-transform:uppercase; line-height:0.95; letter-spacing:0.02em;">
+                    <span style="color:#4FD14A; text-shadow: 2px 2px 0px rgba(0,0,0,0.5), 0 0 20px rgba(79,209,74,0.3);">A SMPLTSK.</span>
                 </span>
             </h2>
             <p class="reveal d2">Stop carrying every job description in your head. Protect your profits. Get your team off-site on time.</p>

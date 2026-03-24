@@ -757,8 +757,14 @@
     .video-link {
         display: block; position: relative;
         text-decoration: none;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio — always has height */
+        background: #1a2a5e;
     }
-    .video-link img { width: 100%; height: auto; display: block; }
+    .video-link img {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover; display: block;
+    }
     .video-link::before {
         content: '';
         position: absolute; inset: 0;
@@ -774,16 +780,17 @@
         box-shadow: 0 8px 40px rgba(0,0,0,0.5);
         transition: all 0.25s ease;
         z-index: 10;
+        flex-shrink: 0;
     }
-    .video-link:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); }
-    .play-btn svg { color: var(--blue); margin-left: 5px; }
+    .video-link:hover .play-btn { transform: translate(-50%, -50%) scale(1.12); }
+    .play-btn svg { color: var(--blue); margin-left: 5px; flex-shrink: 0; }
     .video-label {
         position: absolute; bottom: 1.5rem; left: 50%;
         transform: translateX(-50%);
-        background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
-        color: #fff; padding: 0.5rem 1.25rem; border-radius: 50px;
-        font-size: 0.85rem; font-weight: 600; white-space: nowrap;
-        z-index: 10;
+        background: rgba(0,0,0,0.75); backdrop-filter: blur(8px);
+        color: #fff; padding: 0.6rem 1.5rem; border-radius: 50px;
+        font-size: 0.9rem; font-weight: 700; white-space: nowrap;
+        z-index: 10; letter-spacing: 0.03em;
     }
 
     /* ─── WHO IT'S FOR ──────────────────────────── */

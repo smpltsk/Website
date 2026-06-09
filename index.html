@@ -937,6 +937,130 @@
     </style>
 </head>
 <body>
+<!-- ═══ WORKUTE ANNOUNCEMENT BANNER ══════════════════════════════════════ -->
+<!-- Kit JS embed -->
+<script async data-uid="85ba0ce0b3" src="https://smpltsk-workute.kit.com/85ba0ce0b3/index.js"></script>
+
+<div id="wu-banner" style="
+    background: #000000;
+    border-bottom: 3px solid #F5A623;
+    position: relative;
+    z-index: 2000;
+    overflow: hidden;
+">
+    <!-- Subtle amber grid -->
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(245,166,35,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(245,166,35,0.04) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;"></div>
+    <!-- Amber glow -->
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 800px 200px at 50% 50%,rgba(245,166,35,0.05) 0%,transparent 70%);pointer-events:none;"></div>
+
+    <div style="position:relative;z-index:1;max-width:1300px;margin:0 auto;padding:0 2.5rem;">
+        <div style="display:flex;align-items:center;gap:2rem;padding:1rem 0;flex-wrap:wrap;">
+
+            <!-- W LOGO + WORDMARK -->
+            <div style="display:flex;align-items:center;gap:0.75rem;flex-shrink:0;">
+                <div style="width:36px;height:36px;background:#F5A623;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <span style="font-family:'Barlow Condensed','Bebas Neue',sans-serif;font-size:1.4rem;font-weight:900;color:#000000;line-height:1;">W</span>
+                </div>
+                <span style="font-family:'Barlow Condensed','Bebas Neue',sans-serif;font-size:1.2rem;font-weight:900;color:#F5A623;letter-spacing:0.05em;text-transform:uppercase;">WorkUte</span>
+            </div>
+
+            <!-- DIVIDER -->
+            <div style="width:1px;height:32px;background:rgba(245,166,35,0.25);flex-shrink:0;"></div>
+
+            <!-- COPY -->
+            <div style="flex:1;min-width:200px;">
+                <div style="font-family:'Barlow Condensed','Bebas Neue',sans-serif;font-size:1.1rem;font-weight:900;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;line-height:1.2;margin-bottom:0.2rem;">
+                    On the job when you're not.
+                </div>
+                <div style="font-size:0.85rem;color:rgba(255,255,255,0.6);font-family:'Inter',sans-serif;line-height:1.4;">
+                    Jobsite information &mdash; out of your head and done.&nbsp;&nbsp;SMPLTSK is becoming WorkUte. Keep using it now &mdash; register your interest for limited Founder pricing at launch.
+                </div>
+            </div>
+
+            <!-- KIT FORM — styled to match banner -->
+            <div style="flex-shrink:0;min-width:260px;" class="wu-kit-form">
+                <!-- Kit injects the form here via the script above -->
+                <!-- Style overrides to match WorkUte design -->
+                <style>
+                    .wu-kit-form .formkit-form {
+                        background: transparent !important;
+                        border: none !important;
+                        padding: 0 !important;
+                        margin: 0 !important;
+                        min-width: unset !important;
+                        max-width: unset !important;
+                    }
+                    .wu-kit-form .formkit-form * { box-sizing: border-box; }
+                    .wu-kit-form .formkit-fields {
+                        display: flex !important;
+                        gap: 0.5rem !important;
+                        flex-wrap: wrap !important;
+                    }
+                    .wu-kit-form .formkit-field { flex: 1; min-width: 180px; }
+                    .wu-kit-form input[type="email"] {
+                        padding: 0.6rem 1rem !important;
+                        border-radius: 7px !important;
+                        border: 1px solid rgba(245,166,35,0.4) !important;
+                        background: rgba(255,255,255,0.05) !important;
+                        color: #ffffff !important;
+                        font-size: 0.875rem !important;
+                        width: 100% !important;
+                        outline: none !important;
+                        font-family: 'Inter', sans-serif !important;
+                    }
+                    .wu-kit-form input[type="email"]::placeholder { color: rgba(255,255,255,0.4) !important; }
+                    .wu-kit-form input[type="email"]:focus { border-color: #F5A623 !important; }
+                    .wu-kit-form .formkit-submit {
+                        padding: 0.6rem 1.25rem !important;
+                        border-radius: 7px !important;
+                        border: none !important;
+                        background: #F5A623 !important;
+                        color: #000000 !important;
+                        font-family: 'Barlow Condensed', sans-serif !important;
+                        font-size: 0.95rem !important;
+                        font-weight: 900 !important;
+                        text-transform: uppercase !important;
+                        letter-spacing: 0.05em !important;
+                        cursor: pointer !important;
+                        white-space: nowrap !important;
+                    }
+                    .wu-kit-form .formkit-submit:hover { background: #e09520 !important; }
+                    .wu-kit-form .formkit-guarantee,
+                    .wu-kit-form .formkit-powered-by-convertkit-container,
+                    .wu-kit-form [data-element="header"],
+                    .wu-kit-form [data-element="subheader"] { display: none !important; }
+                </style>
+            </div>
+
+            <!-- DISMISS -->
+            <button
+                onclick="document.getElementById('wu-banner').style.display='none'"
+                style="background:none;border:none;color:rgba(255,255,255,0.3);cursor:pointer;font-size:1.4rem;line-height:1;padding:0.25rem;flex-shrink:0;transition:color 0.2s;"
+                onmouseover="this.style.color='rgba(255,255,255,0.7)'"
+                onmouseout="this.style.color='rgba(255,255,255,0.3)'"
+                aria-label="Dismiss"
+            >&times;</button>
+
+        </div>
+    </div>
+</div>
+
+<!-- Move Kit form into banner after page loads -->
+<script>
+    (function() {
+        function moveKitForm() {
+            var kitForm = document.querySelector('form.formkit-form[data-uid="85ba0ce0b3"]');
+            var target = document.querySelector('.wu-kit-form');
+            if (kitForm && target) {
+                target.appendChild(kitForm);
+            } else {
+                setTimeout(moveKitForm, 200);
+            }
+        }
+        moveKitForm();
+    })();
+</script>
+
 
 <!-- ═══ NAV ═══════════════════════════════════════════════════════════ -->
 <nav id="navbar">
